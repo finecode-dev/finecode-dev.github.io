@@ -342,6 +342,25 @@
   
   
   
+    <li class="md-tabs__item">
+      <a href="../development/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Development
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
     
     
       <li class="md-tabs__item">
@@ -691,10 +710,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#start-api" class="md-nav__link">
+  <a href="#start-lsp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        start-api
+        start-lsp
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start-mcp
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-api-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start-api-server
       
     </span>
   </a>
@@ -742,6 +783,33 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
@@ -758,10 +826,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   
@@ -779,8 +847,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -903,10 +971,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   
@@ -924,8 +992,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1119,10 +1187,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#start-api" class="md-nav__link">
+  <a href="#start-lsp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        start-api
+        start-lsp
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start-mcp
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-api-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        start-api-server
       
     </span>
   </a>
@@ -1287,9 +1377,9 @@
 </tbody>
 </table>
 <hr />
-<h2 id="start-api"><code>start-api</code><a class="headerlink" href="#start-api" title="Permanent link">&para;</a></h2>
+<h2 id="start-lsp"><code>start-lsp</code><a class="headerlink" href="#start-lsp" title="Permanent link">&para;</a></h2>
 <p>Start the FineCode LSP server. Used by the IDE extension — you typically don't call this directly.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python -m finecode start-api --stdio | --socket &lt;port&gt; | --ws [--host &lt;host&gt;] [--port &lt;port&gt;]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python -m finecode start-lsp --stdio | --socket &lt;port&gt; | --ws [--host &lt;host&gt;] [--port &lt;port&gt;]
 </code></pre></div>
 <table>
 <thead>
@@ -1320,14 +1410,6 @@
 <td>Port for TCP/WS server</td>
 </tr>
 <tr>
-<td><code>--mcp</code></td>
-<td>Also start an MCP server</td>
-</tr>
-<tr>
-<td><code>--mcp-port &lt;port&gt;</code></td>
-<td>Port for the MCP server</td>
-</tr>
-<tr>
 <td><code>--trace</code></td>
 <td>Enable verbose logging</td>
 </tr>
@@ -1337,6 +1419,51 @@
 </tr>
 </tbody>
 </table>
+<p>The LSP server connects to the <strong>FineCode API server</strong> on startup (starting one if needed). See <a href="../ide-integration/#ai-agent-integration-mcp">IDE Integration — AI agent integration</a> for details.</p>
+<hr />
+<h2 id="start-mcp"><code>start-mcp</code><a class="headerlink" href="#start-mcp" title="Permanent link">&para;</a></h2>
+<p>Start the FineCode MCP server on stdio. Connects to a running FineCode API server (or starts one) and exposes FineCode tools via the Model Context Protocol.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>.venvs/dev_workspace/bin/python -m finecode start-mcp [--workdir=&lt;path&gt;] [--trace]
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--workdir=&lt;path&gt;</code></td>
+<td>Workspace root directory (default: current directory).</td>
+</tr>
+<tr>
+<td><code>--trace</code></td>
+<td>Enable verbose logging</td>
+</tr>
+</tbody>
+</table>
+<p>Typically started automatically by Claude Code via <code>.mcp.json</code> — see <a href="../ide-integration/#setup-for-claude-code">IDE Integration</a>.</p>
+<hr />
+<h2 id="start-api-server"><code>start-api-server</code><a class="headerlink" href="#start-api-server" title="Permanent link">&para;</a></h2>
+<p>Start the FineCode API server standalone (TCP JSON-RPC), listen for client connections. Auto-stops when the last client disconnects.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>python -m finecode start-api-server [--trace]
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--trace</code></td>
+<td>Enable verbose logging</td>
+</tr>
+</tbody>
+</table>
+<p>Usually started automatically by <code>start-lsp</code> or <code>start-mcp</code>. Can also be started manually for debugging.</p>
 
 
 
