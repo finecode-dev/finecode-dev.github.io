@@ -528,27 +528,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#who-finecode-is-for" class="md-nav__link">
+  <a href="#why-developers-use-finecode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Who FineCode is for
+        Why developers use FineCode
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Who FineCode is for">
+    <nav class="md-nav" aria-label="Why developers use FineCode">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#for-solo-developers" class="md-nav__link">
+  <a href="#core-benefits-for-every-project" class="md-nav__link">
     <span class="md-ellipsis">
       
-        For solo developers
+        Core benefits for every project
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="For solo developers">
+    <nav class="md-nav" aria-label="Core benefits for every project">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1130,27 +1130,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#who-finecode-is-for" class="md-nav__link">
+  <a href="#why-developers-use-finecode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Who FineCode is for
+        Why developers use FineCode
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Who FineCode is for">
+    <nav class="md-nav" aria-label="Why developers use FineCode">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#for-solo-developers" class="md-nav__link">
+  <a href="#core-benefits-for-every-project" class="md-nav__link">
     <span class="md-ellipsis">
       
-        For solo developers
+        Core benefits for every project
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="For solo developers">
+    <nav class="md-nav" aria-label="Core benefits for every project">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1294,14 +1294,28 @@
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># e.g. lint the whole workspace:</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint
 </code></pre></div>
+<p>NOTE: <code>pip install --group</code> requires pip 25.1+.</p>
 <p>This gives you a working Python baseline with Ruff, Flake8, and isort through one shared config entry point.</p>
 <h2 id="from-one-project-to-reusable-standard">From one project to reusable standard<a class="headerlink" href="#from-one-project-to-reusable-standard" title="Permanent link">&para;</a></h2>
 <p>Once this works in one project, turn it into a shared preset and use it across repositories:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[tool.finecode]</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">presets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_team_standards&quot;</span><span class="w"> </span><span class="p">}]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[dependency-groups]</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">dev_workspace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;finecode==0.3.*&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;my_team_standards==0.1.*&quot;</span><span class="p">]</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">[tool.finecode]</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">presets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_team_standards&quot;</span><span class="w"> </span><span class="p">}]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--group<span class="o">=</span><span class="s2">&quot;dev_workspace&quot;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
 </code></pre></div>
 <p>Projects can then adopt updates through normal dependency updates.
 See <a href="guides/creating-preset/">Creating a Preset</a> for the packaging flow.</p>
+<p>You can also combine presets in one project (for example, a language preset and a team preset):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[tool.finecode]</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">presets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_python_recommended&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_team_standards&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">]</span>
+</code></pre></div>
 <p>Typical rollout:</p>
 <ol>
 <li>Start with a preset in one repository.</li>
@@ -1309,8 +1323,8 @@ See <a href="guides/creating-preset/">Creating a Preset</a> for the packaging fl
 <li>Publish that setup as a preset package for your team.</li>
 <li>Reuse it across repositories.</li>
 </ol>
-<h2 id="who-finecode-is-for">Who FineCode is for<a class="headerlink" href="#who-finecode-is-for" title="Permanent link">&para;</a></h2>
-<h3 id="for-solo-developers">For solo developers<a class="headerlink" href="#for-solo-developers" title="Permanent link">&para;</a></h3>
+<h2 id="why-developers-use-finecode">Why developers use FineCode<a class="headerlink" href="#why-developers-use-finecode" title="Permanent link">&para;</a></h2>
+<h3 id="core-benefits-for-every-project">Core benefits for every project<a class="headerlink" href="#core-benefits-for-every-project" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Keep tooling config in one place instead of per-tool config sprawl</li>
 <li>Use the same actions in terminal, IDE, and AI-assisted workflows</li>
@@ -1331,39 +1345,39 @@ See <a href="guides/creating-preset/">Creating a Preset</a> for the packaging fl
 <p>Actions can target a single project or the entire workspace, so tasks like linting every subproject run from one command.</p>
 <h4 id="isolated-environments-by-purpose">Isolated environments by purpose<a class="headerlink" href="#isolated-environments-by-purpose" title="Permanent link">&para;</a></h4>
 <p>FineCode keeps developer tooling separate from runtime dependencies:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>.venvs/
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  dev_workspace/   &lt;- FineCode and presets
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  dev_no_runtime/  &lt;- lint/format/type-check handlers
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  dev/             &lt;- tooling that imports project code during execution
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  runtime/         &lt;- project runtime dependencies
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>.venvs/
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  dev_workspace/   &lt;- FineCode and presets
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  dev_no_runtime/  &lt;- lint/format/type-check handlers
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  dev/             &lt;- tooling that imports project code during execution
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  runtime/         &lt;- project runtime dependencies
 </code></pre></div>
 <p>This reduces dependency cross-talk and makes tool execution more predictable.</p>
 <p>These environment roles are examples, not fixed requirements. You can shape the layout to match your workflow.</p>
 <h3 id="additional-benefits-for-teams">Additional benefits for teams<a class="headerlink" href="#additional-benefits-for-teams" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Reuse shared standards across repositories with preset packages</li>
+<li>Keep standards centralized in a shared preset package</li>
 <li>Roll out toolchain changes through normal dependency updates</li>
 <li>Keep rollout predictable by updating a shared preset package instead of editing each repository separately</li>
 </ul>
 <h2 id="flexible-no-lock-in">Flexible, no lock-in<a class="headerlink" href="#flexible-no-lock-in" title="Permanent link">&para;</a></h2>
 <p>Presets are a starting point, not a ceiling.</p>
 <p>Disable or tune individual handlers:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[[tool.finecode.action_handler]]</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fine_python_ruff.RuffLintFilesHandler&quot;</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">config</span><span class="p">.</span><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">120</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">[tool.finecode.action.lint]</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">handlers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;flake8&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">disabled</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_linter&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_team.MyLinterHandler&quot;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[[tool.finecode.action_handler]]</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fine_python_ruff.RuffLintFilesHandler&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">config</span><span class="p">.</span><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">120</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">[tool.finecode.action.lint]</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">handlers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;flake8&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_linter&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_team.MyLinterHandler&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">]</span>
 </code></pre></div>
 <p>Replace an action handler set completely:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[tool.finecode.action.lint]</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">handlers_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;replace&quot;</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">handlers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_linter&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_team.MyLinterHandler&quot;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">[tool.finecode.action.lint]</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">handlers_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;replace&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">handlers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_linter&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_team.MyLinterHandler&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">]</span>
 </code></pre></div>
 <p>You can also add custom actions and handlers for project-specific workflows.</p>
 <h2 id="proven-in-this-repository">Proven in this repository<a class="headerlink" href="#proven-in-this-repository" title="Permanent link">&para;</a></h2>
