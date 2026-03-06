@@ -584,6 +584,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#isolated-environments-by-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isolated environments by purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#workspace-aware-by-design" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -595,10 +606,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#isolated-environments-by-purpose" class="md-nav__link">
+  <a href="#polyglot-workflow-one-action-surface" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Isolated environments by purpose
+        Polyglot workflow, one action surface
       
     </span>
   </a>
@@ -1342,6 +1353,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#isolated-environments-by-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isolated environments by purpose
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#workspace-aware-by-design" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1353,10 +1375,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#isolated-environments-by-purpose" class="md-nav__link">
+  <a href="#polyglot-workflow-one-action-surface" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Isolated environments by purpose
+        Polyglot workflow, one action surface
       
     </span>
   </a>
@@ -1517,9 +1539,6 @@ See <a href="guides/creating-preset/">Creating a Preset</a> for the packaging fl
 <li>CI: <code>python -m finecode run lint check_formatting</code></li>
 <li>Git hooks: run FineCode actions before commit without requiring <code>pre-commit</code></li>
 </ul>
-<h4 id="workspace-aware-by-design">Workspace-aware by design<a class="headerlink" href="#workspace-aware-by-design" title="Permanent link">&para;</a></h4>
-<p>FineCode understands your workspace as a whole, including how individual subprojects fit together.</p>
-<p>Actions can target a single project or the entire workspace, so tasks like linting every subproject run from one command.</p>
 <h4 id="isolated-environments-by-purpose">Isolated environments by purpose<a class="headerlink" href="#isolated-environments-by-purpose" title="Permanent link">&para;</a></h4>
 <p>FineCode keeps developer tooling separate from runtime dependencies:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>.venvs/
@@ -1530,6 +1549,12 @@ See <a href="guides/creating-preset/">Creating a Preset</a> for the packaging fl
 </code></pre></div>
 <p>This reduces dependency cross-talk and makes tool execution more predictable.</p>
 <p>These environment roles are examples, not fixed requirements. You can shape the layout to match your workflow.</p>
+<h4 id="workspace-aware-by-design">Workspace-aware by design<a class="headerlink" href="#workspace-aware-by-design" title="Permanent link">&para;</a></h4>
+<p>FineCode understands your workspace as a whole, including how individual subprojects fit together.</p>
+<p>Actions can target a single project or the entire workspace, so tasks like linting every subproject run from one command.</p>
+<h4 id="polyglot-workflow-one-action-surface">Polyglot workflow, one action surface<a class="headerlink" href="#polyglot-workflow-one-action-surface" title="Permanent link">&para;</a></h4>
+<p>FineCode actions are not tied to a single language. A single action can include handlers for different file types (for example Python code, Markdown docs, and JSON/TOML config) while keeping one shared command surface.</p>
+<p>In practice, this means you can keep using the same <code>lint</code> and <code>format</code> actions across mixed repositories today. Broader first-class preset coverage for combinations such as Python + Rust is on the roadmap.</p>
 <h3 id="additional-benefits-for-teams">Additional benefits for teams<a class="headerlink" href="#additional-benefits-for-teams" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Keep standards centralized in a shared preset package</li>
