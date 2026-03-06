@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="http://localhost:8000/guides/creating-preset/">
+        <link rel="canonical" href="http://localhost:8000/reference/lsp-mcp-architecture/">
       
       
-        <link rel="prev" href="../creating-extension/">
+        <link rel="prev" href="../extensions/">
       
       
-        <link rel="next" href="../workspace/">
+        <link rel="next" href="../../development/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Creating a Preset - FineCode</title>
+        <title>LSP and MCP Architecture - FineCode</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-a-preset" class="md-skip">
+        <a href="#lsp-and-mcp-architecture" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating a Preset
+              LSP and MCP Architecture
             
           </span>
         </div>
@@ -302,13 +302,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../creating-extension/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../guides/creating-extension/" class="md-tabs__link">
           
   
   
@@ -324,11 +322,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../reference/actions/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../actions/" class="md-tabs__link">
           
   
   
@@ -635,6 +635,151 @@
       
   
   
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/creating-extension/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating an Extension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/creating-preset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating a Preset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/workspace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Project Workspace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -656,17 +801,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Guides
+    Reference
   
 
     
@@ -677,12 +822,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Guides
+    Reference
   
 
           </label>
@@ -695,14 +840,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../creating-extension/" class="md-nav__link">
+      <a href="../actions/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Creating an Extension
+    Built-in Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extensions
   
 
     
@@ -739,7 +912,7 @@
   <span class="md-ellipsis">
     
   
-    Creating a Preset
+    LSP and MCP Architecture
   
 
     
@@ -757,7 +930,7 @@
   <span class="md-ellipsis">
     
   
-    Creating a Preset
+    LSP and MCP Architecture
   
 
     
@@ -783,10 +956,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-create-the-package" class="md-nav__link">
+  <a href="#component-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Create the package
+        Component model
       
     </span>
   </a>
@@ -794,10 +967,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-declare-actions-in-presettoml" class="md-nav__link">
+  <a href="#lsp-request-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Declare actions in preset.toml
+        LSP request flow
       
     </span>
   </a>
@@ -805,10 +978,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-use-the-preset-in-a-project" class="md-nav__link">
+  <a href="#lifecycle-behavior" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Use the preset in a project
+        Lifecycle behavior
       
     </span>
   </a>
@@ -816,32 +989,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-allow-users-to-override-your-defaults" class="md-nav__link">
+  <a href="#manual-server-startup-for-debugging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Allow users to override your defaults
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#composing-multiple-presets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Composing multiple presets
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#publishing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Publishing
+        Manual server startup for debugging
       
     </span>
   </a>
@@ -852,179 +1003,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../workspace/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi-Project Workspace
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reference
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Reference
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/actions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Built-in Actions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/extensions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Extensions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/lsp-mcp-architecture/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LSP and MCP Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1154,7 +1132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../developing-finecode/" class="md-nav__link">
+      <a href="../../guides/developing-finecode/" class="md-nav__link">
         
   
   
@@ -1209,10 +1187,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-create-the-package" class="md-nav__link">
+  <a href="#component-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Create the package
+        Component model
       
     </span>
   </a>
@@ -1220,10 +1198,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-declare-actions-in-presettoml" class="md-nav__link">
+  <a href="#lsp-request-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Declare actions in preset.toml
+        LSP request flow
       
     </span>
   </a>
@@ -1231,10 +1209,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-use-the-preset-in-a-project" class="md-nav__link">
+  <a href="#lifecycle-behavior" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Use the preset in a project
+        Lifecycle behavior
       
     </span>
   </a>
@@ -1242,32 +1220,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-allow-users-to-override-your-defaults" class="md-nav__link">
+  <a href="#manual-server-startup-for-debugging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Allow users to override your defaults
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#composing-multiple-presets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Composing multiple presets
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#publishing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Publishing
+        Manual server startup for debugging
       
     </span>
   </a>
@@ -1294,99 +1250,57 @@
   
 
 
-<h1 id="creating-a-preset">Creating a Preset<a class="headerlink" href="#creating-a-preset" title="Permanent link">&para;</a></h1>
-<p>A <strong>Preset</strong> is a Python package that bundles action and handler declarations into a reusable, distributable configuration. Teams use presets to standardize tooling across projects without duplicating config.</p>
-<h2 id="1-create-the-package">1. Create the package<a class="headerlink" href="#1-create-the-package" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>my_preset/
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    pyproject.toml
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    my_preset/
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        __init__.py
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        preset.toml
+<h1 id="lsp-and-mcp-architecture">LSP and MCP Architecture<a class="headerlink" href="#lsp-and-mcp-architecture" title="Permanent link">&para;</a></h1>
+<p>FineCode uses one shared API server for CLI, IDE (LSP), and AI-agent (MCP) clients.</p>
+<h2 id="component-model">Component model<a class="headerlink" href="#component-model" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>FineCode API Server (TCP JSON-RPC, auto-managed)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── WorkspaceContext, runners, services
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>└── auto-stops when no clients remain
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>LSP Server (start-lsp, started by IDE)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>└── connects to API server (starts one if needed)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>MCP Server (start-mcp, started by MCP client)
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>└── connects to API server (starts one if needed)
 </code></pre></div>
-<p><strong><code>pyproject.toml</code></strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[project]</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my_preset&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.11&quot;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w">   </span><span class="c1"># no runtime dependencies needed for a preset-only package</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">[build-system]</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;setuptools&gt;=64&quot;</span><span class="p">]</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;setuptools.build_meta&quot;</span>
-</code></pre></div>
-<p><strong><code>my_preset/__init__.py</code></strong> — can be empty:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>
-</code></pre></div>
-<h2 id="2-declare-actions-in-presettoml">2. Declare actions in <code>preset.toml</code><a class="headerlink" href="#2-declare-actions-in-presettoml" title="Permanent link">&para;</a></h2>
-<p>The <code>preset.toml</code> file lives inside the package directory (next to <code>__init__.py</code>). It uses the same <code>[tool.finecode.*]</code> syntax as <code>pyproject.toml</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># my_preset/my_preset/preset.toml</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">[tool.finecode.action.lint]</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api.actions.lint.LintAction&quot;</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">handlers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;ruff&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_python_ruff.RuffLintFilesHandler&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;dev_no_runtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="s2">&quot;fine_python_ruff~=0.2.0&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;mypy&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_python_mypy.MypyLintHandler&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;dev_no_runtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="s2">&quot;fine_python_mypy~=0.3.0&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">]</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="k">[tool.finecode.action.format]</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api.actions.format.FormatAction&quot;</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="n">handlers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;ruff&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_python_ruff.RuffFormatFilesHandler&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;dev_no_runtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="s2">&quot;fine_python_ruff~=0.2.0&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;save&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;finecode_builtin_handlers.SaveFormatFilesHandler&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;dev_no_runtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="s2">&quot;finecode_builtin_handlers~=0.2.0&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="p">]</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="c1"># Set default handler configs</span>
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="k">[[tool.finecode.action_handler]]</span>
-<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fine_python_ruff.RuffLintFilesHandler&quot;</span>
-<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="n">config</span><span class="p">.</span><span class="n">extend_select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;I&quot;</span><span class="p">]</span>
-<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="n">config</span><span class="p">.</span><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">88</span>
-</code></pre></div>
-<h2 id="3-use-the-preset-in-a-project">3. Use the preset in a project<a class="headerlink" href="#3-use-the-preset-in-a-project" title="Permanent link">&para;</a></h2>
-<p>Install the preset package (e.g. from PyPI or a local path) into the <code>dev_workspace</code> dependency group:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># User&#39;s pyproject.toml</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">[dependency-groups]</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">dev_workspace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="s2">&quot;finecode==0.3.*&quot;</span><span class="p">,</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="s2">&quot;my_preset==0.1.*&quot;</span><span class="p">,</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">]</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="k">[tool.finecode]</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">presets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_preset&quot;</span><span class="w"> </span><span class="p">}]</span>
-</code></pre></div>
-<p>Then run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--group<span class="o">=</span><span class="s2">&quot;dev_workspace&quot;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
-</code></pre></div>
-<h2 id="4-allow-users-to-override-your-defaults">4. Allow users to override your defaults<a class="headerlink" href="#4-allow-users-to-override-your-defaults" title="Permanent link">&para;</a></h2>
-<p>Users can add <code>[[tool.finecode.action_handler]]</code> entries in their own <code>pyproject.toml</code> to override any config you set in <code>preset.toml</code>. Your preset's values are the baseline; user config always wins.</p>
-<p>Users can also:</p>
+<p>The API server writes its port to <code>.venvs/dev_workspace/cache/finecode/api_port</code> for client discovery.</p>
+<h2 id="lsp-request-flow">LSP request flow<a class="headerlink" href="#lsp-request-flow" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>sequenceDiagram
+    participant IDE as IDE Extension
+    participant WM as Workspace Manager (LSP)
+    participant ER as Extension Runner
+
+    IDE-&gt;&gt;WM: textDocument/didOpen
+    WM-&gt;&gt;ER: run lint_files action
+    ER--&gt;&gt;WM: LintFilesRunResult (diagnostics)
+    WM--&gt;&gt;IDE: textDocument/publishDiagnostics
+
+    IDE-&gt;&gt;WM: textDocument/formatting
+    WM-&gt;&gt;ER: run format_files action
+    ER--&gt;&gt;WM: FormatFilesRunResult (edits)
+    WM--&gt;&gt;IDE: TextEdit[]</code></pre>
+<p>The LSP layer translates protocol messages into FineCode actions, delegates execution to extension runners, then translates results back into LSP responses.</p>
+<h2 id="lifecycle-behavior">Lifecycle behavior<a class="headerlink" href="#lifecycle-behavior" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Add more handlers to actions you declared</li>
-<li>Replace all handlers with <code>handlers_mode = "replace"</code></li>
-<li>Disable specific handlers with <code>disabled = true</code></li>
+<li>Any client (CLI, LSP, MCP) can start the API server if it is not already running.</li>
+<li>Each connected client keeps the API server alive.</li>
+<li>When the last client disconnects, the API server exits automatically.</li>
 </ul>
-<h2 id="composing-multiple-presets">Composing multiple presets<a class="headerlink" href="#composing-multiple-presets" title="Permanent link">&para;</a></h2>
-<p>A project can activate multiple presets. They are applied in order, and later preset handlers are added after earlier ones:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[tool.finecode]</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">presets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_lint_preset&quot;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_format_preset&quot;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">]</span>
+<h2 id="manual-server-startup-for-debugging">Manual server startup for debugging<a class="headerlink" href="#manual-server-startup-for-debugging" title="Permanent link">&para;</a></h2>
+<p>Most users should not start servers manually. IDE and MCP clients usually manage startup automatically.</p>
+<p>Use manual startup when:</p>
+<ul>
+<li>Debugging LSP/MCP behavior</li>
+<li>Developing a new IDE integration</li>
+<li>Developing a new MCP client integration</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># LSP server (for custom IDE clients)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>start-lsp<span class="w"> </span>--stdio
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># MCP server</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>start-mcp
 </code></pre></div>
-<p>A preset can itself reference other presets in its <code>preset.toml</code> if needed.</p>
-<h2 id="publishing">Publishing<a class="headerlink" href="#publishing" title="Permanent link">&para;</a></h2>
-<p>Presets are regular Python packages — publish them to PyPI with any standard build tool:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python<span class="w"> </span>-m<span class="w"> </span>build
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>python<span class="w"> </span>-m<span class="w"> </span>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
-</code></pre></div>
+<p>For setup instructions, see <a href="../../getting-started-ide-mcp/">IDE and MCP Setup</a>.</p>
 
 
 
