@@ -833,10 +833,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#filtering-to-specific-projects" class="md-nav__link">
+  <a href="#filtering-to-specific-source-artifacts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Filtering to specific projects
+        Filtering to specific source artifacts
       
     </span>
   </a>
@@ -844,10 +844,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sharing-configuration-across-projects" class="md-nav__link">
+  <a href="#sharing-configuration-across-source-artifacts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sharing configuration across projects
+        Sharing configuration across source artifacts
       
     </span>
   </a>
@@ -1045,6 +1045,34 @@
     
   
     LSP Client Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
   
 
     
@@ -1287,10 +1315,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#filtering-to-specific-projects" class="md-nav__link">
+  <a href="#filtering-to-specific-source-artifacts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Filtering to specific projects
+        Filtering to specific source artifacts
       
     </span>
   </a>
@@ -1298,10 +1326,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sharing-configuration-across-projects" class="md-nav__link">
+  <a href="#sharing-configuration-across-source-artifacts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sharing configuration across projects
+        Sharing configuration across source artifacts
       
     </span>
   </a>
@@ -1351,16 +1379,20 @@
 
 
 <h1 id="multi-project-workspace">Multi-Project Workspace<a class="headerlink" href="#multi-project-workspace" title="Permanent link">&para;</a></h1>
-<p>FineCode natively supports workspaces containing multiple projects. This is common in monorepos where each package is a separate Python project.</p>
+<p>FineCode natively supports workspaces containing multiple source artifacts. This is common in monorepos where each package is a separate source artifact.</p>
 <h2 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h2>
-<p>A workspace is a directory containing one or more projects. Each project has its own <code>pyproject.toml</code> with <code>[tool.finecode]</code>:</p>
+<p>A workspace is a set of related source artifacts. Often this is a single directory root, but IDEs and clients can provide multiple workspace roots. Each source artifact has its own <code>pyproject.toml</code> with <code>[tool.finecode]</code>:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The CLI uses a single workspace root (<code>cwd</code> or <code>--workdir</code>). IDEs/LSP clients can provide multiple roots, and the Workspace Manager treats them as one workspace.</p>
+</div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>my_workspace/
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    pyproject.toml             ← workspace-level (optional)
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    package_a/
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        pyproject.toml         ← project A
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        pyproject.toml         ← source artifact A
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        src/package_a/
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    package_b/
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        pyproject.toml         ← project B
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        pyproject.toml         ← source artifact B
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        src/package_b/
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    common_preset/             ← shared preset package
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        pyproject.toml
@@ -1368,26 +1400,26 @@
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>            preset.toml
 </code></pre></div>
 <h2 id="running-actions-across-all-projects">Running actions across all projects<a class="headerlink" href="#running-actions-across-all-projects" title="Permanent link">&para;</a></h2>
-<p>Run from the workspace root to target all projects:</p>
+<p>Run from the workspace root to target all source artifacts:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint
 </code></pre></div>
-<p>FineCode discovers all <code>pyproject.toml</code> files under the workspace root, finds those with <code>[tool.finecode]</code>, and runs the action in each.</p>
+<p>FineCode discovers all <code>pyproject.toml</code> files under the workspace root, finds those with <code>[tool.finecode]</code>, and runs the action in each source artifact.</p>
 <p>To run concurrently across projects:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--concurrently<span class="w"> </span>lint<span class="w"> </span>check_formatting
 </code></pre></div>
-<h2 id="filtering-to-specific-projects">Filtering to specific projects<a class="headerlink" href="#filtering-to-specific-projects" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Single project</span>
+<h2 id="filtering-to-specific-source-artifacts">Filtering to specific source artifacts<a class="headerlink" href="#filtering-to-specific-source-artifacts" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Single source artifact</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--project<span class="o">=</span>package_a<span class="w"> </span>lint
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Multiple projects</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Multiple source artifacts</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--project<span class="o">=</span>package_a<span class="w"> </span>--project<span class="o">=</span>package_b<span class="w"> </span>lint
 </code></pre></div>
-<p>When <code>--project</code> is specified, the action must exist in all listed projects.</p>
-<h2 id="sharing-configuration-across-projects">Sharing configuration across projects<a class="headerlink" href="#sharing-configuration-across-projects" title="Permanent link">&para;</a></h2>
-<p>The recommended approach for sharing config is a <strong>local preset package</strong> in the workspace. Each subproject installs it as a dependency and references it in <code>pyproject.toml</code>.</p>
+<p>When <code>--project</code> is specified, the action must exist in all listed source artifacts.</p>
+<h2 id="sharing-configuration-across-source-artifacts">Sharing configuration across source artifacts<a class="headerlink" href="#sharing-configuration-across-source-artifacts" title="Permanent link">&para;</a></h2>
+<p>The recommended approach for sharing config is a <strong>local preset package</strong> in the workspace. Each source artifact installs it as a dependency and references it in <code>pyproject.toml</code>.</p>
 <p><strong>Why a package, not hierarchical config?</strong></p>
 <ul>
-<li>Subprojects don't depend on workspace directory structure — they can be moved or extracted without changing tool config</li>
+<li>Source artifacts don't depend on workspace directory structure — they can be moved or extracted without changing tool config</li>
 <li>Configuration is fully explicit: the complete config is visible inside each subproject</li>
 <li>No implicit workspace-root lookup needed</li>
 </ul>
@@ -1416,7 +1448,7 @@
 <a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="n">presets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_lint_config&quot;</span><span class="w"> </span><span class="p">}]</span>
 </code></pre></div>
 <h2 id="saving-and-reading-action-results">Saving and reading action results<a class="headerlink" href="#saving-and-reading-action-results" title="Permanent link">&para;</a></h2>
-<p>Results of actions are saved to <code>&lt;venv&gt;/cache/finecode/results/&lt;action&gt;.json</code>, keyed by project path. This makes it easy to collect results from all projects in CI:</p>
+<p>Results of actions are saved to <code>&lt;venv&gt;/cache/finecode/results/&lt;action&gt;.json</code>, keyed by source artifact path. This makes it easy to collect results from all source artifacts in CI:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--concurrently<span class="w"> </span>lint<span class="w"> </span>check_formatting
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>cat<span class="w"> </span>.venvs/dev_workspace/cache/finecode/results/lint.json
 </code></pre></div>
@@ -1424,7 +1456,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--no-save-results<span class="w"> </span>lint
 </code></pre></div>
 <h2 id="ci-usage">CI usage<a class="headerlink" href="#ci-usage" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Run lint and formatting check in all projects, fail if any fails</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Run lint and formatting check in all source artifacts, fail if any fails</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--concurrently<span class="w"> </span>lint<span class="w"> </span>check_formatting
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Save results for later processing</span>

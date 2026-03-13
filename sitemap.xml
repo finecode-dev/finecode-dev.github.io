@@ -29,6 +29,10 @@
          <lastmod>2026-03-13</lastmod>
     </url>
     <url>
+         <loc>http://localhost:8000/glossary/</loc>
+         <lastmod>2026-03-13</lastmod>
+    </url>
+    <url>
          <loc>http://localhost:8000/wm-er-protocol/</loc>
          <lastmod>2026-03-13</lastmod>
     </url>

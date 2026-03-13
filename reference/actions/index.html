@@ -1223,6 +1223,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1684,7 +1712,7 @@
 <p>All built-in actions are defined in <code>finecode_extension_api.actions</code>. Use their import paths as the <code>source</code> when declaring actions in <code>pyproject.toml</code> or <code>preset.toml</code>.</p>
 <hr />
 <h2 id="lint"><code>lint</code><a class="headerlink" href="#lint" title="Permanent link">&para;</a></h2>
-<p>Run linting on a project or specific files.</p>
+<p>Run linting on a source artifact or specific files.</p>
 <ul>
 <li><strong>Source:</strong> <code>finecode_extension_api.actions.lint.LintAction</code></li>
 <li><strong>Default handler execution:</strong> concurrent</li>
@@ -1704,7 +1732,7 @@
 <td><code>target</code></td>
 <td><code>"project"</code> | <code>"files"</code></td>
 <td><code>"project"</code></td>
-<td>Lint the whole project or specific files</td>
+<td>Lint the whole source artifact (<code>target="project"</code>) or specific files</td>
 </tr>
 <tr>
 <td><code>file_paths</code></td>
@@ -1725,7 +1753,7 @@
 <p>Similar to <code>lint</code> but designed for language-aware per-file linting. Used internally by the LSP server for real-time diagnostics.</p>
 <hr />
 <h2 id="format"><code>format</code><a class="headerlink" href="#format" title="Permanent link">&para;</a></h2>
-<p>Format a project or specific files.</p>
+<p>Format a source artifact or specific files.</p>
 <ul>
 <li><strong>Source:</strong> <code>finecode_extension_api.actions.format.FormatAction</code></li>
 <li><strong>Default handler execution:</strong> sequential</li>
@@ -1751,7 +1779,7 @@
 <td><code>target</code></td>
 <td><code>"project"</code> | <code>"files"</code></td>
 <td><code>"project"</code></td>
-<td>Format whole project or specific files</td>
+<td>Format the whole source artifact (<code>target="project"</code>) or specific files</td>
 </tr>
 <tr>
 <td><code>file_paths</code></td>
@@ -1801,7 +1829,7 @@
 <td><code>src_artifact_def_path</code></td>
 <td><code>Path \| None</code></td>
 <td><code>None</code></td>
-<td>Path to the artifact definition. If omitted, builds the current project.</td>
+<td>Path to the artifact definition. If omitted, builds the current source artifact.</td>
 </tr>
 </tbody>
 </table>
@@ -1897,7 +1925,7 @@
 </ul>
 <hr />
 <h2 id="dump_config"><code>dump_config</code><a class="headerlink" href="#dump_config" title="Permanent link">&para;</a></h2>
-<p>Dump the resolved configuration for a project.</p>
+<p>Dump the resolved configuration for a source artifact that includes FineCode configuration.</p>
 <ul>
 <li><strong>Source:</strong> <code>finecode_extension_api.actions.dump_config.DumpConfigAction</code></li>
 </ul>

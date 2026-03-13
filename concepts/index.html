@@ -684,10 +684,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#project" class="md-nav__link">
+  <a href="#source-artifact" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project
+        Source Artifact
       
     </span>
   </a>
@@ -1117,6 +1117,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1391,10 +1419,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#project" class="md-nav__link">
+  <a href="#source-artifact" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project
+        Source Artifact
       
     </span>
   </a>
@@ -1525,9 +1553,10 @@
 <li><strong><code>handlers_mode = "replace"</code>:</strong> your handler list completely replaces the preset's handlers for that action.</li>
 <li><strong><code>enabled = false</code> on a handler entry:</strong> disables that specific inherited handler.</li>
 </ul>
-<h2 id="project">Project<a class="headerlink" href="#project" title="Permanent link">&para;</a></h2>
-<p>A <strong>Project</strong> is any directory containing a <code>pyproject.toml</code> with a <code>[tool.finecode]</code> section. FineCode discovers all projects under the workspace root automatically.</p>
-<p>A project may belong to a <strong>workspace</strong> — a directory containing multiple projects. FineCode handles multi-project workspaces transparently: running <code>python -m finecode run lint</code> from the workspace root runs lint in all projects that define it.</p>
+<h2 id="source-artifact">Source Artifact<a class="headerlink" href="#source-artifact" title="Permanent link">&para;</a></h2>
+<p>A <strong>Source Artifact</strong> is a unit of source code that build/publish-style actions operate on. It is identified by a <strong>source artifact definition file</strong> (for example <code>pyproject.toml</code> or <code>package.json</code>). This is what many tools call a “project”, but FineCode uses <strong>source artifact</strong> to be more concrete.</p>
+<p>When a source artifact includes FineCode configuration — a <code>pyproject.toml</code> with a <code>[tool.finecode]</code> section — the Workspace Manager discovers it automatically under the workspace roots provided by the client. Some CLI flags and protocol fields still use the word “project” for compatibility.</p>
+<p>A source artifact may belong to a <strong>workspace</strong> — a set of related source artifacts, often a single directory root but sometimes multiple directories. FineCode handles multi-artifact workspaces transparently: running <code>python -m finecode run lint</code> from the workspace root runs lint in all source artifacts that define it.</p>
 <h2 id="workspace-manager-and-extension-runner">Workspace Manager and Extension Runner<a class="headerlink" href="#workspace-manager-and-extension-runner" title="Permanent link">&para;</a></h2>
 <p>FineCode has two runtime components:</p>
 <h3 id="workspace-manager-wm">Workspace Manager (WM)<a class="headerlink" href="#workspace-manager-wm" title="Permanent link">&para;</a></h3>
