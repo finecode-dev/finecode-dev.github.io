@@ -618,6 +618,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#testing-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing integration
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1031,6 +1042,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/lsp-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LSP Client Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1127,14 +1166,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../api-protocol/" class="md-nav__link">
+      <a href="../wm-protocol/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    API Protocol
+    WM Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wm-er-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WM-ER Protocol
   
 
     
@@ -1243,6 +1310,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#testing-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing integration
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1307,6 +1385,7 @@
 <li>Provides code actions and quick fixes</li>
 <li>Supports formatting on save</li>
 <li>Exposes FineCode actions in the sidebar</li>
+<li>Integrates with the native VS Code Testing panel (discover and run tests)</li>
 </ul>
 <h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1315,6 +1394,13 @@
 </ul>
 <h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
 <p>The extension auto-discovers <code>.venvs/dev_workspace/</code>. No extra extension-side project configuration is required.</p>
+<h3 id="testing-integration">Testing integration<a class="headerlink" href="#testing-integration" title="Permanent link">&para;</a></h3>
+<p>The Testing panel (beaker icon) is populated automatically when the workspace loads. It is driven by two actions from <code>finecode_extension_api</code>:</p>
+<ul>
+<li><code>ListTestsAction</code> — discovers tests and builds the file → class → function tree</li>
+<li><code>RunTestsAction</code> — executes tests and reports pass/fail/skip/error per test case</li>
+</ul>
+<p>To use the Testing panel, you need handlers registered for both actions. The <code>fine_python_test</code> preset provides pytest-based handlers for both. If you are already using <code>fine_python_recommended</code>, testing support is included — no extra preset needed, since <code>fine_python_recommended</code> already pulls in <code>fine_python_test</code>.</p>
 <h2 id="mcp-setup-for-ai-clients">MCP setup for AI clients<a class="headerlink" href="#mcp-setup-for-ai-clients" title="Permanent link">&para;</a></h2>
 <p>FineCode exposes an MCP server so any MCP-compatible client can invoke FineCode actions directly.</p>
 <p>At a minimum, your client should launch:</p>

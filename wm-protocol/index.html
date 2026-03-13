@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="http://localhost:8000/api-protocol/">
+        <link rel="canonical" href="http://localhost:8000/wm-protocol/">
       
       
         <link rel="prev" href="../development/">
       
       
-        <link rel="next" href="../guides/developing-finecode/">
+        <link rel="next" href="../wm-er-protocol/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>API Protocol - FineCode</title>
+        <title>WM Protocol - FineCode</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#finecode-api-server-protocol" class="md-skip">
+        <a href="#finecode-wm-server-protocol" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              API Protocol
+              WM Protocol
             
           </span>
         </div>
@@ -914,6 +914,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/lsp-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LSP Client Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1029,7 +1057,7 @@
   <span class="md-ellipsis">
     
   
-    API Protocol
+    WM Protocol
   
 
     
@@ -1047,7 +1075,7 @@
   <span class="md-ellipsis">
     
   
-    API Protocol
+    WM Protocol
   
 
     
@@ -1152,10 +1180,43 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#workspacestartrunners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        workspace/startRunners
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workspacesetconfigoverrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        workspace/setConfigOverrides
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#workspaceremovedir" class="md-nav__link">
     <span class="md-ellipsis">
       
         workspace/removeDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workspacegetprojectrawconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        workspace/getProjectRawConfig
       
     </span>
   </a>
@@ -1334,6 +1395,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#runnerscheckenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        runners/checkEnv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runnersremoveenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        runners/removeEnv
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1350,6 +1433,17 @@
   
     <nav class="md-nav" aria-label="server/ — Server Lifecycle &amp; Notifications">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#servergetinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        server/getInfo
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#servershutdown" class="md-nav__link">
@@ -1426,6 +1520,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wm-er-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WM-ER Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1572,10 +1694,43 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#workspacestartrunners" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        workspace/startRunners
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workspacesetconfigoverrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        workspace/setConfigOverrides
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#workspaceremovedir" class="md-nav__link">
     <span class="md-ellipsis">
       
         workspace/removeDir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workspacegetprojectrawconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        workspace/getProjectRawConfig
       
     </span>
   </a>
@@ -1754,6 +1909,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#runnerscheckenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        runners/checkEnv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runnersremoveenv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        runners/removeEnv
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1770,6 +1947,17 @@
   
     <nav class="md-nav" aria-label="server/ — Server Lifecycle &amp; Notifications">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#servergetinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        server/getInfo
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#servershutdown" class="md-nav__link">
@@ -1862,16 +2050,16 @@
   
 
 
-<h1 id="finecode-api-server-protocol">FineCode API Server Protocol<a class="headerlink" href="#finecode-api-server-protocol" title="Permanent link">&para;</a></h1>
-<p>The FineCode API server is a TCP JSON-RPC 2.0 service that manages the workspace state
+<h1 id="finecode-wm-server-protocol">FineCode WM Server Protocol<a class="headerlink" href="#finecode-wm-server-protocol" title="Permanent link">&para;</a></h1>
+<p>The FineCode Workspace Manager Server (WM Server) is a TCP JSON-RPC 2.0 service that manages the workspace state
 (projects, configs, extension runners). Any client — LSP server, MCP server, or CLI — can
 connect to it.</p>
 <h2 id="transport">Transport<a class="headerlink" href="#transport" title="Permanent link">&para;</a></h2>
 <ul>
 <li>TCP on <code>127.0.0.1</code>, random free port</li>
 <li>Content-Length framing (same as LSP): <code>Content-Length: N\r\n\r\n{json_body}</code></li>
-<li>Discovery: port written to <code>.venvs/dev_workspace/cache/finecode/api_port</code></li>
-<li>Auto-stops when the last client disconnects (after a 5s grace period) or if no client connects 30 seconds after start of API Server</li>
+<li>Discovery: port written to <code>.venvs/dev_workspace/cache/finecode/wm_port</code></li>
+<li>Auto-stops when the last client disconnects (after a 5s grace period) or if no client connects 30 seconds after start of WM Server</li>
 </ul>
 <h2 id="json-rpc-20">JSON-RPC 2.0<a class="headerlink" href="#json-rpc-20" title="Permanent link">&para;</a></h2>
 <p><strong>Request</strong> (client -&gt; server, expects response):</p>
@@ -1921,29 +2109,43 @@ list all projects and perform path comparisons itself.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project_name&quot;</span><span class="p">}</span><span class="w">   </span><span class="err">#</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">}</span><span class="w"> </span><span class="err">i</span><span class="kc">f</span><span class="w"> </span><span class="kc">n</span><span class="err">o</span><span class="kc">t</span><span class="w"> </span><span class="kc">f</span><span class="err">ou</span><span class="kc">n</span><span class="err">d</span>
 </code></pre></div>
 <p>The server internally calls
-:func:<code>finecode.api_server.services.run_service.find_action_project</code> with
+:func:<code>finecode.wm_server.services.run_service.find_action_project</code> with
 <code>action_name="lint"</code> and returns the corresponding project name.</p>
 <hr />
 <h4 id="workspaceadddir"><code>workspace/addDir</code><a class="headerlink" href="#workspaceadddir" title="Permanent link">&para;</a></h4>
 <p>Add a workspace directory. Discovers projects, reads configs, collects actions,
-and starts extension runners.</p>
+and optionally starts extension runners.</p>
 <blockquote>
 <p><strong>Design note:</strong> Ideally, workspace directories would be a single shared
 definition independent of which client connects (LSP, MCP, CLI). Currently,
 each client calls <code>workspace/addDir</code> with its own working directory, so the
-API server's workspace is the union of what clients have registered. This is a
+WM Server's workspace is the union of what clients have registered. This is a
 known simplification — a future improvement would introduce a workspace
 configuration file or a dedicated workspace management layer so that the set
 of directories is not environment-specific.</p>
 </blockquote>
 <ul>
 <li><strong>Type:</strong> request</li>
-<li><strong>Clients:</strong> LSP</li>
+<li><strong>Clients:</strong> LSP, CLI</li>
 <li><strong>Status:</strong> implemented</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span><span class="nt">&quot;dir_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/workspace&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span><span class="nt">&quot;dir_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/workspace&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;start_runners&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;projects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;my_project&quot;</span><span class="p">]}</span>
 </code></pre></div>
+<p><code>start_runners</code> is optional (default: <code>true</code>). When <code>false</code>, the server reads
+configs and collects actions without starting any extension runners. Use this
+when runner environments may not exist yet (e.g. before running <code>prepare-envs</code>).
+Actions are still available in the result so clients can validate the workspace.</p>
+<p><code>projects</code> is optional. When provided, only the listed projects (by name) will
+be config-initialized and have their runners started. All other projects in the
+directory are still discovered (added to workspace state) but skipped for
+initialization. This avoids the cost of reading configs and spawning runner
+processes for projects that are not needed.</p>
+<p>Calling <code>workspace/addDir</code> again for the same <code>dir_path</code> with a different
+<code>projects</code> filter (or with <code>projects</code> omitted) will initialize the previously
+skipped projects — the call is <strong>incremental</strong>, not idempotent. Only projects
+that have not yet been config-initialized are processed on each call. This makes
+it safe to issue a filtered call followed by an unfiltered one.</p>
 <p><strong>Result:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;projects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -1951,6 +2153,63 @@ of directories is not environment-specific.</p>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="p">]</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="p">}</span>
 </code></pre></div>
+<p>The <code>projects</code> list contains only the projects initialized during <strong>this call</strong>,
+not all projects in the workspace.</p>
+<p><code>status</code> values: <code>"CONFIG_VALID"</code>, <code>"CONFIG_INVALID"</code></p>
+<hr />
+<h4 id="workspacestartrunners"><code>workspace/startRunners</code><a class="headerlink" href="#workspacestartrunners" title="Permanent link">&para;</a></h4>
+<p>Start extension runners for all (or specified) projects. Only starts runners
+that are not already running — complements existing runner state rather than
+replacing it. Also resolves preset-defined actions so that <code>actions/run</code> can
+find them.</p>
+<ul>
+<li><strong>Type:</strong> request</li>
+<li><strong>Clients:</strong> CLI</li>
+<li><strong>Status:</strong> implemented</li>
+</ul>
+<p><strong>Params:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span><span class="nt">&quot;projects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;my_project&quot;</span><span class="p">]}</span>
+</code></pre></div>
+<p><code>projects</code> is optional. If omitted, starts runners for all projects.</p>
+<p><strong>Result:</strong> <code>{}</code></p>
+<hr />
+<h4 id="workspacesetconfigoverrides"><code>workspace/setConfigOverrides</code><a class="headerlink" href="#workspacesetconfigoverrides" title="Permanent link">&para;</a></h4>
+<p>Set persistent handler config overrides on the server. Overrides are stored for
+the lifetime of the server and applied to all subsequent action runs — unlike the
+<code>config_overrides</code> field that was previously accepted by <code>actions/runBatch</code>, which
+required runners to be stopped first.</p>
+<ul>
+<li><strong>Type:</strong> request</li>
+<li><strong>Clients:</strong> CLI</li>
+<li><strong>Status:</strong> implemented</li>
+</ul>
+<p><strong>Params:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">&quot;overrides&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="nt">&quot;lint&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">      </span><span class="nt">&quot;ruff&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;line_length&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">},</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">      </span><span class="nt">&quot;&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;some_action_level_param&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="p">}</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>overrides</code> format: <code>{action_name: {handler_name_or_"": {param: value}}}</code>.
+The empty-string key <code>""</code> means the override applies to all handlers of that action.</p>
+<p><strong>Result:</strong> <code>{}</code></p>
+<p><strong>Behaviour:</strong></p>
+<ul>
+<li>Overrides are stored in the server's workspace context and applied to all
+  subsequent action runs.</li>
+<li>If extension runners are already running, they receive a config update
+  immediately; initialized handlers are dropped and will be re-initialized with
+  the new config on the next run.</li>
+<li>The CLI <code>run</code> command sends this message <strong>before</strong> <code>workspace/addDir</code> in
+  standalone mode (<code>--own-server</code>), so runners always start with the correct
+  config and no update push is required.</li>
+<li>Config overrides are <strong>not supported</strong> in <code>--shared-server</code> mode: the CLI
+  will print a warning and ignore them.</li>
+<li>Calling this method again replaces the previous overrides entirely.</li>
+</ul>
 <hr />
 <h4 id="workspaceremovedir"><code>workspace/removeDir</code><a class="headerlink" href="#workspaceremovedir" title="Permanent link">&para;</a></h4>
 <p>Remove a workspace directory. Stops runners for affected projects and removes them
@@ -1961,9 +2220,35 @@ from context.</p>
 <li><strong>Status:</strong> implemented</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span><span class="nt">&quot;dir_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/workspace&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span><span class="nt">&quot;dir_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/workspace&quot;</span><span class="p">}</span>
 </code></pre></div>
 <p><strong>Result:</strong> <code>{}</code></p>
+<hr />
+<h4 id="workspacegetprojectrawconfig"><code>workspace/getProjectRawConfig</code><a class="headerlink" href="#workspacegetprojectrawconfig" title="Permanent link">&para;</a></h4>
+<p>Return the fully resolved raw configuration for a project, as stored in the
+workspace context after config reading and preset resolution.</p>
+<ul>
+<li><strong>Type:</strong> request</li>
+<li><strong>Clients:</strong> CLI</li>
+<li><strong>Status:</strong> implemented</li>
+</ul>
+<p><strong>Params:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_project&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p><strong>Result:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">&quot;raw_config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;finecode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="err">...</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong>Errors:</strong></p>
+<ul>
+<li><code>project</code> is required — returns a JSON-RPC error if omitted.</li>
+<li>Project not found — returns a JSON-RPC error if no project with the given name
+  exists in the workspace context.</li>
+</ul>
 <hr />
 <h3 id="actions-action-discovery-execution"><code>actions/</code> — Action Discovery &amp; Execution<a class="headerlink" href="#actions-action-discovery-execution" title="Permanent link">&para;</a></h3>
 <h4 id="actionslist"><code>actions/list</code><a class="headerlink" href="#actionslist" title="Permanent link">&para;</a></h4>
@@ -1975,22 +2260,22 @@ programmatic use by MCP agents and CLI.</p>
 <li><strong>Status:</strong> stub</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">}</span>
 </code></pre></div>
 <p>All fields optional. If <code>project</code> is omitted, returns actions from all projects.</p>
 <p><strong>Result:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">&quot;actions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lint&quot;</span><span class="p">,</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api.actions.lint.LintAction&quot;</span><span class="p">,</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">      </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">      </span><span class="nt">&quot;handlers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">        </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ruff&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fine_python_ruff.RuffLintFilesHandler&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;runtime&quot;</span><span class="p">}</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">      </span><span class="p">]</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">&quot;actions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lint&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api.actions.lint.LintAction&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">      </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">      </span><span class="nt">&quot;handlers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">        </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ruff&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fine_python_ruff.RuffLintFilesHandler&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;runtime&quot;</span><span class="p">}</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="p">}</span>
 </code></pre></div>
 <hr />
 <h4 id="actionsgettree"><code>actions/getTree</code><a class="headerlink" href="#actionsgettree" title="Permanent link">&para;</a></h4>
@@ -2002,25 +2287,25 @@ programmatic use by MCP agents and CLI.</p>
 </ul>
 <p><strong>Params:</strong> <code>{}</code></p>
 <p><strong>Result:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">      </span><span class="nt">&quot;node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ws_dir_0&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/workspace&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">      </span><span class="nt">&quot;node_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">      </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">      </span><span class="nt">&quot;subnodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">          </span><span class="nt">&quot;node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project_0&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">          </span><span class="nt">&quot;node_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">          </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">          </span><span class="nt">&quot;subnodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">      </span><span class="p">]</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">{</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">      </span><span class="nt">&quot;node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ws_dir_0&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/workspace&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">      </span><span class="nt">&quot;node_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">      </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">      </span><span class="nt">&quot;subnodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">          </span><span class="nt">&quot;node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project_0&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">          </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">          </span><span class="nt">&quot;node_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">          </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">          </span><span class="nt">&quot;subnodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="p">}</span>
 </code></pre></div>
 <p><code>node_type</code> values: 0=DIRECTORY, 1=PROJECT, 2=ACTION, 3=ACTION_GROUP, 4=PRESET,
 5=ENV_GROUP, 6=ENV</p>
@@ -2033,29 +2318,28 @@ programmatic use by MCP agents and CLI.</p>
 <li><strong>Status:</strong> stub</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lint&quot;</span><span class="p">,</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;file_paths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/path/to/file.py&quot;</span><span class="p">]},</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="nt">&quot;config_overrides&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;ruff&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;line_length&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">120</span><span class="p">}},</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="nt">&quot;result_formats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">],</span>
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">    </span><span class="nt">&quot;trigger&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span>
-<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">    </span><span class="nt">&quot;dev_env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ide&quot;</span>
-<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lint&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;file_paths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/path/to/file.py&quot;</span><span class="p">]},</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="nt">&quot;result_formats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">],</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">    </span><span class="nt">&quot;trigger&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">    </span><span class="nt">&quot;dev_env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ide&quot;</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="p">}</span>
 </code></pre></div>
 <p>Required: <code>action</code>, <code>project</code>. All other fields optional.</p>
 <p><code>trigger</code> values: <code>"user"</code>, <code>"system"</code>, <code>"unknown"</code> (default: <code>"unknown"</code>)</p>
-<p><code>dev_env</code> values: <code>"ide"</code>, <code>"cli"</code>, <code>"ai"</code>, <code>"precommit"</code>, <code>"cicd"</code> (default: <code>"cli"</code>)</p>
+<p><code>dev_env</code> values: <code>"ide"</code>, <code>"cli"</code>, <code>"ai"</code>, <code>"precommit"</code>, <code>"ci"</code> (default: <code>"cli"</code>)</p>
 <p><strong>Result:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nt">&quot;result_by_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="nt">&quot;json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;messages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;file.py&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]}},</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="nt">&quot;string&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;All checks passed.&quot;</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">  </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">&quot;result_by_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="nt">&quot;json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;messages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;file.py&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]}},</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="nt">&quot;string&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;All checks passed.&quot;</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">  </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="p">}</span>
 </code></pre></div>
 <hr />
 <h4 id="actionsrunbatch"><code>actions/runBatch</code><a class="headerlink" href="#actionsrunbatch" title="Permanent link">&para;</a></h4>
@@ -2066,31 +2350,30 @@ programmatic use by MCP agents and CLI.</p>
 <li><strong>Status:</strong> stub</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">&quot;actions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;lint&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;check_formatting&quot;</span><span class="p">],</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nt">&quot;projects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api&quot;</span><span class="p">],</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="nt">&quot;config_overrides&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">    </span><span class="nt">&quot;concurrent&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="nt">&quot;result_formats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">],</span>
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span><span class="nt">&quot;trigger&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span>
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">    </span><span class="nt">&quot;dev_env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cli&quot;</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">{</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="nt">&quot;actions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;lint&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;check_formatting&quot;</span><span class="p">],</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="nt">&quot;projects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api&quot;</span><span class="p">],</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="nt">&quot;concurrent&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">    </span><span class="nt">&quot;result_formats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">],</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">    </span><span class="nt">&quot;trigger&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">    </span><span class="nt">&quot;dev_env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cli&quot;</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="p">}</span>
 </code></pre></div>
 <p>Required: <code>actions</code>. If <code>projects</code> is omitted, runs on all projects that have the
 requested actions.</p>
 <p><strong>Result:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">{</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="nt">&quot;/path/to/finecode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">      </span><span class="nt">&quot;lint&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;result_by_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">      </span><span class="nt">&quot;check_formatting&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;result_by_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">  </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
-<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">{</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="nt">&quot;/path/to/finecode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">      </span><span class="nt">&quot;lint&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;result_by_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">      </span><span class="nt">&quot;check_formatting&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;result_by_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">  </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="p">}</span>
 </code></pre></div>
 <p><code>return_code</code> at the top level is the bitwise OR of all individual return codes.</p>
 <hr />
@@ -2103,20 +2386,31 @@ requested actions.</p>
 <li><strong>Status:</strong> stub</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lint&quot;</span><span class="p">,</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;file_paths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/path/to/file.py&quot;</span><span class="p">]},</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="nt">&quot;partial_result_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;diag_1&quot;</span><span class="p">,</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">    </span><span class="nt">&quot;trigger&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system&quot;</span><span class="p">,</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">    </span><span class="nt">&quot;dev_env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ide&quot;</span>
-<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">{</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lint&quot;</span><span class="p">,</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;file_paths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/path/to/file.py&quot;</span><span class="p">]},</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="nt">&quot;partial_result_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;diag_1&quot;</span><span class="p">,</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">    </span><span class="nt">&quot;result_formats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;json&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">],</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">    </span><span class="nt">&quot;trigger&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system&quot;</span><span class="p">,</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">    </span><span class="nt">&quot;dev_env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ide&quot;</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="p">}</span>
 </code></pre></div>
 <p>Required: <code>action</code>, <code>project</code>, <code>partial_result_token</code>.</p>
+<p>Supported <code>result_formats</code>: <code>"json"</code>, <code>"string"</code>, etc. (same as <code>actions/run</code>).</p>
 <p><strong>Result:</strong> Same as <code>actions/run</code> (the final aggregated result).</p>
 <p>During execution, the server sends <code>actions/partialResult</code> notifications (see below).</p>
+<blockquote>
+<p><strong>Guarantee:</strong> The WM Server always delivers results via <code>actions/partialResult</code>
+notifications, even when an extension runner does not stream incrementally (i.e.
+it collects all results internally and returns them as a single final response).
+In that case the server emits the final result as a partial result notification
+before returning the aggregated response.  Clients can therefore rely solely on
+<code>actions/partialResult</code> notifications to receive results and safely ignore the
+response body of this request.</p>
+</blockquote>
 <hr />
 <h4 id="actionsreload"><code>actions/reload</code><a class="headerlink" href="#actionsreload" title="Permanent link">&para;</a></h4>
 <p>Hot-reload handler code for an action without restarting runners.</p>
@@ -2126,12 +2420,12 @@ requested actions.</p>
 <li><strong>Status:</strong> stub</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lint&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">{</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lint&quot;</span><span class="p">}</span>
 </code></pre></div>
 <p><strong>Result:</strong> <code>{}</code></p>
 <hr />
 <h3 id="documents-document-sync"><code>documents/</code> — Document Sync<a class="headerlink" href="#documents-document-sync" title="Permanent link">&para;</a></h3>
-<p>Notifications from the LSP client to keep the API server (and extension runners)
+<p>Notifications from the LSP client to keep the WM Server (and extension runners)
 informed about open documents. These are fire-and-forget (no response).</p>
 <h4 id="documentsopened"><code>documents/opened</code><a class="headerlink" href="#documentsopened" title="Permanent link">&para;</a></h4>
 <ul>
@@ -2140,7 +2434,7 @@ informed about open documents. These are fire-and-forget (no response).</p>
 <li><strong>Status:</strong> stub</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">{</span><span class="nt">&quot;uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file:///path/to/file.py&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">{</span><span class="nt">&quot;uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file:///path/to/file.py&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span>
 </code></pre></div>
 <hr />
 <h4 id="documentsclosed"><code>documents/closed</code><a class="headerlink" href="#documentsclosed" title="Permanent link">&para;</a></h4>
@@ -2150,7 +2444,7 @@ informed about open documents. These are fire-and-forget (no response).</p>
 <li><strong>Status:</strong> stub</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">{</span><span class="nt">&quot;uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file:///path/to/file.py&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">{</span><span class="nt">&quot;uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file:///path/to/file.py&quot;</span><span class="p">}</span>
 </code></pre></div>
 <hr />
 <h4 id="documentschanged"><code>documents/changed</code><a class="headerlink" href="#documentschanged" title="Permanent link">&para;</a></h4>
@@ -2160,19 +2454,19 @@ informed about open documents. These are fire-and-forget (no response).</p>
 <li><strong>Status:</strong> stub</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">{</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="nt">&quot;uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file:///path/to/file.py&quot;</span><span class="p">,</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="nt">&quot;content_changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">      </span><span class="nt">&quot;range&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">        </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;line&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;character&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
-<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">        </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;line&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;character&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">}</span>
-<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">      </span><span class="p">},</span>
-<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">      </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new_text&quot;</span>
-<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">{</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="nt">&quot;uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file:///path/to/file.py&quot;</span><span class="p">,</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">  </span><span class="nt">&quot;content_changes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">      </span><span class="nt">&quot;range&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">        </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;line&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;character&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">        </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;line&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;character&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">}</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="w">      </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new_text&quot;</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="p">}</span>
 </code></pre></div>
 <hr />
 <h3 id="runners-runner-management"><code>runners/</code> — Runner Management<a class="headerlink" href="#runners-runner-management" title="Permanent link">&para;</a></h3>
@@ -2184,20 +2478,20 @@ informed about open documents. These are fire-and-forget (no response).</p>
 <li><strong>Status:</strong> stub</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">{</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p">{</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">}</span>
 </code></pre></div>
 <p><code>project</code> is optional. If omitted, returns runners for all projects.</p>
 <p><strong>Result:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">{</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="nt">&quot;runners&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">      </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span>
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">      </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;runtime&quot;</span><span class="p">,</span>
-<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">      </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RUNNING&quot;</span><span class="p">,</span>
-<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="w">      </span><span class="nt">&quot;readable_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode::runtime&quot;</span>
-<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p">{</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">  </span><span class="nt">&quot;runners&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">      </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="w">      </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;runtime&quot;</span><span class="p">,</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="w">      </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RUNNING&quot;</span><span class="p">,</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="w">      </span><span class="nt">&quot;readable_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode::runtime&quot;</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="p">}</span>
 </code></pre></div>
 <p><code>status</code> values: <code>"NO_VENV"</code>, <code>"INITIALIZING"</code>, <code>"FAILED"</code>, <code>"RUNNING"</code>, <code>"EXITED"</code></p>
 <hr />
@@ -2209,14 +2503,58 @@ informed about open documents. These are fire-and-forget (no response).</p>
 <li><strong>Status:</strong> stub</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="p">{</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;runtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;debug&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="p">{</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;runtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;debug&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">}</span>
 </code></pre></div>
 <p><code>debug</code> is optional, defaults to <code>false</code>.</p>
 <p><strong>Result:</strong> <code>{}</code></p>
 <hr />
+<h4 id="runnerscheckenv"><code>runners/checkEnv</code><a class="headerlink" href="#runnerscheckenv" title="Permanent link">&para;</a></h4>
+<p>Check whether the named environment for a project is valid (i.e. the virtualenv
+exists and its dependencies are correctly installed).</p>
+<ul>
+<li><strong>Type:</strong> request</li>
+<li><strong>Clients:</strong> CLI</li>
+<li><strong>Status:</strong> implemented</li>
+</ul>
+<p><strong>Params:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="p">{</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_project&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;env_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev_workspace&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p><strong>Result:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="p">{</span><span class="nt">&quot;valid&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h4 id="runnersremoveenv"><code>runners/removeEnv</code><a class="headerlink" href="#runnersremoveenv" title="Permanent link">&para;</a></h4>
+<p>Remove the named environment for a project. If a runner is currently using that
+environment, it is stopped first.</p>
+<ul>
+<li><strong>Type:</strong> request</li>
+<li><strong>Clients:</strong> CLI</li>
+<li><strong>Status:</strong> implemented</li>
+</ul>
+<p><strong>Params:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="p">{</span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_project&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;env_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev_workspace&quot;</span><span class="p">}</span>
+</code></pre></div>
+<p><strong>Result:</strong> <code>{}</code></p>
+<hr />
 <h3 id="server-server-lifecycle-notifications"><code>server/</code> — Server Lifecycle &amp; Notifications<a class="headerlink" href="#server-server-lifecycle-notifications" title="Permanent link">&para;</a></h3>
+<h4 id="servergetinfo"><code>server/getInfo</code><a class="headerlink" href="#servergetinfo" title="Permanent link">&para;</a></h4>
+<p>Return static information about the running WM Server instance.</p>
+<ul>
+<li><strong>Type:</strong> request</li>
+<li><strong>Clients:</strong> LSP, MCP, CLI</li>
+<li><strong>Status:</strong> implemented</li>
+</ul>
+<p><strong>Params:</strong> <code>{}</code></p>
+<p><strong>Result:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="p">{</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">  </span><span class="nt">&quot;log_file_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/abs/path/to/.venvs/dev_workspace/logs/wm_server/wm_server.log&quot;</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>log_file_path</code> is the absolute path to the WM Server's log file for the current process.
+Clients can log or display this path so the user can open the file directly when troubleshooting.</p>
+<hr />
 <h4 id="servershutdown"><code>server/shutdown</code><a class="headerlink" href="#servershutdown" title="Permanent link">&para;</a></h4>
-<p>Explicitly shut down the API server.</p>
+<p>Explicitly shut down the WM Server.</p>
 <ul>
 <li><strong>Type:</strong> request</li>
 <li><strong>Clients:</strong> any</li>
@@ -2226,7 +2564,7 @@ informed about open documents. These are fire-and-forget (no response).</p>
 <p><strong>Result:</strong> <code>{}</code></p>
 <hr />
 <h3 id="server-client-notifications">Server -&gt; Client Notifications<a class="headerlink" href="#server-client-notifications" title="Permanent link">&para;</a></h3>
-<p>These are sent by the API server to connected clients. Clients must implement
+<p>These are sent by the WM Server to connected clients. Clients must implement
 a background reader to receive them.</p>
 <h4 id="actionspartialresult"><code>actions/partialResult</code><a class="headerlink" href="#actionspartialresult" title="Permanent link">&para;</a></h4>
 <p>Sent during <code>actions/runWithPartialResults</code> execution as results stream in.</p>
@@ -2236,13 +2574,24 @@ a background reader to receive them.</p>
 <li><strong>Status:</strong> stub</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">{</span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;diag_1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;messages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;file.py&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]}}}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="p">{</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">  </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;diag_1&quot;</span><span class="p">,</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">  </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">    </span><span class="nt">&quot;result_by_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">      </span><span class="nt">&quot;json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;messages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;file.py&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">]}},</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">      </span><span class="nt">&quot;string&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3 issues found in file.py&quot;</span>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="p">}</span>
 </code></pre></div>
 <p><code>token</code> matches the <code>partial_result_token</code> from the originating request.</p>
+<p><code>result_by_format</code> contains results in all formats requested in the originating
+<code>actions/runWithPartialResults</code> params (same structure as <code>actions/run</code> response,
+but without <code>return_code</code>).</p>
 <blockquote>
 <p><strong>Note:</strong> Notifications are delivered only to the client connection that
 initiated the corresponding <code>actions/runWithPartialResults</code> request.  The
-API server does <strong>not</strong> broadcast these messages to every connected client.</p>
+WM Server does <strong>not</strong> broadcast these messages to every connected client.</p>
 </blockquote>
 <hr />
 <h4 id="actionstreechanged"><code>actions/treeChanged</code><a class="headerlink" href="#actionstreechanged" title="Permanent link">&para;</a></h4>
@@ -2254,15 +2603,15 @@ runner start/stop).</p>
 <li><strong>Status:</strong> implemented</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p">{</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">  </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">    </span><span class="nt">&quot;node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project_0&quot;</span><span class="p">,</span>
-<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span>
-<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="w">    </span><span class="nt">&quot;node_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span>
-<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="w">    </span><span class="nt">&quot;subnodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
-<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="p">{</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="w">  </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">    </span><span class="nt">&quot;node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project_0&quot;</span><span class="p">,</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="w">    </span><span class="nt">&quot;node_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a><span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="w">    </span><span class="nt">&quot;subnodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a><span class="p">}</span>
 </code></pre></div>
 <hr />
 <h4 id="serverusermessage"><code>server/userMessage</code><a class="headerlink" href="#serverusermessage" title="Permanent link">&para;</a></h4>
@@ -2273,7 +2622,7 @@ runner start/stop).</p>
 <li><strong>Status:</strong> implemented</li>
 </ul>
 <p><strong>Params:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="p">{</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Runner failed to start&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ERROR&quot;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="p">{</span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Runner failed to start&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ERROR&quot;</span><span class="p">}</span>
 </code></pre></div>
 <p><code>type</code> values: <code>"INFO"</code>, <code>"WARNING"</code>, <code>"ERROR"</code></p>
 

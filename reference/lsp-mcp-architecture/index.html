@@ -16,7 +16,7 @@
         <link rel="prev" href="../extensions/">
       
       
-        <link rel="next" href="../../development/">
+        <link rel="next" href="../lsp-protocol/">
       
       
         
@@ -1008,6 +1008,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lsp-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LSP Client Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1104,14 +1132,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api-protocol/" class="md-nav__link">
+      <a href="../../wm-protocol/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    API Protocol
+    WM Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wm-er-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WM-ER Protocol
   
 
     
@@ -1251,19 +1307,19 @@
 
 
 <h1 id="lsp-and-mcp-architecture">LSP and MCP Architecture<a class="headerlink" href="#lsp-and-mcp-architecture" title="Permanent link">&para;</a></h1>
-<p>FineCode uses one shared API server for CLI, IDE (LSP), and AI-agent (MCP) clients.</p>
+<p>FineCode uses one shared Workspace Manager Server (WM Server) for CLI, IDE (LSP), and AI-agent (MCP) clients.</p>
 <h2 id="component-model">Component model<a class="headerlink" href="#component-model" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>FineCode API Server (TCP JSON-RPC, auto-managed)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>FineCode WM Server (TCP JSON-RPC, auto-managed)
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── WorkspaceContext, runners, services
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>└── auto-stops when no clients remain
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>LSP Server (start-lsp, started by IDE)
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>└── connects to API server (starts one if needed)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>└── connects to WM Server (starts one if needed)
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>MCP Server (start-mcp, started by MCP client)
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>└── connects to API server (starts one if needed)
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>└── connects to WM Server (starts one if needed)
 </code></pre></div>
-<p>The API server writes its port to <code>.venvs/dev_workspace/cache/finecode/api_port</code> for client discovery.</p>
+<p>The WM Server writes its port to <code>.venvs/dev_workspace/cache/finecode/wm_port</code> for client discovery.</p>
 <h2 id="lsp-request-flow">LSP request flow<a class="headerlink" href="#lsp-request-flow" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>sequenceDiagram
     participant IDE as IDE Extension
@@ -1282,9 +1338,9 @@
 <p>The LSP layer translates protocol messages into FineCode actions, delegates execution to extension runners, then translates results back into LSP responses.</p>
 <h2 id="lifecycle-behavior">Lifecycle behavior<a class="headerlink" href="#lifecycle-behavior" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Any client (CLI, LSP, MCP) can start the API server if it is not already running.</li>
-<li>Each connected client keeps the API server alive.</li>
-<li>When the last client disconnects, the API server exits automatically.</li>
+<li>Any client (CLI, LSP, MCP) can start the WM Server if it is not already running.</li>
+<li>Each connected client keeps the WM Server alive.</li>
+<li>When the last client disconnects, the WM Server exits automatically.</li>
 </ul>
 <h2 id="manual-server-startup-for-debugging">Manual server startup for debugging<a class="headerlink" href="#manual-server-startup-for-debugging" title="Permanent link">&para;</a></h2>
 <p>Most users should not start servers manually. IDE and MCP clients usually manage startup automatically.</p>

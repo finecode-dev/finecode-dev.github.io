@@ -671,6 +671,45 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#usage-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standalone-one-shot-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standalone (one-shot) — default
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistent-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Persistent server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#run" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -765,6 +804,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dev-environment-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dev environment detection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#start-lsp" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -787,10 +837,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#start-api-server" class="md-nav__link">
+  <a href="#start-wm-server" class="md-nav__link">
     <span class="md-ellipsis">
       
-        start-api-server
+        start-wm-server
       
     </span>
   </a>
@@ -1088,6 +1138,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/lsp-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LSP Client Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1184,14 +1262,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../api-protocol/" class="md-nav__link">
+      <a href="../wm-protocol/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    API Protocol
+    WM Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wm-er-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WM-ER Protocol
   
 
     
@@ -1265,6 +1371,45 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#usage-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage modes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standalone-one-shot-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standalone (one-shot) — default
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#persistent-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Persistent server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#run" class="md-nav__link">
@@ -1361,6 +1506,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dev-environment-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dev environment detection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#start-lsp" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1383,10 +1539,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#start-api-server" class="md-nav__link">
+  <a href="#start-wm-server" class="md-nav__link">
     <span class="md-ellipsis">
       
-        start-api-server
+        start-wm-server
       
     </span>
   </a>
@@ -1419,9 +1575,25 @@
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
 </code></pre></div>
 <hr />
+<h2 id="usage-modes">Usage modes<a class="headerlink" href="#usage-modes" title="Permanent link">&para;</a></h2>
+<p>The <code>run</code> command supports two usage modes.</p>
+<h3 id="standalone-one-shot-default">Standalone (one-shot) — default<a class="headerlink" href="#standalone-one-shot-default" title="Permanent link">&para;</a></h3>
+<p>Each <code>run</code> invocation is fully independent. FineCode starts a dedicated WM Server subprocess for the duration of the command, then shuts it down on exit. This is the default behavior.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint
+</code></pre></div>
+<p>Use this in CI/CD pipelines or any context where you don't want persistent background processes. Results from one action can be saved to the file cache and referenced by a later action via <code>--map-payload-fields</code> (see the <code>run</code> reference below).</p>
+<h3 id="persistent-server">Persistent server<a class="headerlink" href="#persistent-server" title="Permanent link">&para;</a></h3>
+<p>A long-lived WM Server holds warm state — loaded configuration, started runners — across multiple <code>run</code> calls. Use <code>--shared-server</code> to connect to a running shared instance instead of starting a dedicated one.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Connect to the shared server (start it first if needed):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--shared-server<span class="w"> </span>lint
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--shared-server<span class="w"> </span>format
+</code></pre></div>
+<p>This mode is used automatically by the LSP and MCP integrations. It gives faster repeated runs because configuration loading and runner startup are amortized across calls.</p>
+<p>The server waits 30 seconds after the last client disconnects before shutting down (configurable via <code>--disconnect-timeout</code> on <code>start-wm-server</code>).</p>
+<hr />
 <h2 id="run"><code>run</code><a class="headerlink" href="#run" title="Permanent link">&para;</a></h2>
 <p>Run one or more actions across projects.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python -m finecode run [options] &lt;action&gt; [&lt;action&gt; ...] [payload] [--config.&lt;key&gt;=&lt;value&gt; ...]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python -m finecode run [options] &lt;action&gt; [&lt;action&gt; ...] [payload] [--config.&lt;key&gt;=&lt;value&gt; ...]
 </code></pre></div>
 <h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
 <table>
@@ -1445,8 +1617,12 @@
 <td>Run actions concurrently within each project</td>
 </tr>
 <tr>
-<td><code>--trace</code></td>
-<td>Enable verbose (trace-level) logging</td>
+<td><code>--shared-server</code></td>
+<td>Connect to the shared persistent WM Server instead of starting a dedicated one</td>
+</tr>
+<tr>
+<td><code>--log-level=&lt;level&gt;</code></td>
+<td>Set log level: <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code> (default: <code>INFO</code>)</td>
 </tr>
 <tr>
 <td><code>--no-env-config</code></td>
@@ -1456,20 +1632,24 @@
 <td><code>--no-save-results</code></td>
 <td>Do not write action results to the cache directory</td>
 </tr>
+<tr>
+<td><code>--dev-env=&lt;env&gt;</code></td>
+<td>Override the detected dev environment. One of: <code>ai</code>, <code>ci</code>, <code>cli</code>, <code>ide</code>, <code>precommit</code> (default: auto-detected — see <a href="#dev-environment-detection">Dev environment detection</a>)</td>
+</tr>
 </tbody>
 </table>
 <h3 id="payload">Payload<a class="headerlink" href="#payload" title="Permanent link">&para;</a></h3>
 <p>Named parameters passed to the action payload. All must use <code>--&lt;name&gt;=&lt;value&gt;</code> form:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>format<span class="w"> </span>--save<span class="o">=</span><span class="nb">true</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--target<span class="o">=</span>files<span class="w"> </span>--file-paths<span class="o">=</span><span class="s1">&#39;[&quot;src/main.py&quot;]&#39;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>format<span class="w"> </span>--save<span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--target<span class="o">=</span>files<span class="w"> </span>--file-paths<span class="o">=</span><span class="s1">&#39;[&quot;src/main.py&quot;]&#39;</span>
 </code></pre></div>
 <h3 id="config-overrides">Config overrides<a class="headerlink" href="#config-overrides" title="Permanent link">&para;</a></h3>
 <p>Override handler configuration inline:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Action-level (applies to all handlers)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--config.line_length<span class="o">=</span><span class="m">120</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Handler-specific</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--config.ruff.line_length<span class="o">=</span><span class="m">120</span><span class="w"> </span>--config.mypy.strict<span class="o">=</span><span class="nb">true</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Action-level (applies to all handlers)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--config.line_length<span class="o">=</span><span class="m">120</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Handler-specific</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--config.ruff.line_length<span class="o">=</span><span class="m">120</span><span class="w"> </span>--config.mypy.strict<span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
 <p>See <a href="../configuration/">Configuration</a> for full details on config precedence.</p>
 <h3 id="behavior">Behavior<a class="headerlink" href="#behavior" title="Permanent link">&para;</a></h3>
@@ -1479,25 +1659,25 @@
 <li>Action results are saved to <code>&lt;venv&gt;/cache/finecode/results/&lt;action&gt;.json</code> (one entry per project path).</li>
 </ul>
 <h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Lint all projects</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Lint and check_formatting concurrently</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--concurrently<span class="w"> </span>lint<span class="w"> </span>check_formatting
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Run only in two specific projects</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--project<span class="o">=</span>fine_python_mypy<span class="w"> </span>--project<span class="o">=</span>fine_python_ruff<span class="w"> </span>run<span class="w"> </span>lint
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># Run from a different directory</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>--workdir<span class="o">=</span>./finecode_extension_api<span class="w"> </span>run<span class="w"> </span>lint
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="c1"># Override ruff line length</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--config.ruff.line_length<span class="o">=</span><span class="m">120</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Lint all projects</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Lint and check_formatting concurrently</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--concurrently<span class="w"> </span>lint<span class="w"> </span>check_formatting
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Run only in two specific projects</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--project<span class="o">=</span>fine_python_mypy<span class="w"> </span>--project<span class="o">=</span>fine_python_ruff<span class="w"> </span>run<span class="w"> </span>lint
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="c1"># Run from a different directory</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>--workdir<span class="o">=</span>./finecode_extension_api<span class="w"> </span>run<span class="w"> </span>lint
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="c1"># Override ruff line length</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--config.ruff.line_length<span class="o">=</span><span class="m">120</span>
 </code></pre></div>
 <hr />
 <h2 id="prepare-envs"><code>prepare-envs</code><a class="headerlink" href="#prepare-envs" title="Permanent link">&para;</a></h2>
 <p>Create and populate virtual environments for all handler dependencies.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python -m finecode prepare-envs [--recreate] [--trace] [--debug]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python -m finecode prepare-envs [--recreate] [--log-level=&lt;level&gt;] [--debug]
 </code></pre></div>
 <p>Must be run from the workspace or project root. Creates venvs under <code>.venvs/&lt;env_name&gt;/</code> and installs each handler's declared dependencies.</p>
 <table>
@@ -1513,19 +1693,23 @@
 <td>Delete and recreate all venvs from scratch</td>
 </tr>
 <tr>
-<td><code>--trace</code></td>
-<td>Enable verbose logging</td>
+<td><code>--log-level=&lt;level&gt;</code></td>
+<td>Set log level: <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code> (default: <code>INFO</code>)</td>
 </tr>
 <tr>
 <td><code>--debug</code></td>
 <td>Wait for a debugpy client on port 5680 before starting</td>
+</tr>
+<tr>
+<td><code>--dev-env=&lt;env&gt;</code></td>
+<td>Override the detected dev environment. One of: <code>ai</code>, <code>ci</code>, <code>cli</code>, <code>ide</code>, <code>precommit</code> (default: auto-detected)</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h2 id="dump-config"><code>dump-config</code><a class="headerlink" href="#dump-config" title="Permanent link">&para;</a></h2>
 <p>Dump the fully resolved configuration for a project to disk, useful for debugging preset and config merging.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>python -m finecode dump-config --project=&lt;name&gt; [--trace] [--debug]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>python -m finecode dump-config --project=&lt;name&gt; [--log-level=&lt;level&gt;] [--debug]
 </code></pre></div>
 <p>Output is written to <code>&lt;cwd&gt;/finecode_config_dump/</code>.</p>
 <table>
@@ -1541,19 +1725,54 @@
 <td><strong>(Required)</strong> Project to dump config for</td>
 </tr>
 <tr>
-<td><code>--trace</code></td>
-<td>Enable verbose logging</td>
+<td><code>--log-level=&lt;level&gt;</code></td>
+<td>Set log level: <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code> (default: <code>INFO</code>)</td>
 </tr>
 <tr>
 <td><code>--debug</code></td>
 <td>Wait for a debugpy client on port 5680</td>
 </tr>
+<tr>
+<td><code>--dev-env=&lt;env&gt;</code></td>
+<td>Override the detected dev environment. One of: <code>ai</code>, <code>ci</code>, <code>cli</code>, <code>ide</code>, <code>precommit</code> (default: auto-detected)</td>
+</tr>
 </tbody>
 </table>
 <hr />
+<h2 id="dev-environment-detection">Dev environment detection<a class="headerlink" href="#dev-environment-detection" title="Permanent link">&para;</a></h2>
+<p>FineCode tracks which environment triggered an action run (e.g. IDE, CLI, CI/CD). This value is passed to handlers via <code>RunActionMeta.dev_env</code> and can be used to adjust behavior — for example, to emit machine-readable output in CI.</p>
+<p>The <code>run</code>, <code>prepare-envs</code>, and <code>dump-config</code> commands detect the environment automatically:</p>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Detected value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CI</code> environment variable is set (any non-empty value)</td>
+<td><code>ci</code></td>
+</tr>
+<tr>
+<td>Default</td>
+<td><code>cli</code></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>CI</code> variable is set automatically by GitHub Actions, GitLab CI, CircleCI, Travis CI, Bitbucket Pipelines, and most other CI systems.</p>
+<p>Use <code>--dev-env=&lt;value&gt;</code> on any command to override the detected value explicitly:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Force CI/CD mode locally</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--dev-env<span class="o">=</span>ci<span class="w"> </span>lint
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Mark as a pre-commit run</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--dev-env<span class="o">=</span>precommit<span class="w"> </span>lint
+</code></pre></div>
+<p>Valid values: <code>ai</code>, <code>ci</code>, <code>cli</code>, <code>ide</code>, <code>precommit</code>.</p>
+<hr />
 <h2 id="start-lsp"><code>start-lsp</code><a class="headerlink" href="#start-lsp" title="Permanent link">&para;</a></h2>
 <p>Start the FineCode LSP server. Used by the IDE extension — you typically don't call this directly.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python -m finecode start-lsp --stdio | --socket &lt;port&gt; | --ws [--host &lt;host&gt;] [--port &lt;port&gt;]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>python -m finecode start-lsp --stdio | --socket &lt;port&gt; | --ws [--host &lt;host&gt;] [--port &lt;port&gt;]
 </code></pre></div>
 <table>
 <thead>
@@ -1584,8 +1803,8 @@
 <td>Port for TCP/WS server</td>
 </tr>
 <tr>
-<td><code>--trace</code></td>
-<td>Enable verbose logging</td>
+<td><code>--log-level=&lt;level&gt;</code></td>
+<td>Set log level: <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code> (default: <code>INFO</code>)</td>
 </tr>
 <tr>
 <td><code>--debug</code></td>
@@ -1593,11 +1812,11 @@
 </tr>
 </tbody>
 </table>
-<p>The LSP server connects to the <strong>FineCode API server</strong> on startup (starting one if needed). See <a href="../reference/lsp-mcp-architecture/">LSP and MCP Architecture</a> for details.</p>
+<p>The LSP server connects to the <strong>FineCode WM Server</strong> on startup (starting one if needed). See <a href="../reference/lsp-mcp-architecture/">LSP and MCP Architecture</a> for details.</p>
 <hr />
 <h2 id="start-mcp"><code>start-mcp</code><a class="headerlink" href="#start-mcp" title="Permanent link">&para;</a></h2>
-<p>Start the FineCode MCP server on stdio. Connects to a running FineCode API server (or starts one) and exposes FineCode tools via the Model Context Protocol.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>.venvs/dev_workspace/bin/python -m finecode start-mcp [--workdir=&lt;path&gt;] [--trace]
+<p>Start the FineCode MCP server on stdio. Connects to a running FineCode WM Server (or starts one) and exposes FineCode tools via the Model Context Protocol.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>.venvs/dev_workspace/bin/python -m finecode start-mcp [--workdir=&lt;path&gt;] [--log-level=&lt;level&gt;]
 </code></pre></div>
 <table>
 <thead>
@@ -1612,16 +1831,16 @@
 <td>Workspace root directory (default: current directory).</td>
 </tr>
 <tr>
-<td><code>--trace</code></td>
-<td>Enable verbose logging</td>
+<td><code>--log-level=&lt;level&gt;</code></td>
+<td>Set log level: <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code> (default: <code>INFO</code>)</td>
 </tr>
 </tbody>
 </table>
 <p>Typically started automatically by MCP-compatible clients (for example, Claude Code) — see <a href="../getting-started-ide-mcp/#mcp-setup-for-ai-clients">IDE and MCP Setup</a>.</p>
 <hr />
-<h2 id="start-api-server"><code>start-api-server</code><a class="headerlink" href="#start-api-server" title="Permanent link">&para;</a></h2>
-<p>Start the FineCode API server standalone (TCP JSON-RPC), listen for client connections. Auto-stops when the last client disconnects.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>python -m finecode start-api-server [--trace]
+<h2 id="start-wm-server"><code>start-wm-server</code><a class="headerlink" href="#start-wm-server" title="Permanent link">&para;</a></h2>
+<p>Start the FineCode Workspace Manager Server standalone (TCP JSON-RPC), listen for client connections. Shuts down after the last client disconnects and the disconnect timeout expires.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>python -m finecode start-wm-server [--log-level=&lt;level&gt;] [--disconnect-timeout=&lt;seconds&gt;]
 </code></pre></div>
 <table>
 <thead>
@@ -1632,8 +1851,12 @@
 </thead>
 <tbody>
 <tr>
-<td><code>--trace</code></td>
-<td>Enable verbose logging</td>
+<td><code>--log-level=&lt;level&gt;</code></td>
+<td>Set log level: <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code> (default: <code>INFO</code>)</td>
+</tr>
+<tr>
+<td><code>--disconnect-timeout=&lt;seconds&gt;</code></td>
+<td>Seconds to wait after the last client disconnects before shutting down (default: 30)</td>
 </tr>
 </tbody>
 </table>

@@ -13,7 +13,7 @@
         <link rel="canonical" href="http://localhost:8000/guides/developing-finecode/">
       
       
-        <link rel="prev" href="../../api-protocol/">
+        <link rel="prev" href="../../wm-er-protocol/">
       
       
       
@@ -912,6 +912,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/lsp-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LSP Client Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1011,14 +1039,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api-protocol/" class="md-nav__link">
+      <a href="../../wm-protocol/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    API Protocol
+    WM Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wm-er-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WM-ER Protocol
   
 
     
@@ -1128,6 +1184,89 @@
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-strategy-development-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging strategy (development policy)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logging strategy (development policy)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-level-overrides-target-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module-level overrides (target contract)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safety-and-performance-guardrails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safety and performance guardrails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incident-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incident workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1340,6 +1479,89 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#logging-strategy-development-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging strategy (development policy)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logging strategy (development policy)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Goals
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-level-overrides-target-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module-level overrides (target contract)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safety-and-performance-guardrails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safety and performance guardrails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#incident-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incident workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dependency-lock-files" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1516,38 +1738,116 @@
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>check_formatting
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>pytest<span class="w"> </span>tests/
 </code></pre></div>
+<h2 id="logging-strategy-development-policy">Logging strategy (development policy)<a class="headerlink" href="#logging-strategy-development-policy" title="Permanent link">&para;</a></h2>
+<p>This section defines the logging policy contributors should follow when adding or changing logs in FineCode.</p>
+<p>The policy below defines the approach for reducing noise while keeping deep diagnostics available.</p>
+<h3 id="goals">Goals<a class="headerlink" href="#goals" title="Permanent link">&para;</a></h3>
+<ul>
+<li>keep logs useful in normal development and CI runs</li>
+<li>allow deep diagnostics only when needed</li>
+<li>make noisy areas controllable per module</li>
+<li>avoid logging sensitive data</li>
+</ul>
+<h3 id="level-policy">Level policy<a class="headerlink" href="#level-policy" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>ERROR</code>: operation failed and needs attention; include actionable context</li>
+<li><code>WARNING</code>: recoverable problem, degraded behavior, or skipped step</li>
+<li><code>INFO</code>: lifecycle milestones and key business events (start/stop, action run result)</li>
+<li><code>DEBUG</code>: developer diagnostics for branch decisions and compact internal state</li>
+<li><code>TRACE</code>: high-volume details (payload previews, loop-level details, per-item processing)</li>
+</ul>
+<p>Rules:</p>
+<ul>
+<li>default global level must be <code>INFO</code></li>
+<li><code>TRACE</code> must be disabled by default</li>
+<li><code>TRACE</code> should be opt-in for specific modules or short debugging sessions</li>
+<li>avoid <code>INFO</code> in tight loops; use <code>TRACE</code>/<code>DEBUG</code> instead</li>
+</ul>
+<h3 id="module-level-overrides-target-contract">Module-level overrides (target contract)<a class="headerlink" href="#module-level-overrides-target-contract" title="Permanent link">&para;</a></h3>
+<p>Use per-module log levels so diagnostics can be enabled surgically without turning on global trace.</p>
+<p>Recommended config shape:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[tool.finecode.logging]</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">default_level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;INFO&quot;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;json&quot;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">[tool.finecode.logging.module_levels]</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s2">&quot;finecode.wm_server.services.run_service&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;TRACE&quot;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="s2">&quot;finecode.wm_server.runner.runner_manager&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;DEBUG&quot;</span>
+</code></pre></div>
+<p>Recommended env override pattern:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">FINECODE_LOG_LEVEL</span><span class="o">=</span>INFO
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">FINECODE_LOG_LEVEL_FINECODE_API_SERVER_SERVICES_RUN_SERVICE</span><span class="o">=</span>TRACE
+</code></pre></div>
+<p>Recommended CLI override pattern:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--log-level<span class="o">=</span>TRACE<span class="w"> </span>lint
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>start-wm-server<span class="w"> </span>--log-level<span class="o">=</span>DEBUG
+</code></pre></div>
+<p>Notes:</p>
+<ul>
+<li><code>--log-level</code> is supported by all commands: <code>run</code>, <code>prepare-envs</code>, <code>dump-config</code>, <code>start-lsp</code>, <code>start-wm-server</code>, <code>start-mcp</code></li>
+<li>when a CLI command spawns a dedicated WM server subprocess, the log level is propagated automatically</li>
+<li>module overrides should take precedence over global level (not yet implemented)</li>
+</ul>
+<h3 id="what-to-log">What to log<a class="headerlink" href="#what-to-log" title="Permanent link">&para;</a></h3>
+<p>Log at boundaries where failures or latency matter:</p>
+<ul>
+<li>request start/end with identifiers (<code>request_id</code>, <code>run_id</code>, <code>project</code>, <code>action</code>)</li>
+<li>external process and RPC boundaries (spawn, send, receive, timeout, cancel)</li>
+<li>retries, fallbacks, and decision points</li>
+<li>final result summary (status, duration, item counts)</li>
+</ul>
+<p>For high-volume objects:</p>
+<ul>
+<li>log previews and metadata instead of full payloads</li>
+<li>include sizes/counts (<code>len</code>, keys, return code) rather than full dumps</li>
+<li>use full payload logs only at <code>TRACE</code></li>
+</ul>
+<h3 id="safety-and-performance-guardrails">Safety and performance guardrails<a class="headerlink" href="#safety-and-performance-guardrails" title="Permanent link">&para;</a></h3>
+<ul>
+<li>never log secrets or tokens (API keys, auth headers, credentials, full env dumps)</li>
+<li>redact known sensitive keys (<code>token</code>, <code>password</code>, <code>secret</code>, <code>authorization</code>)</li>
+<li>prefer lazy/cheap log construction on hot paths</li>
+<li>guard expensive <code>TRACE</code> formatting with level checks</li>
+</ul>
+<h3 id="incident-workflow">Incident workflow<a class="headerlink" href="#incident-workflow" title="Permanent link">&para;</a></h3>
+<ul>
+<li>keep production/dev default at <code>INFO</code></li>
+<li>during incident analysis, enable <code>TRACE</code> only for affected modules</li>
+<li>~~prefer time-bounded overrides (TTL) so verbose logging auto-reverts~~</li>
+<li>once resolved, remove temporary overrides and keep only useful <code>INFO</code>/<code>WARNING</code></li>
+</ul>
 <h2 id="dependency-lock-files">Dependency lock files<a class="headerlink" href="#dependency-lock-files" title="Permanent link">&para;</a></h2>
 <p>FineCode uses <a href="https://packaging.python.org/en/latest/specifications/pylock-toml/">pylock.toml</a> lock files for reproducible dependency installation.</p>
 <h3 id="why-lock-files">Why lock files<a class="headerlink" href="#why-lock-files" title="Permanent link">&para;</a></h3>
 <p>Without lock files, <code>prepare-envs</code> resolves dependency versions from the ranges declared in <code>pyproject.toml</code> at install time. This means two developers (or CI runs) can end up with different versions depending on when they ran the command. Lock files pin exact versions for reproducible environments.</p>
 <h3 id="lock-files-are-environment-specific">Lock files are environment-specific<a class="headerlink" href="#lock-files-are-environment-specific" title="Permanent link">&para;</a></h3>
 <p>Each FineCode environment (<code>dev_workspace</code>, <code>dev_no_runtime</code>, <code>runtime</code>, etc.) has its own set of dependencies, so each needs its own lock file:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pylock.&lt;env_name&gt;.toml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pylock.&lt;env_name&gt;.toml
 </code></pre></div>
 <p>For example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>myproject/
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>  pyproject.toml
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  pylock.dev_workspace.toml
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  pylock.dev_no_runtime.toml
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  pylock.runtime.toml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>myproject/
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  pyproject.toml
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  pylock.dev_workspace.toml
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  pylock.dev_no_runtime.toml
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  pylock.runtime.toml
 </code></pre></div>
 <h3 id="lock-files-are-platform-and-python-version-specific">Lock files are platform- and Python version-specific<a class="headerlink" href="#lock-files-are-platform-and-python-version-specific" title="Permanent link">&para;</a></h3>
 <p>A lock file records the exact dependency resolution for one platform and one Python version. The same <code>pyproject.toml</code> can resolve differently on Linux vs macOS, or Python 3.12 vs 3.13.</p>
 <p>If the project targets a single platform and Python version, one lock file per env is enough. For multiple targets, encode platform and version into the file name (the <code>&lt;name&gt;</code> segment in <code>pylock.&lt;name&gt;.toml</code> must not contain dots):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>myproject/
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  pyproject.toml
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  locks/
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    pylock.dev_workspace-linux-py312.toml
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    pylock.dev_workspace-linux-py313.toml
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    pylock.dev_workspace-macos-py312.toml
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    pylock.dev_no_runtime-linux-py312.toml
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    ...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>myproject/
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  pyproject.toml
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  locks/
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    pylock.dev_workspace-linux-py312.toml
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    pylock.dev_workspace-linux-py313.toml
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    pylock.dev_workspace-macos-py312.toml
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    pylock.dev_no_runtime-linux-py312.toml
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    ...
 </code></pre></div>
 <h3 id="generating-lock-files">Generating lock files<a class="headerlink" href="#generating-lock-files" title="Permanent link">&para;</a></h3>
 <p>Use the <code>lock_dependencies</code> action:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lock_dependencies<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span>--src_artifact_def_path<span class="o">=</span>pyproject.toml<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span>--output_path<span class="o">=</span>pylock.dev_workspace.toml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lock_dependencies<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span>--src_artifact_def_path<span class="o">=</span>pyproject.toml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span>--output_path<span class="o">=</span>pylock.dev_workspace.toml
 </code></pre></div>
 <p>For the Python ecosystem, the <code>PipLockDependenciesHandler</code> runs <code>pip lock</code> under the hood.</p>
 <h3 id="installing-from-lock-files">Installing from lock files<a class="headerlink" href="#installing-from-lock-files" title="Permanent link">&para;</a></h3>
@@ -1555,8 +1855,8 @@
 <p>By default it looks for <code>pylock.&lt;env_name&gt;.toml</code> next to the project's <code>pyproject.toml</code>. If a lock file is not found for an env, it is skipped with a warning.</p>
 <h3 id="lock-files-in-ci">Lock files in CI<a class="headerlink" href="#lock-files-in-ci" title="Permanent link">&para;</a></h3>
 <p>Lock files should be committed to the repository. CI should install from them, not regenerate them:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># CI installs from existing lock files — reproducible</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># CI installs from existing lock files — reproducible</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
 </code></pre></div>
 <p>To update lock files, run <code>lock_dependencies</code> locally or in a scheduled CI job and commit the result. For multi-platform projects, use a CI matrix to generate lock files on each target platform.</p>
 <h2 id="code-style">Code Style<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h2>
