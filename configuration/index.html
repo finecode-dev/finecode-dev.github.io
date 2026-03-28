@@ -711,6 +711,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#declaring-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Declaring services
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#environment-specific-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1028,6 +1039,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../reference/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../reference/extensions/" class="md-nav__link">
         
   
@@ -1306,6 +1345,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1400,6 +1467,17 @@
     <span class="md-ellipsis">
       
         Configuring a handler
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declaring-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Declaring services
       
     </span>
   </a>
@@ -1526,57 +1604,72 @@
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">config</span><span class="p">.</span><span class="n">max_line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">88</span>
 <a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">config</span><span class="p">.</span><span class="n">extend_ignore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;E203&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;E501&quot;</span><span class="p">]</span>
 </code></pre></div>
+<h3 id="declaring-services">Declaring services<a class="headerlink" href="#declaring-services" title="Permanent link">&para;</a></h3>
+<p>Services are shared, long-lived dependencies used by handlers. Declare service bindings with <code>[[tool.finecode.service]]</code> entries:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[[tool.finecode.service]]</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">interface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api.interfaces.ilspclient.ILspClient&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;finecode_extension_runner.impls.lsp_client.LspClientImpl&quot;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dev_no_runtime&quot;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+</code></pre></div>
+<p>Service declarations are merged by <code>interface</code>. If a preset declares a service, you can rebind it in your project by declaring the same <code>interface</code> with a different <code>source</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">[[tool.finecode.service]]</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">interface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api.interfaces.ihttpclient.IHttpClient&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my_company_http.MyHttpClient&quot;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dev_no_runtime&quot;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;my_company_http~=1.2.0&quot;</span><span class="p">]</span>
+</code></pre></div>
 <h3 id="environment-specific-dependencies">Environment-specific dependencies<a class="headerlink" href="#environment-specific-dependencies" title="Permanent link">&para;</a></h3>
 <p>You can pin or override dependencies installed into each env:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[tool.finecode.env.dev_no_runtime.dependencies]</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">fine_python_ruff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;./my_local_ruff_fork&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">editable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">[tool.finecode.env.dev_no_runtime.dependencies]</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">fine_python_ruff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;./my_local_ruff_fork&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">editable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <h2 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
 <p>Override handler config at runtime without modifying files.</p>
 <p><strong>Format:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>FINECODE_CONFIG_&lt;ACTION&gt;__&lt;PARAM&gt;=&lt;json_value&gt;
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>FINECODE_CONFIG_&lt;ACTION&gt;__&lt;HANDLER&gt;__&lt;PARAM&gt;=&lt;json_value&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>FINECODE_CONFIG_&lt;ACTION&gt;__&lt;PARAM&gt;=&lt;json_value&gt;
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>FINECODE_CONFIG_&lt;ACTION&gt;__&lt;HANDLER&gt;__&lt;PARAM&gt;=&lt;json_value&gt;
 </code></pre></div>
 <ul>
 <li><code>&lt;ACTION&gt;</code>, <code>&lt;HANDLER&gt;</code>, <code>&lt;PARAM&gt;</code> are <strong>uppercase</strong>, separated by double underscores (<code>__</code>)</li>
 <li>Values are parsed as <strong>JSON</strong> (use <code>"true"</code>, <code>123</code>, <code>"string"</code>, <code>["a","b"]</code>, etc.)</li>
 </ul>
 <p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Set line_length for all handlers of the lint action</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">FINECODE_CONFIG_LINT__LINE_LENGTH</span><span class="o">=</span><span class="m">100</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Set line_length only for the ruff handler</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nv">FINECODE_CONFIG_LINT__RUFF__LINE_LENGTH</span><span class="o">=</span><span class="m">120</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># Pass a JSON array</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nv">FINECODE_CONFIG_LINT__RUFF__EXTEND_SELECT</span><span class="o">=</span><span class="s1">&#39;[&quot;B&quot;,&quot;I&quot;]&#39;</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Set line_length for all handlers of the lint action</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nv">FINECODE_CONFIG_LINT__LINE_LENGTH</span><span class="o">=</span><span class="m">100</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Set line_length only for the ruff handler</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nv">FINECODE_CONFIG_LINT__RUFF__LINE_LENGTH</span><span class="o">=</span><span class="m">120</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># Pass a JSON array</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="nv">FINECODE_CONFIG_LINT__RUFF__EXTEND_SELECT</span><span class="o">=</span><span class="s1">&#39;[&quot;B&quot;,&quot;I&quot;]&#39;</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint
 </code></pre></div>
 <p>To disable env var config entirely:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--no-env-config<span class="w"> </span>lint
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>--no-env-config<span class="w"> </span>lint
 </code></pre></div>
 <h2 id="cli-config-flags">CLI config flags<a class="headerlink" href="#cli-config-flags" title="Permanent link">&para;</a></h2>
 <p>Override config inline on the command line. CLI flags take precedence over env vars.</p>
 <p><strong>Format:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>--config.&lt;param&gt;=&lt;value&gt;
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>--config.&lt;handler&gt;.&lt;param&gt;=&lt;value&gt;
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>--config.&lt;param&gt;=&lt;value&gt;
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>--config.&lt;handler&gt;.&lt;param&gt;=&lt;value&gt;
 </code></pre></div>
 <p><strong>Examples:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Action-level: applies to all handlers</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--config.line_length<span class="o">=</span><span class="m">120</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Handler-specific</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--config.ruff.line_length<span class="o">=</span><span class="m">120</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># Combined</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--config.ruff.line_length<span class="o">=</span><span class="m">120</span><span class="w"> </span>--config.mypy.strict<span class="o">=</span><span class="nb">true</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># CLI overrides env vars (line_length will be 120)</span>
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="nv">FINECODE_CONFIG_LINT__RUFF__LINE_LENGTH</span><span class="o">=</span><span class="m">100</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--config.ruff.line_length<span class="o">=</span><span class="m">120</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Action-level: applies to all handlers</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--config.line_length<span class="o">=</span><span class="m">120</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># Handler-specific</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--config.ruff.line_length<span class="o">=</span><span class="m">120</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># Combined</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--config.ruff.line_length<span class="o">=</span><span class="m">120</span><span class="w"> </span>--config.mypy.strict<span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># CLI overrides env vars (line_length will be 120)</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="nv">FINECODE_CONFIG_LINT__RUFF__LINE_LENGTH</span><span class="o">=</span><span class="m">100</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span>--config.ruff.line_length<span class="o">=</span><span class="m">120</span>
 </code></pre></div>
 <h2 id="inspecting-resolved-configuration">Inspecting resolved configuration<a class="headerlink" href="#inspecting-resolved-configuration" title="Permanent link">&para;</a></h2>
 <p>Dump the fully merged configuration for a project to a file:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>dump-config<span class="w"> </span>--project<span class="o">=</span>my_project
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="c1"># Output written to finecode_config_dump/</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>dump-config<span class="w"> </span>--project<span class="o">=</span>my_project
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="c1"># Output written to finecode_config_dump/</span>
 </code></pre></div>
 <p>This is useful for debugging config merging from multiple presets.</p>
 

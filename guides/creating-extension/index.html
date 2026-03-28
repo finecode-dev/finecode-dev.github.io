@@ -799,6 +799,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#source-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source strings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#handler-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -983,6 +994,34 @@
     
   
     Built-in Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
   
 
     
@@ -1281,6 +1320,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1352,6 +1419,17 @@
     <span class="md-ellipsis">
       
         4. Register the handler in a project
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source strings
       
     </span>
   </a>
@@ -1446,7 +1524,7 @@
 <p>Import the action you want to handle and subclass <code>ActionHandler</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># my_linter/handler.py</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">finecode_extension_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">code_action</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">finecode_extension_api.actions.lint_files</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">finecode_extension_api.actions.code_quality.lint_files_action</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">LintFilesAction</span><span class="p">,</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">LintFilesRunPayload</span><span class="p">,</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">LintFilesRunContext</span><span class="p">,</span>
@@ -1485,7 +1563,7 @@
 <h2 id="4-register-the-handler-in-a-project">4. Register the handler in a project<a class="headerlink" href="#4-register-the-handler-in-a-project" title="Permanent link">&para;</a></h2>
 <p>Add the handler to the target action in <code>pyproject.toml</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[tool.finecode.action.lint]</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api.actions.lint.LintAction&quot;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api.actions.LintAction&quot;</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">handlers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p">{</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my_linter&quot;</span><span class="err">,</span>
@@ -1496,11 +1574,19 @@
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="err">]</span>
 </code></pre></div>
 <p>Then run <code>python -m finecode prepare-envs</code> to install your handler into the venv.</p>
+<h2 id="source-strings">Source strings<a class="headerlink" href="#source-strings" title="Permanent link">&para;</a></h2>
+<p>Every <code>source =</code> value in TOML config is resolved at runtime as import path.</p>
+<p><strong>Built-in action classes</strong> are all re-exported from <code>finecode_extension_api.actions</code>, so
+their source strings take the short form <code>finecode_extension_api.actions.&lt;ClassName&gt;</code> — you
+do not need to know which subgroup (<code>code_quality/</code>, <code>environments/</code>, etc.) a class lives in.
+See the <a href="../../reference/actions/">Built-in Actions reference</a> for the full list.</p>
+<p><strong>Handler classes</strong> are referenced by their full import path:
+<code>my_linter.MyLinterHandler</code> (module <code>my_linter</code>, member <code>MyLinterHandler</code>).</p>
 <h2 id="handler-configuration">Handler configuration<a class="headerlink" href="#handler-configuration" title="Permanent link">&para;</a></h2>
 <p>To make your handler configurable, define a config model and declare <code>CONFIG_TYPE</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">dataclasses</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">finecode_extension_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">code_action</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">finecode_extension_api.actions.lint_files</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">finecode_extension_api.actions.code_quality.lint_files_action</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">LintFilesAction</span><span class="p">,</span> <span class="n">LintFilesRunPayload</span><span class="p">,</span> <span class="n">LintFilesRunContext</span><span class="p">,</span> <span class="n">LintFilesRunResult</span><span class="p">,</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">)</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
@@ -1564,6 +1650,7 @@
 </div>
 <h2 id="available-actions-to-handle">Available actions to handle<a class="headerlink" href="#available-actions-to-handle" title="Permanent link">&para;</a></h2>
 <p>See the <a href="../../reference/actions/">Built-in Actions reference</a> for the full list of action classes, payload types, and result types you can implement handlers for.</p>
+<p>If you are defining a new action (not just a handler), see <a href="../designing-actions/">Designing Actions</a> for principles on inter-language design, language-specific subactions, and where to place parameters.</p>
 
 
 

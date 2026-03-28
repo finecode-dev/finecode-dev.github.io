@@ -10,25 +10,27 @@
       
       
       
+        <link rel="canonical" href="http://localhost:8000/adr/0007-single-registration-per-action-definition/">
+      
       
       
       
         
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
-        <title>FineCode</title>
+        <title>ADR-0007: Single registration per action definition - FineCode</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="/assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#adr-0007-single-registration-per-action-definition" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +90,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
+    <a href="../.." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              ADR-0007: Single registration per action definition
             
           </span>
         </div>
@@ -218,7 +225,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/." class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
@@ -236,7 +243,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/concepts/" class="md-tabs__link">
+      <a href="../../concepts/" class="md-tabs__link">
         
   
   
@@ -255,7 +262,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/configuration/" class="md-tabs__link">
+      <a href="../../configuration/" class="md-tabs__link">
         
   
   
@@ -274,7 +281,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/cli/" class="md-tabs__link">
+      <a href="../../cli/" class="md-tabs__link">
         
   
   
@@ -295,7 +302,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/guides/creating-extension/" class="md-tabs__link">
+        <a href="../../guides/creating-extension/" class="md-tabs__link">
           
   
   
@@ -315,7 +322,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/reference/actions/" class="md-tabs__link">
+        <a href="../../reference/actions/" class="md-tabs__link">
           
   
   
@@ -335,7 +342,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/development/" class="md-tabs__link">
+        <a href="../../development/" class="md-tabs__link">
           
   
   
@@ -369,7 +376,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
+    <a href="../.." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -453,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -481,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started/" class="md-nav__link">
+      <a href="../../getting-started/" class="md-nav__link">
         
   
   
@@ -509,7 +516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started-ide-mcp/" class="md-nav__link">
+      <a href="../../getting-started-ide-mcp/" class="md-nav__link">
         
   
   
@@ -544,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/concepts/" class="md-nav__link">
+      <a href="../../concepts/" class="md-nav__link">
         
   
   
@@ -571,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/configuration/" class="md-nav__link">
+      <a href="../../configuration/" class="md-nav__link">
         
   
   
@@ -598,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/cli/" class="md-nav__link">
+      <a href="../../cli/" class="md-nav__link">
         
   
   
@@ -679,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/creating-extension/" class="md-nav__link">
+      <a href="../../guides/creating-extension/" class="md-nav__link">
         
   
   
@@ -707,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/creating-preset/" class="md-nav__link">
+      <a href="../../guides/creating-preset/" class="md-nav__link">
         
   
   
@@ -735,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/workspace/" class="md-nav__link">
+      <a href="../../guides/workspace/" class="md-nav__link">
         
   
   
@@ -824,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/actions/" class="md-nav__link">
+      <a href="../../reference/actions/" class="md-nav__link">
         
   
   
@@ -852,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/services/" class="md-nav__link">
+      <a href="../../reference/services/" class="md-nav__link">
         
   
   
@@ -880,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/extensions/" class="md-nav__link">
+      <a href="../../reference/extensions/" class="md-nav__link">
         
   
   
@@ -908,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/lsp-mcp-architecture/" class="md-nav__link">
+      <a href="../../reference/lsp-mcp-architecture/" class="md-nav__link">
         
   
   
@@ -936,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/lsp-protocol/" class="md-nav__link">
+      <a href="../../reference/lsp-protocol/" class="md-nav__link">
         
   
   
@@ -964,7 +971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/glossary/" class="md-nav__link">
+      <a href="../../glossary/" class="md-nav__link">
         
   
   
@@ -1053,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/" class="md-nav__link">
+      <a href="../../development/" class="md-nav__link">
         
   
   
@@ -1081,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wm-protocol/" class="md-nav__link">
+      <a href="../../wm-protocol/" class="md-nav__link">
         
   
   
@@ -1109,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wm-er-protocol/" class="md-nav__link">
+      <a href="../../wm-er-protocol/" class="md-nav__link">
         
   
   
@@ -1137,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/developing-finecode/" class="md-nav__link">
+      <a href="../../guides/developing-finecode/" class="md-nav__link">
         
   
   
@@ -1165,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/adr/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -1210,6 +1217,99 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-adrs-considered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related ADRs Considered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consequences
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consequences">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alternatives-considered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternatives Considered
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Decisions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1222,8 +1322,99 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+  
+
+
+<h1 id="adr-0007-single-registration-per-action-definition">ADR-0007: Single registration per action definition<a class="headerlink" href="#adr-0007-single-registration-per-action-definition" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>Status:</strong> accepted</li>
+<li><strong>Date:</strong> 2026-03-21</li>
+<li><strong>Deciders:</strong> @Aksem</li>
+<li><strong>Tags:</strong> actions, architecture, languages</li>
+</ul>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<p>FineCode actions are architectural contracts that callers discover and invoke
+across projects and environments. If a project can register the same action
+definition more than once under different project-local names, callers must know
+those registration details to select the intended action. That makes action
+identity depend on configuration rather than on the shared contract itself.</p>
+<p>This is especially problematic after <a href="../0006-shared-action-types-as-the-action-identity-contract/">ADR-0006</a>,
+which establishes shared action definition types as the identity contract. Allowing
+multiple registrations of the same action definition would make that lookup
+ambiguous at the project level.</p>
+<p>Multiple registrations also create avoidable routing work for file-oriented
+actions. If the same generic action definition is registered once per language,
+each registration or handler must independently decide which subset of files it
+should process. That pushes grouping and dispatch concerns into repeated
+project-local registrations instead of making them an explicit part of the
+action architecture.</p>
+<p>Multi-language actions still need a way to specialize behavior by language, but
+that need should be addressed through explicit composition or specialization
+mechanisms, not by registering the same action definition multiple times.</p>
+<h2 id="related-adrs-considered">Related ADRs Considered<a class="headerlink" href="#related-adrs-considered" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../0006-shared-action-types-as-the-action-identity-contract/">ADR-0006</a> —
+  establishes action definition types as the identity contract. This ADR extends
+  that rule from action lookup to project registration.</li>
+</ul>
+<h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<p>FineCode permits <strong>at most one registration of a given action definition within a
+project</strong>.</p>
+<p>A project-local registration name or configuration may vary, but it does not
+create a new action identity and does not justify additional registrations of the
+same action definition.</p>
+<p>Variation in tool behavior, language specialization, or environment-specific
+execution belongs in handlers, specialized action definitions, or other explicit
+composition mechanisms, not in repeated registrations of the same action
+definition.</p>
+<p>For multi-language file-oriented actions, the architecture must use some
+coordination mechanism other than "register the same generic action definition
+once per language".</p>
+<h2 id="consequences">Consequences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Stable cross-project action identity.</strong> Any caller can reference an action by
+  its shared definition, regardless of which project or preset is active. This
+  keeps action lookup APIs based on action definitions unambiguous.</li>
+<li><strong>Project configuration cannot model language variants as duplicate registrations.</strong>
+  Multi-language behavior must be represented through explicit action
+  specialization or routing design.</li>
+<li><strong>Routing can be centralized instead of repeated.</strong> When a dispatch-style
+  implementation is used, file grouping and delegation can happen once rather than
+  being reimplemented in each registration or handler.</li>
+<li><strong>Some designs become more explicit.</strong> Projects that support multiple ecosystems
+  may need additional specialized action definitions or orchestration handlers, but
+  the boundary between action identity and execution strategy stays clearer.</li>
+</ul>
+<h3 id="alternatives-considered">Alternatives Considered<a class="headerlink" href="#alternatives-considered" title="Permanent link">&para;</a></h3>
+<p><strong>Multiple registrations of the same action definition under different names.</strong>
+Rejected because it makes action selection depend on project-local conventions,
+creates ambiguity for action-definition-based lookup, and encourages routing logic
+to be expressed as duplicate registrations instead of as explicit architecture.</p>
+<h2 id="related-decisions">Related Decisions<a class="headerlink" href="#related-decisions" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Refines <a href="../0006-shared-action-types-as-the-action-identity-contract/">ADR-0006</a></li>
+</ul>
+<h2 id="implementation-notes">Implementation Notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h2>
+<p>One supported implementation for multi-language file actions is a dispatch
+handler that invokes language-specific actions. That is an implementation pattern,
+not the architectural rule recorded by this ADR.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1266,10 +1457,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

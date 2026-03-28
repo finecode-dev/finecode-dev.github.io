@@ -865,6 +865,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../reference/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../reference/extensions/" class="md-nav__link">
         
   
@@ -1576,6 +1604,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2084,8 +2140,8 @@
 - Exposes LSP API for IDE integration
 - Delegates tool execution to Extension Runners</p>
 <h4 id="extension-runner-finecode_extension_runner">Extension Runner (<code>finecode_extension_runner/</code>)<a class="headerlink" href="#extension-runner-finecode_extension_runner" title="Permanent link">&para;</a></h4>
-<p>Executes tool handlers in isolated virtual environments:
-- Runs inside isolated venv per tool
+<p>Executes tool handlers in purpose-specific virtual environments:
+- Runs inside a purpose-specific venv (e.g. <code>dev_no_runtime</code>)
 - Imports and executes handler code
 - Communicates with Workspace Manager via JSON-RPC/LSP</p>
 <h4 id="extension-api-finecode_extension_api">Extension API (<code>finecode_extension_api/</code>)<a class="headerlink" href="#extension-api-finecode_extension_api" title="Permanent link">&para;</a></h4>

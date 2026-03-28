@@ -10,13 +10,9 @@
       
       
       
-        <link rel="canonical" href="http://localhost:8000/reference/lsp-mcp-architecture/">
+        <link rel="canonical" href="http://localhost:8000/theory/why-action-model/">
       
       
-        <link rel="prev" href="../extensions/">
-      
-      
-        <link rel="next" href="../lsp-protocol/">
       
       
         
@@ -27,7 +23,7 @@
     
     
       
-        <title>LSP and MCP Architecture - FineCode</title>
+        <title>Why FineCode's Action Model Works - FineCode</title>
       
     
     
@@ -80,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#lsp-and-mcp-architecture" class="md-skip">
+        <a href="#why-finecodes-action-model-works" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LSP and MCP Architecture
+              Why FineCode's Action Model Works
             
           </span>
         </div>
@@ -322,13 +318,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../actions/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../reference/actions/" class="md-tabs__link">
           
   
   
@@ -780,31 +774,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -822,7 +813,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -840,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../actions/" class="md-nav__link">
+      <a href="../../reference/actions/" class="md-nav__link">
         
   
   
@@ -868,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../services/" class="md-nav__link">
+      <a href="../../reference/services/" class="md-nav__link">
         
   
   
@@ -896,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../extensions/" class="md-nav__link">
+      <a href="../../reference/extensions/" class="md-nav__link">
         
   
   
@@ -921,37 +912,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LSP and MCP Architecture
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../reference/lsp-mcp-architecture/" class="md-nav__link">
         
   
   
@@ -967,70 +931,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#component-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Component model
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lsp-request-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LSP request flow
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lifecycle-behavior" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lifecycle behavior
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manual-server-startup-for-debugging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manual server startup for debugging
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1043,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../lsp-protocol/" class="md-nav__link">
+      <a href="../../reference/lsp-protocol/" class="md-nav__link">
         
   
   
@@ -1327,10 +1227,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#component-model" class="md-nav__link">
+  <a href="#the-problems-with-ad-hoc-tool-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Component model
+        The problems with ad-hoc tool integration
       
     </span>
   </a>
@@ -1338,10 +1238,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lsp-request-flow" class="md-nav__link">
+  <a href="#actions-are-typed-contracts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        LSP request flow
+        Actions are typed contracts
       
     </span>
   </a>
@@ -1349,10 +1249,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lifecycle-behavior" class="md-nav__link">
+  <a href="#how-results-compose" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lifecycle behavior
+        How results compose
       
     </span>
   </a>
@@ -1360,10 +1260,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#manual-server-startup-for-debugging" class="md-nav__link">
+  <a href="#three-levels-of-specificity-why-swapping-tools-is-painless" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Manual server startup for debugging
+        Three levels of specificity: why swapping tools is painless
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Three levels of specificity: why swapping tools is painless">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-new-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding a new language
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incremental-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Incremental results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-means-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this means in practice
       
     </span>
   </a>
@@ -1390,57 +1329,132 @@
   
 
 
-<h1 id="lsp-and-mcp-architecture">LSP and MCP Architecture<a class="headerlink" href="#lsp-and-mcp-architecture" title="Permanent link">&para;</a></h1>
-<p>FineCode uses one shared Workspace Manager Server (WM Server) for CLI, IDE (LSP), and AI-agent (MCP) clients.</p>
-<h2 id="component-model">Component model<a class="headerlink" href="#component-model" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>FineCode WM Server (TCP JSON-RPC, auto-managed)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── WorkspaceContext, runners, services
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>└── auto-stops when no clients remain
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>LSP Server (start-lsp, started by IDE)
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>└── connects to WM Server (starts one if needed)
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>MCP Server (start-mcp, started by MCP client)
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>└── connects to WM Server (starts one if needed)
-</code></pre></div>
-<p>The WM Server writes its port to <code>.venvs/dev_workspace/cache/finecode/wm_port</code> for client discovery.</p>
-<h2 id="lsp-request-flow">LSP request flow<a class="headerlink" href="#lsp-request-flow" title="Permanent link">&para;</a></h2>
-<pre class="mermaid"><code>sequenceDiagram
-    participant IDE as IDE Extension
-    participant WM as Workspace Manager (LSP)
-    participant ER as Extension Runner
-
-    IDE-&gt;&gt;WM: textDocument/didOpen
-    WM-&gt;&gt;ER: run lint_files action
-    ER--&gt;&gt;WM: LintFilesRunResult (diagnostics)
-    WM--&gt;&gt;IDE: textDocument/publishDiagnostics
-
-    IDE-&gt;&gt;WM: textDocument/formatting
-    WM-&gt;&gt;ER: run format_files action
-    ER--&gt;&gt;WM: FormatFilesRunResult (edits)
-    WM--&gt;&gt;IDE: TextEdit[]</code></pre>
-<p>The LSP layer translates protocol messages into FineCode actions, delegates execution to extension runners, then translates results back into LSP responses.</p>
-<h2 id="lifecycle-behavior">Lifecycle behavior<a class="headerlink" href="#lifecycle-behavior" title="Permanent link">&para;</a></h2>
+<h1 id="why-finecodes-action-model-works">Why FineCode's Action Model Works<a class="headerlink" href="#why-finecodes-action-model-works" title="Permanent link">&para;</a></h1>
+<h2 id="the-problems-with-ad-hoc-tool-integration">The problems with ad-hoc tool integration<a class="headerlink" href="#the-problems-with-ad-hoc-tool-integration" title="Permanent link">&para;</a></h2>
+<p>Developer tooling has a recurring structural problem. Every time a team adopts a new tool — a linter, a formatter, a dependency manager — someone has to write glue code. CI scripts, IDE plugins, configuration files, output parsers. And every time a team <em>switches</em> a tool, much of that glue is thrown away and rewritten.</p>
+<p>Three symptoms keep showing up:</p>
+<p><strong>Tool lock-in.</strong> Switching from pylint to ruff should be a one-line config change. In practice, it often means updating CI pipelines, IDE settings, pre-commit hooks, and custom scripts — because each integration was written against a specific tool rather than against the <em>operation</em> of linting.</p>
+<p><strong>Language silos.</strong> A team adds Kotlin to a Java project. The Java side has a mature toolchain: linting, formatting, dependency locking, all wired up. The Kotlin side needs its own, separate wiring — even though the operations are structurally identical. "Lint these files and report diagnostics" is the same operation in any language. The tools differ; the shape of the work does not.</p>
+<p><strong>All-or-nothing results.</strong> A CI job lints 500 files and reports results only after the last file finishes. An IDE, meanwhile, wants diagnostics file by file as they become available. Supporting both modes typically means maintaining two separate integrations — or accepting that one of them will be suboptimal.</p>
+<p>These are symptoms of a missing abstraction. FineCode's Action Model is that abstraction.</p>
+<h2 id="actions-are-typed-contracts">Actions are typed contracts<a class="headerlink" href="#actions-are-typed-contracts" title="Permanent link">&para;</a></h2>
+<p>The central idea is simple: separate <em>what</em> an operation does from <em>how</em> it does it.</p>
+<p>An <strong>Action</strong> is a typed declaration — a contract — defined by three types:</p>
 <ul>
-<li>Any client (CLI, LSP, MCP) can start the WM Server if it is not already running.</li>
-<li>Each connected client keeps the WM Server alive.</li>
-<li>When the last client disconnects, the WM Server exits automatically.</li>
+<li><strong>Payload</strong> — the input parameters (e.g., which files to lint)</li>
+<li><strong>Context</strong> — mutable state for the duration of one execution</li>
+<li><strong>Result</strong> — the output (e.g., a list of diagnostics)</li>
 </ul>
-<h2 id="manual-server-startup-for-debugging">Manual server startup for debugging<a class="headerlink" href="#manual-server-startup-for-debugging" title="Permanent link">&para;</a></h2>
-<p>Most users should not start servers manually. IDE and MCP clients usually manage startup automatically.</p>
-<p>Use manual startup when:</p>
-<ul>
-<li>Debugging LSP/MCP behavior</li>
-<li>Developing a new IDE integration</li>
-<li>Developing a new MCP client integration</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># LSP server (for custom IDE clients)</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>start-lsp<span class="w"> </span>--stdio
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># MCP server</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>start-mcp
+<p>In Python, this is just a class with type parameters:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">LintFilesAction</span><span class="p">(</span><span class="n">Action</span><span class="p">[</span><span class="n">LintFilesRunPayload</span><span class="p">,</span> <span class="n">LintFilesRunContext</span><span class="p">,</span> <span class="n">LintFilesRunResult</span><span class="p">]):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">PAYLOAD_TYPE</span> <span class="o">=</span> <span class="n">LintFilesRunPayload</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">RUN_CONTEXT_TYPE</span> <span class="o">=</span> <span class="n">LintFilesRunContext</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">RESULT_TYPE</span> <span class="o">=</span> <span class="n">LintFilesRunResult</span>
 </code></pre></div>
-<p>For setup instructions, see <a href="../../getting-started-ide-mcp/">IDE and MCP Setup</a>.</p>
+<p>An action contains no execution logic. It says: "linting files takes a list of file paths and produces a dictionary of diagnostics, keyed by file." That's it — the contract.</p>
+<p>A <strong>Handler</strong> is an implementation of that contract. Multiple handlers can be registered for the same action. A ruff handler and a mypy handler both implement the lint action — they accept the same payload type and return the same result type. The caller doesn't know or care which handlers run. It invokes "lint" and gets diagnostics back.</p>
+<p>This separation is what makes the rest possible. When the contract is stable, everything built on top of it — dispatch, composition, streaming — works regardless of which tools are plugged in underneath.</p>
+<h2 id="how-results-compose">How results compose<a class="headerlink" href="#how-results-compose" title="Permanent link">&para;</a></h2>
+<p>When multiple handlers implement the same action, their results need to be combined. FineCode makes each action define its own <strong>merge strategy</strong> — there is no implicit default.</p>
+<p>Three strategies cover the common cases:</p>
+<p><strong>Accumulation.</strong> Two linters produce diagnostics for the same files. The results are merged by union — diagnostics from both linters appear in the final output. Neither overwrites the other.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ruff diagnostics:  {main.py: [W291, E501]}
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>mypy diagnostics:  {main.py: [error: incompatible type]}
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>merged:            {main.py: [W291, E501, error: incompatible type]}
+</code></pre></div>
+<p><strong>Replacement.</strong> A build action produces a single output artifact. If a second handler runs (perhaps a post-processor), its result replaces the previous one. Only the final output matters.</p>
+<p><strong>Pipeline.</strong> A formatter modifies source files, then a subsequent handler writes the changes to disk. Order matters — writing must follow formatting. Each handler can read the accumulated result so far and build on it.</p>
+<p>The important property: merge strategies are <strong>associative</strong>. Merging result A with result B, then with C, gives the same answer as merging A with the result of merging B and C. This means the execution engine can safely group and reorder intermediate merges without affecting the outcome.</p>
+<p>In practical terms: when an action's merge is associative and handlers don't depend on each other's output (like independent linters), FineCode can run them <strong>in parallel or sequentially — same result either way</strong>. The framework makes this decision transparently. Handlers don't need to know.</p>
+<p>For the formal definition of these properties — associativity, identity elements, and the exact conditions under which parallel and sequential execution are equivalent — see <a href="action-model.md#result-algebra">The Action Model</a>.</p>
+<h2 id="three-levels-of-specificity-why-swapping-tools-is-painless">Three levels of specificity: why swapping tools is painless<a class="headerlink" href="#three-levels-of-specificity-why-swapping-tools-is-painless" title="Permanent link">&para;</a></h2>
+<p>This is the design decision that has the most direct impact on day-to-day configuration.</p>
+<p>FineCode separates parameters into three levels:</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>What it carries</th>
+<th>Who changes it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Generic action</strong></td>
+<td>Cross-language concepts</td>
+<td>Almost never changes</td>
+</tr>
+<tr>
+<td><strong>Language-specific subaction</strong></td>
+<td>Ecosystem parameters</td>
+<td>Changes when your ecosystem needs change</td>
+</tr>
+<tr>
+<td><strong>Handler configuration</strong></td>
+<td>Tool-specific parameters</td>
+<td>Changes when you swap tools</td>
+</tr>
+</tbody>
+</table>
+<p>Consider dependency locking. The generic action carries parameters meaningful in any ecosystem: which artifact to lock, where to write the lock file. The Python-specific subaction adds parameters meaningful across <em>all Python locking tools</em>: target Python version and target platform. The handler configuration carries parameters specific to <em>one tool</em>: pip-compile's <code>generate_hashes</code> flag, or uv's <code>resolution</code> strategy.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>lock_dependencies                    ← generic: src_artifact_def_path, output_dir
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  └─ lock_python_dependencies        ← ecosystem: + target_python_version, target_platform
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>       ├─ pip-compile handler config  ← tool: generate_hashes, allow_unsafe
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>       └─ uv handler config          ← tool: resolution strategy
+</code></pre></div>
+<p><strong>Switching from pip-compile to uv</strong> means changing the handler and its config. The ecosystem parameters (<code>target_python_version</code>, <code>target_platform</code>) stay exactly where they are — they are properties of the <em>target environment</em>, not the <em>tool</em>. One line in <code>pyproject.toml</code> changes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Before</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">[[tool.finecode.action.lock_python_dependencies.handlers]]</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pip_compile&quot;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fine_python_pip.PipCompileLockHandler&quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dev_workspace&quot;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">config</span><span class="p">.</span><span class="n">generate_hashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="c1"># After</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">[[tool.finecode.action.lock_python_dependencies.handlers]]</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;uv&quot;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fine_python_uv.UvLockHandler&quot;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dev_workspace&quot;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="n">config</span><span class="p">.</span><span class="n">resolution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;highest&quot;</span>
+</code></pre></div>
+<p>The <code>target_python_version</code> and <code>target_platform</code> in the payload? Untouched. The dispatch handler that routes <code>lock_dependencies</code> to the right language? Untouched. Everything above the handler level is stable.</p>
+<h3 id="adding-a-new-language">Adding a new language<a class="headerlink" href="#adding-a-new-language" title="Permanent link">&para;</a></h3>
+<p>Supporting a new language follows the same principle. Say your workspace adds a Node.js project. You register a subaction:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">LockNodeDependenciesAction</span><span class="p">(</span><span class="n">Action</span><span class="p">[</span><span class="o">...</span><span class="p">]):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">LANGUAGE</span> <span class="o">=</span> <span class="s2">&quot;node&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">PARENT_ACTION</span> <span class="o">=</span> <span class="n">LockDependenciesAction</span>
+</code></pre></div>
+<p>The dispatch handler discovers it automatically — it looks up subactions by metadata (<code>LANGUAGE</code> + <code>PARENT_ACTION</code>), not by hardcoded names or string patterns. No existing code changes. No dispatch tables to update.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>                    lock_dependencies
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>                    ┌───────┴───────┐
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>          detect language         detect language
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>                │                       │
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    lock_python_dependencies    lock_node_dependencies
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>         │                              │
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    pylock.toml                  package-lock.json
+</code></pre></div>
+<p>This <strong>open extension</strong> property — new languages without modifying existing dispatch logic — is what makes FineCode scale to mixed-language workspaces without growing configuration complexity.</p>
+<h2 id="incremental-results">Incremental results<a class="headerlink" href="#incremental-results" title="Permanent link">&para;</a></h2>
+<p>When a payload is decomposable into independent items — like a list of files to lint — FineCode's execution engine can process items individually and deliver results as they complete.</p>
+<p>The lint handler doesn't need to implement streaming. It receives a list of file URIs, and the runner handles decomposition:</p>
+<ol>
+<li>The runner breaks the file list into individual items</li>
+<li>Each file is linted independently (potentially in parallel)</li>
+<li>Per-file results are sent to the consumer as they finish — via LSP <code>$/progress</code> notifications to the IDE, for instance</li>
+<li>The full merged result is still accumulated for the final response</li>
+</ol>
+<p>The same handler code works whether results are streamed to an IDE in real time or collected into a single CI report. The handler doesn't know and doesn't care. Streaming is a property of the <em>execution environment</em>, not the handler.</p>
+<p>This is only possible because the merge strategy is defined on the result type, not in the handler. The runner knows how to combine partial results because the action's contract specifies it.</p>
+<h2 id="what-this-means-in-practice">What this means in practice<a class="headerlink" href="#what-this-means-in-practice" title="Permanent link">&para;</a></h2>
+<p>The Action Model is not theoretical overhead — it's the reason FineCode can make these concrete guarantees:</p>
+<ul>
+<li><strong>Swap a tool without touching project configuration.</strong> Handler config is the only thing that changes. Ecosystem parameters and dispatch logic are unaffected.</li>
+<li><strong>Add a language without modifying dispatch logic.</strong> Register a subaction with the right metadata. The dispatch handler discovers it automatically.</li>
+<li><strong>Run handlers in parallel when safe, sequentially when not.</strong> The framework decides based on the action's merge properties and handler configuration. Handlers don't coordinate with each other.</li>
+<li><strong>Stream partial results to IDEs automatically.</strong> Actions with decomposable payloads get incremental delivery for free. Orchestrator actions can also stream by delegating to a subaction and yielding mapped results — the framework handles delivery in both cases.</li>
+<li><strong>No implicit merge behavior.</strong> Every action that supports multiple handlers must define how results combine. Silent data loss from undefined merges is impossible.</li>
+</ul>
+<p>For practical guidance on designing new actions, see <a href="../../guides/designing-actions/">Designing Actions</a>.</p>
 
 
 

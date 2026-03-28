@@ -10,25 +10,27 @@
       
       
       
+        <link rel="canonical" href="http://localhost:8000/adr/0004-auto-shutdown-on-disconnect-timeout/">
+      
       
       
       
         
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
-        <title>FineCode</title>
+        <title>ADR-0004: Auto-shutdown on disconnect timeout - FineCode</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="/assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#adr-0004-auto-shutdown-on-disconnect-timeout" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +90,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
+    <a href="../.." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              ADR-0004: Auto-shutdown on disconnect timeout
             
           </span>
         </div>
@@ -218,7 +225,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/." class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
@@ -236,7 +243,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/concepts/" class="md-tabs__link">
+      <a href="../../concepts/" class="md-tabs__link">
         
   
   
@@ -255,7 +262,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/configuration/" class="md-tabs__link">
+      <a href="../../configuration/" class="md-tabs__link">
         
   
   
@@ -274,7 +281,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/cli/" class="md-tabs__link">
+      <a href="../../cli/" class="md-tabs__link">
         
   
   
@@ -295,7 +302,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/guides/creating-extension/" class="md-tabs__link">
+        <a href="../../guides/creating-extension/" class="md-tabs__link">
           
   
   
@@ -315,7 +322,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/reference/actions/" class="md-tabs__link">
+        <a href="../../reference/actions/" class="md-tabs__link">
           
   
   
@@ -335,7 +342,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/development/" class="md-tabs__link">
+        <a href="../../development/" class="md-tabs__link">
           
   
   
@@ -369,7 +376,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
+    <a href="../.." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -453,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -481,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started/" class="md-nav__link">
+      <a href="../../getting-started/" class="md-nav__link">
         
   
   
@@ -509,7 +516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started-ide-mcp/" class="md-nav__link">
+      <a href="../../getting-started-ide-mcp/" class="md-nav__link">
         
   
   
@@ -544,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/concepts/" class="md-nav__link">
+      <a href="../../concepts/" class="md-nav__link">
         
   
   
@@ -571,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/configuration/" class="md-nav__link">
+      <a href="../../configuration/" class="md-nav__link">
         
   
   
@@ -598,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/cli/" class="md-nav__link">
+      <a href="../../cli/" class="md-nav__link">
         
   
   
@@ -679,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/creating-extension/" class="md-nav__link">
+      <a href="../../guides/creating-extension/" class="md-nav__link">
         
   
   
@@ -707,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/creating-preset/" class="md-nav__link">
+      <a href="../../guides/creating-preset/" class="md-nav__link">
         
   
   
@@ -735,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/workspace/" class="md-nav__link">
+      <a href="../../guides/workspace/" class="md-nav__link">
         
   
   
@@ -824,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/actions/" class="md-nav__link">
+      <a href="../../reference/actions/" class="md-nav__link">
         
   
   
@@ -852,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/services/" class="md-nav__link">
+      <a href="../../reference/services/" class="md-nav__link">
         
   
   
@@ -880,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/extensions/" class="md-nav__link">
+      <a href="../../reference/extensions/" class="md-nav__link">
         
   
   
@@ -908,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/lsp-mcp-architecture/" class="md-nav__link">
+      <a href="../../reference/lsp-mcp-architecture/" class="md-nav__link">
         
   
   
@@ -936,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/lsp-protocol/" class="md-nav__link">
+      <a href="../../reference/lsp-protocol/" class="md-nav__link">
         
   
   
@@ -964,7 +971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/glossary/" class="md-nav__link">
+      <a href="../../glossary/" class="md-nav__link">
         
   
   
@@ -1053,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/" class="md-nav__link">
+      <a href="../../development/" class="md-nav__link">
         
   
   
@@ -1081,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wm-protocol/" class="md-nav__link">
+      <a href="../../wm-protocol/" class="md-nav__link">
         
   
   
@@ -1109,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wm-er-protocol/" class="md-nav__link">
+      <a href="../../wm-er-protocol/" class="md-nav__link">
         
   
   
@@ -1137,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/developing-finecode/" class="md-nav__link">
+      <a href="../../guides/developing-finecode/" class="md-nav__link">
         
   
   
@@ -1165,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/adr/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -1210,6 +1217,77 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-adrs-considered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related ADRs Considered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consequences
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consequences">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alternatives-considered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternatives Considered
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1222,8 +1300,112 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+  
+
+
+<h1 id="adr-0004-auto-shutdown-on-disconnect-timeout">ADR-0004: Auto-shutdown on disconnect timeout<a class="headerlink" href="#adr-0004-auto-shutdown-on-disconnect-timeout" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>Status:</strong> accepted</li>
+<li><strong>Date:</strong> 2026-03-19</li>
+<li><strong>Deciders:</strong> @Aksem</li>
+<li><strong>Tags:</strong> lifecycle, wm-server</li>
+</ul>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<p>The WM server is a long-running process started on demand by clients (LSP
+server, MCP server, CLI). Clients may terminate without sending an explicit
+shutdown request — for example, when the IDE is force-closed, crashes, or the
+extension is reloaded. Without a self-termination mechanism, the WM would run
+indefinitely as a ghost process, holding the discovery file and consuming
+resources.</p>
+<p>Clients may also intentionally stop or restart the WM through an explicit
+shutdown request. This ADR addresses the complementary case where no such
+request is sent and the WM must determine on its own when to exit.</p>
+<p>Two distinct scenarios require handling:</p>
+<ol>
+<li><strong>No client ever connects</strong> — the WM started successfully but the client
+   failed to connect (e.g. misconfiguration, client crash during startup).</li>
+<li><strong>Last client disconnects</strong> — a normal session end or unexpected client
+   termination.</li>
+</ol>
+<h2 id="related-adrs-considered">Related ADRs Considered<a class="headerlink" href="#related-adrs-considered" title="Permanent link">&para;</a></h2>
+<p>Reviewed <a href="../0002-port-file-discovery-for-wm-server/">ADR-0002</a> — related topic:
+the WM's shutdown flow performs the discovery-file cleanup defined there.</p>
+<h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<p>The WM server uses two independent timeout-based shutdown mechanisms:</p>
+<ul>
+<li><strong>No-client timeout</strong> (default 30 s): started immediately after the server
+  begins listening. If no client connects within this window, the WM performs
+  its normal shutdown and exits.</li>
+<li><strong>Disconnect timeout</strong> (default 30 s): started when the last client
+  disconnects. If no client reconnects within this window, the WM performs its
+  normal shutdown and exits.</li>
+</ul>
+<p>These timeouts complement, rather than replace, explicit shutdown requests used
+by clients that intentionally stop or restart the WM.</p>
+<p>Both timeout paths use the WM's normal shutdown flow, including discovery-file
+cleanup (see <a href="../0002-port-file-discovery-for-wm-server/">ADR-0002</a>).</p>
+<p>The disconnect timeout is configurable so that tests and dedicated instances
+can use a shorter grace period when needed.</p>
+<p>Using the same 30-second default for both timeouts keeps lifecycle behavior
+simple and provides a reasonable reconnection window for IDE extension reloads
+and brief transient disconnects without leaving orphaned processes running for
+long.</p>
+<h2 id="consequences">Consequences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Ghost process prevention</strong>: the WM exits automatically after a client
+  disconnects, without requiring clients to explicitly decide when the shared
+  WM should stop. This is the primary defense against orphaned processes after
+  IDE close or crash.</li>
+<li><strong>Reconnection window</strong>: the grace period allows clients to reconnect within
+  the timeout — for example, after an IDE extension reload or a brief
+  disconnection. The WM does not need to be restarted for each reconnection.</li>
+<li><strong>Warm reuse across brief idle gaps</strong>: the grace period allows a shared WM
+  to survive short pauses between independent clients, such as sequential CLI
+  commands, preserving in-process state and caches between commands and
+  reducing restart overhead.</li>
+<li><strong>Connection-driven lifecycle</strong>: shutdown depends on client liveness rather
+  than completion of previously requested work. Once no clients remain past the
+  grace period, the WM exits through its normal shutdown path.</li>
+<li><strong>Discovery file cleanup</strong>: normal shutdown removes the discovery file, so a
+  stale file is never left behind after a timeout-driven shutdown (unlike a
+  SIGKILL).</li>
+</ul>
+<h3 id="alternatives-considered">Alternatives Considered<a class="headerlink" href="#alternatives-considered" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Immediate shutdown on last disconnect</strong>: safe but breaks IDE extension
+  reload scenarios and brief idle gaps between independent clients, such as
+  sequential CLI commands using a shared WM.</li>
+<li><strong>Never auto-shutdown (persistent daemon)</strong>: WM runs until explicitly
+  stopped. Requires external process management and makes
+  it harder to reason about lifecycle in tests and CI.</li>
+<li><strong>Client heartbeat / keepalive</strong>: client sends periodic pings; WM shuts down
+  if pings stop. More precise than a fixed timeout for detecting dead connected
+  clients, but it still does not answer how long the WM should remain alive
+  when no clients are connected at all. Shared-WM use cases with brief idle
+  gaps between clients, such as sequential CLI commands, would still require a
+  grace-period timeout or a different persistent-daemon policy. It also
+  requires all clients to implement the heartbeat protocol.</li>
+<li><strong>Parent PID tracking</strong>: WM monitors its parent process and exits when the
+  parent dies. Does not work when the WM is started independently of its client
+  (e.g. shared WM).</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1266,10 +1448,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

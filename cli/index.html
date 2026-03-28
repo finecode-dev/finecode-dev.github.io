@@ -1089,6 +1089,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../reference/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../reference/extensions/" class="md-nav__link">
         
   
@@ -1354,6 +1382,34 @@
     
   
     Developing FineCode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Decisions
   
 
     
@@ -1638,7 +1694,7 @@
 </tr>
 <tr>
 <td><code>--project=&lt;name&gt;</code></td>
-<td>Run only in this project. Repeatable for multiple projects.</td>
+<td>Run only in this project (matched by <code>[project].name</code> from <code>pyproject.toml</code>). Repeatable for multiple projects.</td>
 </tr>
 <tr>
 <td><code>--concurrently</code></td>
@@ -1705,9 +1761,11 @@
 <hr />
 <h2 id="prepare-envs"><code>prepare-envs</code><a class="headerlink" href="#prepare-envs" title="Permanent link">&para;</a></h2>
 <p>Create and populate virtual environments for all handler dependencies.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python -m finecode prepare-envs [--recreate] [--log-level=&lt;level&gt;] [--debug]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python -m finecode prepare-envs [--recreate] [--env-names=&lt;name&gt;]...
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>                                 [--project=&lt;name&gt;]... [--log-level=&lt;level&gt;] [--debug]
 </code></pre></div>
 <p>Must be run from the workspace or project root. Creates venvs under <code>.venvs/&lt;env_name&gt;/</code> and installs each handler's declared dependencies.</p>
+<p>See <a href="../guides/preparing-environments/">Preparing Environments</a> for a full explanation of the three-step sequence and filtering options.</p>
 <table>
 <thead>
 <tr>
@@ -1719,6 +1777,14 @@
 <tr>
 <td><code>--recreate</code></td>
 <td>Delete and recreate all venvs from scratch</td>
+</tr>
+<tr>
+<td><code>--env-names=&lt;name&gt;</code></td>
+<td>Restrict handler dependency installation to the named env(s). Repeatable. See note below.</td>
+</tr>
+<tr>
+<td><code>--project=&lt;name&gt;</code></td>
+<td>Restrict preparation to the named project(s) (matched by <code>[project].name</code> from <code>pyproject.toml</code>). Repeatable.</td>
 </tr>
 <tr>
 <td><code>--log-level=&lt;level&gt;</code></td>
@@ -1734,6 +1800,7 @@
 </tr>
 </tbody>
 </table>
+<p>!!! note <code>--env-names</code> restricts only the <code>install_envs</code> step. The <code>create_envs</code> step still runs for <strong>all</strong> envs regardless of this flag — virtualenvs must exist for every env even when you only need to update dependencies in one of them.</p>
 <hr />
 <h2 id="dump-config"><code>dump-config</code><a class="headerlink" href="#dump-config" title="Permanent link">&para;</a></h2>
 <p>Dump the fully resolved configuration for a project to disk, useful for debugging preset and config merging.</p>
@@ -1750,7 +1817,7 @@
 <tbody>
 <tr>
 <td><code>--project=&lt;name&gt;</code></td>
-<td><strong>(Required)</strong> Project to dump config for</td>
+<td><strong>(Required)</strong> Project to dump config for (matched by <code>[project].name</code> from <code>pyproject.toml</code>)</td>
 </tr>
 <tr>
 <td><code>--log-level=&lt;level&gt;</code></td>

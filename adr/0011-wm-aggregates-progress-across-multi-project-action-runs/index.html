@@ -10,25 +10,27 @@
       
       
       
+        <link rel="canonical" href="http://localhost:8000/adr/0011-wm-aggregates-progress-across-multi-project-action-runs/">
+      
       
       
       
         
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
-        <title>FineCode</title>
+        <title>ADR-0011: WM aggregates progress for multi-execution requests - FineCode</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="/assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#adr-0011-wm-aggregates-progress-for-multi-execution-requests" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +90,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
+    <a href="../.." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              ADR-0011: WM aggregates progress for multi-execution requests
             
           </span>
         </div>
@@ -218,7 +225,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/." class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
@@ -236,7 +243,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/concepts/" class="md-tabs__link">
+      <a href="../../concepts/" class="md-tabs__link">
         
   
   
@@ -255,7 +262,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/configuration/" class="md-tabs__link">
+      <a href="../../configuration/" class="md-tabs__link">
         
   
   
@@ -274,7 +281,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/cli/" class="md-tabs__link">
+      <a href="../../cli/" class="md-tabs__link">
         
   
   
@@ -295,7 +302,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/guides/creating-extension/" class="md-tabs__link">
+        <a href="../../guides/creating-extension/" class="md-tabs__link">
           
   
   
@@ -315,7 +322,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/reference/actions/" class="md-tabs__link">
+        <a href="../../reference/actions/" class="md-tabs__link">
           
   
   
@@ -335,7 +342,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/development/" class="md-tabs__link">
+        <a href="../../development/" class="md-tabs__link">
           
   
   
@@ -369,7 +376,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
+    <a href="../.." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -453,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -481,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started/" class="md-nav__link">
+      <a href="../../getting-started/" class="md-nav__link">
         
   
   
@@ -509,7 +516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started-ide-mcp/" class="md-nav__link">
+      <a href="../../getting-started-ide-mcp/" class="md-nav__link">
         
   
   
@@ -544,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/concepts/" class="md-nav__link">
+      <a href="../../concepts/" class="md-nav__link">
         
   
   
@@ -571,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/configuration/" class="md-nav__link">
+      <a href="../../configuration/" class="md-nav__link">
         
   
   
@@ -598,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/cli/" class="md-nav__link">
+      <a href="../../cli/" class="md-nav__link">
         
   
   
@@ -679,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/creating-extension/" class="md-nav__link">
+      <a href="../../guides/creating-extension/" class="md-nav__link">
         
   
   
@@ -707,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/creating-preset/" class="md-nav__link">
+      <a href="../../guides/creating-preset/" class="md-nav__link">
         
   
   
@@ -735,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/workspace/" class="md-nav__link">
+      <a href="../../guides/workspace/" class="md-nav__link">
         
   
   
@@ -824,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/actions/" class="md-nav__link">
+      <a href="../../reference/actions/" class="md-nav__link">
         
   
   
@@ -852,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/services/" class="md-nav__link">
+      <a href="../../reference/services/" class="md-nav__link">
         
   
   
@@ -880,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/extensions/" class="md-nav__link">
+      <a href="../../reference/extensions/" class="md-nav__link">
         
   
   
@@ -908,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/lsp-mcp-architecture/" class="md-nav__link">
+      <a href="../../reference/lsp-mcp-architecture/" class="md-nav__link">
         
   
   
@@ -936,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/lsp-protocol/" class="md-nav__link">
+      <a href="../../reference/lsp-protocol/" class="md-nav__link">
         
   
   
@@ -964,7 +971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/glossary/" class="md-nav__link">
+      <a href="../../glossary/" class="md-nav__link">
         
   
   
@@ -1053,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/" class="md-nav__link">
+      <a href="../../development/" class="md-nav__link">
         
   
   
@@ -1081,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wm-protocol/" class="md-nav__link">
+      <a href="../../wm-protocol/" class="md-nav__link">
         
   
   
@@ -1109,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wm-er-protocol/" class="md-nav__link">
+      <a href="../../wm-er-protocol/" class="md-nav__link">
         
   
   
@@ -1137,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/developing-finecode/" class="md-nav__link">
+      <a href="../../guides/developing-finecode/" class="md-nav__link">
         
   
   
@@ -1165,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/adr/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -1210,6 +1217,88 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-adrs-considered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related ADRs Considered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consequences
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consequences">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alternatives-considered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternatives Considered
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1222,8 +1311,116 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+  
+
+
+<h1 id="adr-0011-wm-aggregates-progress-for-multi-execution-requests">ADR-0011: WM aggregates progress for multi-execution requests<a class="headerlink" href="#adr-0011-wm-aggregates-progress-for-multi-execution-requests" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>Status:</strong> accepted</li>
+<li><strong>Date:</strong> 2026-03-28</li>
+<li><strong>Deciders:</strong> @Aksem</li>
+<li><strong>Tags:</strong> actions, progress, architecture, wm-server</li>
+</ul>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<p><a href="../0010-progress-reporting-for-actions/">ADR-0010</a> defines progress as an
+explicit action-scoped contract owned by the current handler boundary. That
+works cleanly for a single action execution, but some WM-level requests fan out
+into multiple executions behind one client-visible operation.</p>
+<p>This happens in at least two shapes:</p>
+<ul>
+<li>one action executed across multiple projects</li>
+<li>multiple actions executed as one batch request such as <code>runBatch</code></li>
+</ul>
+<p>In both cases, the client still expects one progress stream for the overall
+request, while the WM may dispatch work to multiple child executions. Unlike
+partial results, multiple progress lifecycles cannot simply be interleaved under
+one client token. Competing start, update, and end events would produce erratic
+percentages and confusing messages.</p>
+<p>FineCode therefore needs an architectural rule for who owns the client-visible
+progress stream whenever one request fans out into multiple progress-emitting
+executions, and how those child progress streams should be combined without
+making handlers aware of WM-level coordination.</p>
+<h2 id="related-adrs-considered">Related ADRs Considered<a class="headerlink" href="#related-adrs-considered" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../0009-explicit-partial-result-token-propagation/">ADR-0009</a> - partial
+  results can be interleaved across delegated work because each item is result
+  data. Progress lifecycle events do not have that property.</li>
+<li><a href="../0010-progress-reporting-for-actions/">ADR-0010</a> - defines the handler-side
+  progress contract. This ADR defines how the WM combines multiple project-level
+  progress streams for one client-visible operation.</li>
+</ul>
+<h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<p>For any client-visible request that fans out into multiple child executions, the
+<strong>WM owns the client-visible progress stream</strong>.</p>
+<ul>
+<li>The WM must not forward multiple child progress lifecycles directly under one
+  client token.</li>
+<li>The WM must issue distinct internal progress identities for child executions
+  and aggregate them into the single progress stream expected by the client.</li>
+<li>Handler and ER code remain unaware of WM-level aggregation. They report
+  progress for their own action scope only.</li>
+<li>This rule applies whether the fan-out dimension is multiple projects,
+  multiple actions, or both.</li>
+<li>When child progress includes measurable totals, the WM should aggregate
+  client-visible percentage proportionally to total work across child
+  executions rather than giving every child equal weight.</li>
+<li>When child progress is indeterminate, the WM may forward narrative updates
+  without inventing false precision. If no determinate totals are available,
+  the client-visible progress should remain indeterminate until the work
+  completes.</li>
+</ul>
+<h2 id="consequences">Consequences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>One client request gets one coherent progress stream.</strong> Clients do not see
+  conflicting begin/report/end sequences from different child executions.</li>
+<li><strong>Progress remains accurate across uneven work sizes.</strong> A large project or
+  action can contribute more of the overall percentage than a small one when
+  totals are known.</li>
+<li><strong>Handler contracts stay simple.</strong> Handlers do not need request-level
+  aggregation logic or awareness of sibling executions.</li>
+<li><strong>The WM gains aggregation state and protocol responsibilities.</strong> It must
+  track internal progress identities, combine updates, and normalize what it
+  forwards.</li>
+<li><strong>Narrative updates may be richer than percentages.</strong> Some child executions will
+  contribute messages even when they cannot contribute meaningful percentage
+  values.</li>
+</ul>
+<h3 id="alternatives-considered">Alternatives Considered<a class="headerlink" href="#alternatives-considered" title="Permanent link">&para;</a></h3>
+<p><strong>Directly interleave child progress under one client token.</strong> Rejected
+because progress lifecycle events conflict when multiple executions share one
+visible stream.</p>
+<p><strong>Only report coarse completion at the WM level.</strong> Rejected because it throws
+away useful progress from within each child execution and makes large fan-out
+requests feel artificially coarse.</p>
+<p><strong>Give every child execution an equal slice of the percentage range.</strong> Rejected
+because it distorts overall progress when the amount of work differs
+substantially.</p>
+<h3 id="implementation-notes">Implementation Notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A natural implementation is for the WM to mint one internal progress token per
+  child execution and map those internal streams onto the client-visible token.</li>
+<li>When totals are available, the WM can combine them into a shared total and
+  derive global completion from per-child completion.</li>
+<li>If FineCode later needs nested or hierarchical progress UI, this ADR should be
+  revisited before layering additional semantics onto the same stream.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1266,10 +1463,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

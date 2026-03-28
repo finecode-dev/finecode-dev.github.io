@@ -865,6 +865,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../reference/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../reference/extensions/" class="md-nav__link">
         
   
@@ -1276,6 +1304,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1483,6 +1539,15 @@ The protocol is LSP-shaped with a small set of custom commands.</p>
 </ul>
 </li>
 <li>
+<p><code>finecodeRunner/getInfo</code></p>
+<ul>
+<li>Arguments: none</li>
+<li>Result: <code>{ "logFilePath": "/abs/path/to/runner.log" | null }</code></li>
+<li>Returns runtime information about the runner. Currently reports the path
+  to the runner's log file, or <code>null</code> if logging to a file is not configured.</li>
+</ul>
+</li>
+<li>
 <p><code>actions/run</code></p>
 <ul>
 <li>Arguments:</li>
@@ -1512,6 +1577,17 @@ The protocol is LSP-shaped with a small set of custom commands.</p>
 </code></pre></div></li>
 <li>Note: <code>result_by_format</code> is a JSON string (not a JSON object) due to
   LSP serialization constraints in the runner.</li>
+</ul>
+</li>
+<li>
+<p><code>actions/getPayloadSchemas</code></p>
+<ul>
+<li>Arguments: none</li>
+<li>Result: <code>{ action_name: JSON Schema fragment | null }</code></li>
+<li>Returns a payload schema for every action currently known to the runner.
+  Each schema has <code>properties</code> (field name → JSON Schema type object) and
+  <code>required</code> (list of field names without defaults).
+  <code>null</code> means the action class could not be imported.</li>
 </ul>
 </li>
 <li>

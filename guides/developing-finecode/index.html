@@ -16,6 +16,8 @@
         <link rel="prev" href="../../wm-er-protocol/">
       
       
+        <link rel="next" href="../../adr/">
+      
       
         
       
@@ -863,6 +865,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../reference/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../reference/extensions/" class="md-nav__link">
         
   
@@ -1382,6 +1412,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#json-rpc-key-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON-RPC key naming convention
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JSON-RPC key naming convention">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rule-write-keys-explicitly-no-auto-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule: write keys explicitly, no auto-conversion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-this-means-per-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this means per layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencing-adrs-in-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencing ADRs in source code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1435,6 +1515,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1673,6 +1781,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#json-rpc-key-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON-RPC key naming convention
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="JSON-RPC key naming convention">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rule-write-keys-explicitly-no-auto-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule: write keys explicitly, no auto-conversion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-this-means-per-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this means per layer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencing-adrs-in-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Referencing ADRs in source code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1760,6 +1918,18 @@
 <h2 id="setting-up-the-development-environment">Setting up the development environment<a class="headerlink" href="#setting-up-the-development-environment" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># From the repo root, inside the dev_workspace venv:</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Re-prepare a single environment (e.g. after changing its dependencies):</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs<span class="w"> </span>--env<span class="o">=</span>dev_no_runtime
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Multiple envs at once:</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs<span class="w"> </span>--env<span class="o">=</span>dev<span class="w"> </span>--env<span class="o">=</span>dev_no_runtime
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Prepare only a specific project:</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs<span class="w"> </span>--project<span class="o">=</span>finecode_extension_api
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Combine filters — one env in one project:</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs<span class="w"> </span>--project<span class="o">=</span>finecode_extension_api<span class="w"> </span>--env<span class="o">=</span>dev_no_runtime
 </code></pre></div>
 <h2 id="running-checks">Running checks<a class="headerlink" href="#running-checks" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lint
@@ -1813,6 +1983,8 @@
 <p>Notes:</p>
 <ul>
 <li><code>--log-level</code> is supported by all commands: <code>run</code>, <code>prepare-envs</code>, <code>dump-config</code>, <code>start-lsp</code>, <code>start-wm-server</code>, <code>start-mcp</code></li>
+<li><code>prepare-envs --env=&lt;name&gt;</code> limits environment preparation to the named env(s); the flag may be repeated</li>
+<li><code>prepare-envs --project=&lt;name&gt;</code> limits to the named project(s); the flag may be repeated; can be combined with <code>--env</code></li>
 <li>when a CLI command spawns a dedicated WM server subprocess, the log level is propagated automatically</li>
 <li>module overrides should take precedence over global level (not yet implemented)</li>
 </ul>
@@ -1879,14 +2051,78 @@
 </code></pre></div>
 <p>For the Python ecosystem, the <code>PipLockDependenciesHandler</code> runs <code>pip lock</code> under the hood.</p>
 <h3 id="installing-from-lock-files">Installing from lock files<a class="headerlink" href="#installing-from-lock-files" title="Permanent link">&para;</a></h3>
-<p>The <code>PrepareEnvsInstallDepsFromLockHandler</code> is an alternative to <code>PrepareEnvsInstallDepsHandler</code>. Instead of reading dependency versions from <code>pyproject.toml</code>, it parses the lock file and passes the pinned versions to <code>install_deps_in_env</code>.</p>
-<p>By default it looks for <code>pylock.&lt;env_name&gt;.toml</code> next to the project's <code>pyproject.toml</code>. If a lock file is not found for an env, it is skipped with a warning.</p>
+<p>There are two lock-file handlers depending on the pipeline you use:</p>
+<ul>
+<li><strong><code>PrepareEnvInstallDepsFromLockHandler</code></strong> — used in the per-environment <code>prepare_env</code> pipeline (the default). Reads <code>pylock.&lt;env_name&gt;.toml</code> and passes pinned versions to <code>install_deps_in_env</code> for that single env.</li>
+<li><strong><code>PrepareEnvsInstallDepsFromLockHandler</code></strong> — legacy multi-env variant that handles all environments in one handler. Use only if you are running a custom <code>prepare_envs</code> pipeline that does not go through <code>PrepareEnvsDispatchHandler</code>.</li>
+</ul>
+<p>Both look for <code>pylock.&lt;env_name&gt;.toml</code> next to the project's <code>pyproject.toml</code>. If a lock file is not found for an env, it is skipped with a warning.</p>
 <h3 id="lock-files-in-ci">Lock files in CI<a class="headerlink" href="#lock-files-in-ci" title="Permanent link">&para;</a></h3>
 <p>Lock files should be committed to the repository. CI should install from them, not regenerate them:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># CI installs from existing lock files — reproducible</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
 </code></pre></div>
 <p>To update lock files, run <code>lock_dependencies</code> locally or in a scheduled CI job and commit the result. For multi-platform projects, use a CI matrix to generate lock files on each target platform.</p>
+<h2 id="json-rpc-key-naming-convention">JSON-RPC key naming convention<a class="headerlink" href="#json-rpc-key-naming-convention" title="Permanent link">&para;</a></h2>
+<p>All JSON-RPC channels in FineCode use <strong>camelCase</strong> for message keys:</p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Convention</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WM server ↔ any client (internal TCP)</td>
+<td><strong>camelCase</strong></td>
+<td>Standard for JSON-based protocols; language-agnostic (clients may be written in Go, TypeScript, Rust, etc.)</td>
+</tr>
+<tr>
+<td>LSP command handlers → IDE</td>
+<td><strong>camelCase</strong></td>
+<td>Same convention; no conversion needed</td>
+</tr>
+<tr>
+<td>ER ↔ WM (pygls custom commands)</td>
+<td><strong>camelCase</strong></td>
+<td>Consistent with WM protocol</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rule-write-keys-explicitly-no-auto-conversion">Rule: write keys explicitly, no auto-conversion<a class="headerlink" href="#rule-write-keys-explicitly-no-auto-conversion" title="Permanent link">&para;</a></h3>
+<p>Handler return dicts must use camelCase keys <strong>written explicitly</strong>. There is no automatic snake_case → camelCase conversion in the WM server. Auto-conversion is fragile — it was the root cause of the <code>return_code</code> bug in <code>_handle_run_action</code> where only the inner value was wrapped in <code>_NoConvert</code> but the outer keys were still silently converted.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># correct — keys written as camelCase explicitly</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">return</span> <span class="p">{</span><span class="s2">&quot;returnCode&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">return_code</span><span class="p">,</span> <span class="s2">&quot;resultByFormat&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">result_by_format</span><span class="p">}</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># wrong — snake_case keys in a JSON response</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">return</span> <span class="p">{</span><span class="s2">&quot;return_code&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">return_code</span><span class="p">,</span> <span class="s2">&quot;result_by_format&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">result_by_format</span><span class="p">}</span>
+</code></pre></div>
+<p>Python <strong>internal</strong> data structures (dataclass fields, local variables, function parameters) stay snake_case per Python convention. Only the dict keys that cross a JSON-RPC boundary are camelCase.</p>
+<h3 id="what-this-means-per-layer">What this means per layer<a class="headerlink" href="#what-this-means-per-layer" title="Permanent link">&para;</a></h3>
+<p><strong>WM server handlers</strong> (<code>wm_server.py</code>): return dicts with camelCase keys directly. No <code>_NoConvert</code> wrapper, no <code>_convert_to_camel_case</code> call.</p>
+<p><strong><code>wm_client.py</code></strong>: accesses response keys in camelCase.</p>
+<p><strong>Python CLI clients</strong> (<code>prepare_envs_cmd.py</code>, <code>run_cmd.py</code>): access camelCase keys from responses.</p>
+<p><strong>LSP command handlers</strong> (<code>lsp_server/endpoints/</code>): pass WM responses through to the IDE as-is — no conversion needed since the WM already produces camelCase.</p>
+<p><strong>ER response dicts</strong> (<code>finecode_extension_runner</code>): use camelCase keys (<code>returnCode</code>, <code>resultByFormat</code>, <code>status</code>).</p>
+<h2 id="referencing-adrs-in-source-code">Referencing ADRs in source code<a class="headerlink" href="#referencing-adrs-in-source-code" title="Permanent link">&para;</a></h2>
+<p>When code implements a non-obvious constraint or design choice, add a comment referencing the relevant ADR. This prevents future contributors from accidentally "fixing" something that was intentionally designed that way.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Single shared IO thread services all active ERs — see docs/adr/0003-*.md</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">_io_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">_service_loop</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>When to add an ADR reference:</strong></p>
+<ul>
+<li>The implementation looks like it could be simplified but cannot be</li>
+<li>There is a temptation to refactor in a way that would violate the decision</li>
+<li>The constraint is not derivable from the code itself</li>
+</ul>
+<p><strong>When not to add one:</strong></p>
+<ul>
+<li>The code is self-explanatory</li>
+<li>The ADR covers a broad design area — reference it only at the specific site that enforces the decision, not everywhere related code appears</li>
+</ul>
+<p>ADR references differ from user-doc references: user docs explain the <em>API surface</em> for consumers; ADRs explain <em>why a constraint exists</em> for contributors.</p>
 <h2 id="code-style">Code Style<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h2>
 <h3 id="typing">Typing<a class="headerlink" href="#typing" title="Permanent link">&para;</a></h3>
 <ul>

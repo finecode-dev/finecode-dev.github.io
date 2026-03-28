@@ -10,25 +10,27 @@
       
       
       
+        <link rel="canonical" href="http://localhost:8000/adr/0005-zero-based-lines-and-resourceuri-fields-in-action-payloads-and-results/">
+      
       
       
       
         
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
-        <title>FineCode</title>
+        <title>ADR-0005: Zero-based line numbers and ResourceUri fields in action payloads and results - FineCode</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="/assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#adr-0005-zero-based-line-numbers-and-resourceuri-fields-in-action-payloads-and-results" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +90,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
+    <a href="../.." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              ADR-0005: Zero-based line numbers and ResourceUri fields in action payloads and results
             
           </span>
         </div>
@@ -218,7 +225,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/." class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
@@ -236,7 +243,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/concepts/" class="md-tabs__link">
+      <a href="../../concepts/" class="md-tabs__link">
         
   
   
@@ -255,7 +262,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/configuration/" class="md-tabs__link">
+      <a href="../../configuration/" class="md-tabs__link">
         
   
   
@@ -274,7 +281,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/cli/" class="md-tabs__link">
+      <a href="../../cli/" class="md-tabs__link">
         
   
   
@@ -295,7 +302,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/guides/creating-extension/" class="md-tabs__link">
+        <a href="../../guides/creating-extension/" class="md-tabs__link">
           
   
   
@@ -315,7 +322,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/reference/actions/" class="md-tabs__link">
+        <a href="../../reference/actions/" class="md-tabs__link">
           
   
   
@@ -335,7 +342,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/development/" class="md-tabs__link">
+        <a href="../../development/" class="md-tabs__link">
           
   
   
@@ -369,7 +376,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
+    <a href="../.." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -453,7 +460,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -481,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started/" class="md-nav__link">
+      <a href="../../getting-started/" class="md-nav__link">
         
   
   
@@ -509,7 +516,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started-ide-mcp/" class="md-nav__link">
+      <a href="../../getting-started-ide-mcp/" class="md-nav__link">
         
   
   
@@ -544,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/concepts/" class="md-nav__link">
+      <a href="../../concepts/" class="md-nav__link">
         
   
   
@@ -571,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/configuration/" class="md-nav__link">
+      <a href="../../configuration/" class="md-nav__link">
         
   
   
@@ -598,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/cli/" class="md-nav__link">
+      <a href="../../cli/" class="md-nav__link">
         
   
   
@@ -679,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/creating-extension/" class="md-nav__link">
+      <a href="../../guides/creating-extension/" class="md-nav__link">
         
   
   
@@ -707,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/creating-preset/" class="md-nav__link">
+      <a href="../../guides/creating-preset/" class="md-nav__link">
         
   
   
@@ -735,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/workspace/" class="md-nav__link">
+      <a href="../../guides/workspace/" class="md-nav__link">
         
   
   
@@ -824,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/actions/" class="md-nav__link">
+      <a href="../../reference/actions/" class="md-nav__link">
         
   
   
@@ -852,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/services/" class="md-nav__link">
+      <a href="../../reference/services/" class="md-nav__link">
         
   
   
@@ -880,7 +887,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/extensions/" class="md-nav__link">
+      <a href="../../reference/extensions/" class="md-nav__link">
         
   
   
@@ -908,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/lsp-mcp-architecture/" class="md-nav__link">
+      <a href="../../reference/lsp-mcp-architecture/" class="md-nav__link">
         
   
   
@@ -936,7 +943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/lsp-protocol/" class="md-nav__link">
+      <a href="../../reference/lsp-protocol/" class="md-nav__link">
         
   
   
@@ -964,7 +971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/glossary/" class="md-nav__link">
+      <a href="../../glossary/" class="md-nav__link">
         
   
   
@@ -1053,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/" class="md-nav__link">
+      <a href="../../development/" class="md-nav__link">
         
   
   
@@ -1081,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wm-protocol/" class="md-nav__link">
+      <a href="../../wm-protocol/" class="md-nav__link">
         
   
   
@@ -1109,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wm-er-protocol/" class="md-nav__link">
+      <a href="../../wm-er-protocol/" class="md-nav__link">
         
   
   
@@ -1137,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/developing-finecode/" class="md-nav__link">
+      <a href="../../guides/developing-finecode/" class="md-nav__link">
         
   
   
@@ -1165,7 +1172,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/adr/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -1210,6 +1217,60 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-adrs-considered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related ADRs Considered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consequences
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1222,8 +1283,86 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+  
+
+
+<h1 id="adr-0005-zero-based-line-numbers-and-resourceuri-fields-in-action-payloads-and-results">ADR-0005: Zero-based line numbers and ResourceUri fields in action payloads and results<a class="headerlink" href="#adr-0005-zero-based-line-numbers-and-resourceuri-fields-in-action-payloads-and-results" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>Status:</strong> accepted</li>
+<li><strong>Date:</strong> 2026-03-20</li>
+<li><strong>Deciders:</strong> @Aksem</li>
+<li><strong>Tags:</strong> actions, conventions</li>
+</ul>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<p>Action payload and result types that carry source-code locations must agree on
+two conventions: how line numbers are represented and how resource locations
+are represented.</p>
+<p><strong>Line numbers.</strong> LSP uses 0-based <code>Position.line</code> throughout. Test runner CLIs
+and linters typically emit 1-based line numbers. A mismatch between the two
+means that whoever builds the result (the handler) and whoever consumes it (e.g. the
+LSP server) must each know which convention is in use.</p>
+<p><strong>Resource locations.</strong> Action payloads and results cross process boundaries
+and should remain stable across languages and transports. Using runtime-specific
+objects such as <code>pathlib.Path</code> in boundary DTOs leaks implementation details
+into the contract. A semantic <code>ResourceUri</code> type, serialized as a URI string,
+avoids this and leaves room for future non-local resources.</p>
+<p>This decision applies to all actions that expose source-code locations in their
+payload or result schema.</p>
+<h2 id="related-adrs-considered">Related ADRs Considered<a class="headerlink" href="#related-adrs-considered" title="Permanent link">&para;</a></h2>
+<p>None — no existing ADR covers payload/result field conventions for
+source-code locations.</p>
+<h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Line numbers in payload and result fields are 0-based</strong>, consistent with
+  <code>Position.line</code> in the Language Server Protocol. Handlers that read 1-based
+  line numbers from CLI output must subtract 1 before populating a field.
+  Display code that shows lines to users must add 1.</p>
+</li>
+<li>
+<p><strong>Resource locations in payload and result fields use <code>ResourceUri</code>
+  values</strong>, not <code>pathlib.Path</code> objects. <code>ResourceUri</code> is serialized as a URI
+  string. Local files use <code>file://</code> URIs; future non-local resources may use
+  other URI schemes. This keeps the field type simple across transports,
+  languages, and runtimes.</p>
+</li>
+</ul>
+<h2 id="consequences">Consequences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Handlers bear the conversion cost.</strong> Handlers that consume 1-based CLI
+  output subtract 1; they do not pass the raw value through. This is a one-line
+  transformation and the correct place to isolate runner-specific quirks.</li>
+<li><strong>Display code adds 1.</strong> Any code that renders a line number to a user
+  (terminal output, hover text) must add 1 to recover the 1-based number a
+  developer expects to see.</li>
+<li><strong>No Path objects in payload or result fields.</strong> Producers populate location
+  fields with <code>ResourceUri</code> values serialized as URI strings. Consumers that
+  need a local <code>Path</code> may derive one only when the URI scheme is <code>file</code>.</li>
+<li><strong>Future-proof resource model.</strong> The contract is not limited to local
+  filesystem paths, so future handlers can report locations for non-file
+  resources without redefining the result schema.</li>
+<li><strong>Consistency across actions.</strong> <code>LintMessage.range</code>, <code>TestCaseResult.line</code>,
+  and <code>TestItem.line</code> all follow the same source-location convention, and the
+  same rule applies to any future action payload or result type that carries
+  source-code locations rather than requiring per-action documentation.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1266,10 +1405,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
