@@ -13,6 +13,10 @@
         <link rel="canonical" href="http://localhost:8000/guides/designing-actions/">
       
       
+        <link rel="prev" href="../creating-preset/">
+      
+      
+        <link rel="next" href="../preparing-environments/">
       
       
         
@@ -242,17 +246,18 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../concepts/" class="md-tabs__link">
-        
-  
-  
     
+    
+      <li class="md-tabs__item">
+        <a href="../../concepts/" class="md-tabs__link">
+          
+  
   
   Concepts
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -298,10 +303,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../creating-extension/" class="md-tabs__link">
           
   
@@ -550,9 +557,27 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../concepts/" class="md-nav__link">
+    
+    
+    
+    
+      
+      
         
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -566,7 +591,79 @@
   
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../theory/why-action-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why FineCode's Action Model Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -629,28 +726,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -668,7 +768,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -722,6 +822,403 @@
     
   
     Creating a Preset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Designing Actions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Designing Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#actions-are-inter-language" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actions are inter-language
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cover-different-use-cases-dont-enforce-a-single-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cover different use cases, don't enforce a single model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prefer-multiple-focused-actions-over-one-overloaded-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prefer multiple focused actions over one overloaded action
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#language-specific-subactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Language-specific subactions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Language-specific subactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-three-levels-of-specificity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The three levels of specificity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-create-a-language-specific-subaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to create a language-specific subaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declaring-the-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Declaring the relationship
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-payload-fields-must-have-defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extended payload fields must have defaults
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-case-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use case examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use case examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-lock-setup-universal-lock-eg-uv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-lock setup (universal lock, e.g. uv)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-lock-setup-per-platform-locks-eg-pip-compile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-lock setup (per-platform locks, e.g. pip-compile)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixed-language-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mixed-language workspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#partial-results-and-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partial results and progress
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Partial results and progress">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-which" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to use which
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-the-two-contracts-separate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep the two contracts separate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-boundaries-stay-explicit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action boundaries stay explicit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-implement-partial-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to implement partial results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-implement-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to implement progress
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documenting-actions-and-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documenting actions and fields
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documenting actions and fields">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#action-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action description
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field descriptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-write" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to write
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAQ
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-not-put-ecosystem-parameters-in-handler-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why not put ecosystem parameters in handler config?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preparing-environments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preparing Environments
   
 
     
