@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -96,8 +98,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../finecode_logo_white.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -118,6 +119,11 @@
             
           </span>
         </div>
+        <a href="../.." title="FineCode" class="md-header__logo-mobile" aria-label="FineCode">
+          
+  <img src="../../finecode_logo_white.png" alt="logo">
+
+        </a>
       </div>
     </div>
     
@@ -385,8 +391,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../../finecode_logo_white.png" alt="logo">
 
     </a>
     FineCode
@@ -1073,6 +1078,17 @@
     <span class="md-ellipsis">
       
         Keep the two contracts separate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#progress-must-reflect-the-users-unit-of-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progress must reflect the user's unit of work
       
     </span>
   </a>
@@ -1902,6 +1918,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#progress-must-reflect-the-users-unit-of-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Progress must reflect the user's unit of work
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#action-boundaries-stay-explicit" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2227,6 +2254,36 @@
 <li>Progress is <strong>metadata</strong> about execution.</li>
 </ul>
 <p>Do not put status messages into partial results just to show activity, and do not use progress updates to smuggle result data. If the client should be able to consume it as structured output, it belongs in the result. If it only helps the user understand what the action is currently doing, it belongs in progress.</p>
+<h3 id="progress-must-reflect-the-users-unit-of-work">Progress must reflect the user's unit of work<a class="headerlink" href="#progress-must-reflect-the-users-unit-of-work" title="Permanent link">&para;</a></h3>
+<p>When a user sees "file X formatted" or "file X linted", they expect <strong>all</strong> handlers to have been applied to that file — not that one particular handler finished its pass. The progress grain must match the user's mental model, not the handler execution model.</p>
+<p>This has a direct consequence on how multi-file, multi-handler actions structure their execution:</p>
+<table>
+<thead>
+<tr>
+<th>Execution model</th>
+<th>Handler order</th>
+<th>Progress grain</th>
+<th>User perception</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Per-item</strong> (iterable payload)</td>
+<td>All handlers run on file 1, then all on file 2, …</td>
+<td>Per-file, after all handlers</td>
+<td>"file X done" ✓</td>
+</tr>
+<tr>
+<td><strong>Per-handler batch</strong> (flat payload)</td>
+<td>Handler A on all files, then handler B on all files, …</td>
+<td>Per-handler pass, or only at end</td>
+<td>"handler A done" or no useful progress ✗</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Rule: when an action processes multiple items through multiple handlers and reports file-level progress, prefer the iterable payload model.</strong> This ensures each partial result — and each progress step — represents a fully processed item.</p>
+<p>The per-handler batch model is appropriate when handlers genuinely need the full file list at once (e.g. a whole-program analysis pass), or when there is only a single handler. But if the action chains several independent per-file tools (formatter A → formatter B → save), the iterable model gives correct progress semantics by construction.</p>
+<p><strong>Corollary: single-tool handlers in an iterable-payload action should not report their own progress.</strong> The parent action already advances progress after all handlers complete for each item. A handler reporting "processed file X" independently would be redundant at best — and misleading at worst, since from the user's perspective the file is not done until every handler has run. Handlers should focus on doing their work and returning a result; the orchestrating action owns the progress narrative.</p>
 <h3 id="action-boundaries-stay-explicit">Action boundaries stay explicit<a class="headerlink" href="#action-boundaries-stay-explicit" title="Permanent link">&para;</a></h3>
 <p>When one action delegates to another, neither partial results nor progress should be treated as something that "just flows through".</p>
 <ul>
