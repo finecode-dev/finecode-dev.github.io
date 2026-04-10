@@ -10,31 +10,27 @@
       
       
       
-        <link rel="canonical" href="http://localhost:8000/glossary/">
+        <link rel="canonical" href="http://localhost:8000/adr/0015-dedicated-per-process-wal-streams-for-durable-lifecycle-events/">
       
       
-        <link rel="prev" href="../reference/lsp-protocol/">
-      
-      
-        <link rel="next" href="../about/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
-        <title>Glossary - FineCode</title>
+        <title>ADR-0015: Dedicated per-process WAL streams for durable execution lifecycle events - FineCode</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,11 +49,11 @@
       
     
     
-      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#glossary" class="md-skip">
+        <a href="#adr-0015-dedicated-per-process-wal-streams-for-durable-execution-lifecycle-events" class="md-skip">
           Skip to content
         </a>
       
@@ -96,9 +92,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
+    <a href="../.." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
       
-  <img src="../finecode_logo_white.png" alt="logo">
+  <img src="../../finecode_logo_white.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -115,13 +111,13 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Glossary
+              ADR-0015: Dedicated per-process WAL streams for durable execution lifecycle events
             
           </span>
         </div>
-        <a href=".." title="FineCode" class="md-header__logo-mobile" aria-label="FineCode">
+        <a href="../.." title="FineCode" class="md-header__logo-mobile" aria-label="FineCode">
           
-  <img src="../finecode_logo_white.png" alt="logo">
+  <img src="../../finecode_logo_white.png" alt="logo">
 
         </a>
       </div>
@@ -235,7 +231,7 @@
     
     
       <li class="md-tabs__item">
-        <a href=".." class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
@@ -255,7 +251,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../concepts/" class="md-tabs__link">
+        <a href="../../concepts/" class="md-tabs__link">
           
   
   
@@ -273,7 +269,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../configuration/" class="md-tabs__link">
+      <a href="../../configuration/" class="md-tabs__link">
         
   
   
@@ -292,7 +288,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../cli/" class="md-tabs__link">
+      <a href="../../cli/" class="md-tabs__link">
         
   
   
@@ -313,7 +309,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../guides/creating-extension/" class="md-tabs__link">
+        <a href="../../guides/creating-extension/" class="md-tabs__link">
           
   
   
@@ -329,13 +325,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../reference/actions/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../reference/actions/" class="md-tabs__link">
           
   
   
@@ -353,7 +347,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../about/" class="md-tabs__link">
+      <a href="../../about/" class="md-tabs__link">
         
   
   
@@ -374,7 +368,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../development/" class="md-tabs__link">
+        <a href="../../development/" class="md-tabs__link">
           
   
   
@@ -408,9 +402,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
+    <a href="../.." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
       
-  <img src="../finecode_logo_white.png" alt="logo">
+  <img src="../../finecode_logo_white.png" alt="logo">
 
     </a>
     FineCode
@@ -491,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -519,7 +513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/" class="md-nav__link">
+      <a href="../../getting-started/" class="md-nav__link">
         
   
   
@@ -547,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../supported-environments/" class="md-nav__link">
+      <a href="../../supported-environments/" class="md-nav__link">
         
   
   
@@ -575,7 +569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started-ide-mcp/" class="md-nav__link">
+      <a href="../../getting-started-ide-mcp/" class="md-nav__link">
         
   
   
@@ -664,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/" class="md-nav__link">
+      <a href="../../concepts/" class="md-nav__link">
         
   
   
@@ -692,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../theory/why-action-model/" class="md-nav__link">
+      <a href="../../theory/why-action-model/" class="md-nav__link">
         
   
   
@@ -727,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/" class="md-nav__link">
+      <a href="../../configuration/" class="md-nav__link">
         
   
   
@@ -754,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cli/" class="md-nav__link">
+      <a href="../../cli/" class="md-nav__link">
         
   
   
@@ -835,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/creating-extension/" class="md-nav__link">
+      <a href="../../guides/creating-extension/" class="md-nav__link">
         
   
   
@@ -863,7 +857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/creating-preset/" class="md-nav__link">
+      <a href="../../guides/creating-preset/" class="md-nav__link">
         
   
   
@@ -891,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/designing-actions/" class="md-nav__link">
+      <a href="../../guides/designing-actions/" class="md-nav__link">
         
   
   
@@ -919,7 +913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/preparing-environments/" class="md-nav__link">
+      <a href="../../guides/preparing-environments/" class="md-nav__link">
         
   
   
@@ -947,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/using-precommit-hooks/" class="md-nav__link">
+      <a href="../../guides/using-precommit-hooks/" class="md-nav__link">
         
   
   
@@ -975,7 +969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/workspace/" class="md-nav__link">
+      <a href="../../guides/workspace/" class="md-nav__link">
         
   
   
@@ -1007,31 +1001,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
@@ -1049,7 +1040,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1067,7 +1058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/actions/" class="md-nav__link">
+      <a href="../../reference/actions/" class="md-nav__link">
         
   
   
@@ -1095,7 +1086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/services/" class="md-nav__link">
+      <a href="../../reference/services/" class="md-nav__link">
         
   
   
@@ -1123,7 +1114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/extensions/" class="md-nav__link">
+      <a href="../../reference/extensions/" class="md-nav__link">
         
   
   
@@ -1151,7 +1142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/lsp-mcp-architecture/" class="md-nav__link">
+      <a href="../../reference/lsp-mcp-architecture/" class="md-nav__link">
         
   
   
@@ -1179,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/lsp-protocol/" class="md-nav__link">
+      <a href="../../reference/lsp-protocol/" class="md-nav__link">
         
   
   
@@ -1204,37 +1195,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Glossary
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
         
   
   
@@ -1250,180 +1214,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Action
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#action-handler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Action Handler
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#collection-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Collection Action
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#main-handler-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Main Handler Action
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#execution-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Execution Environment
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extension-runner-er" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extension Runner (ER)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#item-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Item Action
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#preset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Preset
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Service
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-artifact" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Artifact
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-artifact-definition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Artifact Definition
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#virtual-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Virtual Environment
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workspace
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workspace-manager-wm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workspace Manager (WM)
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1443,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
+      <a href="../../about/" class="md-nav__link">
         
   
   
@@ -1524,7 +1314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../development/" class="md-nav__link">
+      <a href="../../development/" class="md-nav__link">
         
   
   
@@ -1552,7 +1342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wm-protocol/" class="md-nav__link">
+      <a href="../../wm-protocol/" class="md-nav__link">
         
   
   
@@ -1580,7 +1370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wm-er-protocol/" class="md-nav__link">
+      <a href="../../wm-er-protocol/" class="md-nav__link">
         
   
   
@@ -1608,7 +1398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/developing-finecode/" class="md-nav__link">
+      <a href="../../guides/developing-finecode/" class="md-nav__link">
         
   
   
@@ -1636,7 +1426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -1691,10 +1481,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#action" class="md-nav__link">
+  <a href="#context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action
+        Context
       
     </span>
   </a>
@@ -1702,10 +1492,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#action-handler" class="md-nav__link">
+  <a href="#related-adrs-considered" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action Handler
+        Related ADRs Considered
       
     </span>
   </a>
@@ -1713,10 +1503,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#collection-action" class="md-nav__link">
+  <a href="#decision" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Collection Action
+        Decision
       
     </span>
   </a>
@@ -1724,120 +1514,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-handler-action" class="md-nav__link">
+  <a href="#consequences" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Main Handler Action
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#execution-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Execution Environment
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extension-runner-er" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extension Runner (ER)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#item-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Item Action
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#preset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Preset
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Service
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-artifact" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Artifact
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-artifact-definition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Artifact Definition
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#virtual-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Virtual Environment
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workspace
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workspace-manager-wm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workspace Manager (WM)
+        Consequences
       
     </span>
   </a>
@@ -1864,35 +1544,72 @@
   
 
 
-<h1 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h1>
-<h2 id="action">Action<a class="headerlink" href="#action" title="Permanent link">&para;</a></h2>
-<p>A named operation (for example <code>lint</code>, <code>format</code>, <code>build_artifact</code>).</p>
-<h2 id="action-handler">Action Handler<a class="headerlink" href="#action-handler" title="Permanent link">&para;</a></h2>
-<p>A concrete implementation of an action. Multiple handlers can be registered for a single action, and they run sequentially or concurrently.</p>
-<h2 id="collection-action">Collection Action<a class="headerlink" href="#collection-action" title="Permanent link">&para;</a></h2>
-<p>An action whose payload carries multiple items and whose result describes that batch, often with per-item entries. Used when handlers need to iterate over, correlate, or optimize across the full set of items.</p>
-<h2 id="main-handler-action">Main Handler Action<a class="headerlink" href="#main-handler-action" title="Permanent link">&para;</a></h2>
-<p>When both an item action and a collection action exist for the same operation, the main handler action is the one where the main handler logic naturally lives. The other action mainly adapts to it. This term is for action design, not for telling callers which action they should prefer in every situation.</p>
-<h2 id="execution-environment">Execution Environment<a class="headerlink" href="#execution-environment" title="Permanent link">&para;</a></h2>
-<p>A named, isolated context in which handlers and project code execute (e.g. <code>runtime</code>, <code>dev_workspace</code>, <code>dev_no_runtime</code>). Each execution environment has its own dependency set, serving a specific purpose — for example, the project's runtime, dev tooling, or test execution. The concept is inter-language; in Python each execution environment is materialized as a virtual environment. Configuration uses the shorthand <code>env</code>.</p>
-<h2 id="extension-runner-er">Extension Runner (ER)<a class="headerlink" href="#extension-runner-er" title="Permanent link">&para;</a></h2>
-<p>A process that runs inside a specific execution environment and executes action handler code. The Workspace Manager spawns one ER per (project, execution environment) pair, on demand. ERs communicate with the WM over JSON-RPC. The concept is inter-language — <code>finecode_extension_runner</code> is the Python implementation.</p>
-<h2 id="item-action">Item Action<a class="headerlink" href="#item-action" title="Permanent link">&para;</a></h2>
-<p>An action whose payload carries one item and whose result describes that one item. Used when handlers naturally operate on a single unit of work.</p>
-<h2 id="preset">Preset<a class="headerlink" href="#preset" title="Permanent link">&para;</a></h2>
-<p>A reusable, distributable bundle of action and handler declarations. Users reference a preset in their project configuration; its declarations merge with the project's own configuration, giving full control to override or disable individual handlers. The concept is inter-language — in Python, presets are distributed as packages installed into the <code>dev_workspace</code> execution environment.</p>
-<h2 id="service">Service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h2>
-<p>A long-lived dependency injected into handlers by interface.</p>
-<h2 id="source-artifact">Source Artifact<a class="headerlink" href="#source-artifact" title="Permanent link">&para;</a></h2>
-<p>A unit of source code that build/publish-style actions operate on. It is identified by a <strong>source artifact definition file</strong> (for example <code>pyproject.toml</code> or <code>package.json</code>). This is what many tools call a “project”, but FineCode uses <strong>source artifact</strong> to be more concrete.</p>
-<h2 id="source-artifact-definition">Source Artifact Definition<a class="headerlink" href="#source-artifact-definition" title="Permanent link">&para;</a></h2>
-<p>The definition file for a source artifact (for example content of <code>pyproject.toml</code>).</p>
-<h2 id="virtual-environment">Virtual Environment<a class="headerlink" href="#virtual-environment" title="Permanent link">&para;</a></h2>
-<p>The Python-specific materialization of an execution environment. FineCode creates one virtual environment per environment name per project at <code>.venvs/{env_name}/</code> and installs the declared handler dependencies into it. Created by <code>prepare-envs</code>.</p>
-<h2 id="workspace">Workspace<a class="headerlink" href="#workspace" title="Permanent link">&para;</a></h2>
-<p>A set of related source artifacts a developer is working on. Often this is a single directory root, but it can also be multiple directories (workspace roots). FineCode can run actions across all source artifacts that include FineCode configuration. (Some CLI flags and protocol fields still use the word “project” for compatibility.)</p>
-<h2 id="workspace-manager-wm">Workspace Manager (WM)<a class="headerlink" href="#workspace-manager-wm" title="Permanent link">&para;</a></h2>
-<p>A long-running server that discovers source artifacts, resolves merged configuration, manages execution environments, exposes an LSP and MCP API to clients, and delegates action execution to Extension Runners. Typically one shared WM instance runs per virtual environment.</p>
+<h1 id="adr-0015-dedicated-per-process-wal-streams-for-durable-execution-lifecycle-events">ADR-0015: Dedicated per-process WAL streams for durable execution lifecycle events<a class="headerlink" href="#adr-0015-dedicated-per-process-wal-streams-for-durable-execution-lifecycle-events" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>Status:</strong> accepted</li>
+<li><strong>Date:</strong> 2026-04-01</li>
+<li><strong>Deciders:</strong> @finecode-maintainers</li>
+<li><strong>Tags:</strong> architecture, reliability, recovery, logging, wal</li>
+</ul>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<p>FineCode already emits diagnostic logs for troubleshooting, but diagnostic logs
+are not a durable replay contract. They may be rotated, truncated, or mixed
+with unrelated operational messages.</p>
+<p>FineCode now executes work across multiple process boundaries, primarily the
+Workspace Manager (WM) and Extension Runners (ERs). Recovery, audit, and
+post-mortem analysis need a machine-readable event history that survives process
+restarts and can correlate related activity across those writers.</p>
+<p>We also need a clear ownership boundary. Durable execution lifecycle state is
+owned by WM and ERs, while CLI, LSP, and MCP act as stateless clients or
+proxies. The architecture should preserve that boundary rather than duplicating
+durable lifecycle records in every frontend process.</p>
+<h2 id="related-adrs-considered">Related ADRs Considered<a class="headerlink" href="#related-adrs-considered" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Reviewed <a href="../0003-process-isolation-per-extension-environment/">ADR-0003</a> — establishes per-environment runner process boundaries, but not durable cross-process event storage.</li>
+<li>Reviewed <a href="../0009-explicit-partial-result-token-propagation/">ADR-0009</a> — defines partial-result boundary semantics, not durable persistence or replay.</li>
+<li>Reviewed <a href="../0011-wm-aggregates-progress-across-multi-project-action-runs/">ADR-0011</a> — defines WM-side aggregation behavior, not recovery/audit storage.</li>
+</ul>
+<h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<p>FineCode uses write-ahead logging (WAL) as the dedicated durable event source
+for execution lifecycle state.</p>
+<p>The architectural rules are:</p>
+<ol>
+<li>WAL is separate from diagnostic logging. Diagnostic logs remain
+   human-oriented operational output; WAL carries machine-readable durable
+   lifecycle events.</li>
+<li>Each process that owns durable lifecycle transitions writes its own
+   append-only WAL stream. In the current architecture, that includes WM and ER.</li>
+<li>Related records across process-local streams are correlated by stable
+   identifiers rather than by shared writers or shared mutable state.</li>
+<li>Replay, audit, and recovery are read-side concerns. Readers may merge
+   multiple WAL streams logically, but writers remain process-local.</li>
+<li>Stateless clients and proxies such as CLI, LSP, and MCP propagate
+   correlation identifiers when needed, but do not own independent WAL streams
+   for execution lifecycle state.</li>
+<li>WAL provides durable history first. Resumable execution, checkpointing, or
+   other higher-level recovery behavior may build on that history later, but are
+   not implied by WAL alone.</li>
+</ol>
+<h2 id="consequences">Consequences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<p>Benefits:</p>
+<ul>
+<li>Recovery and audit rely on dedicated durable event streams instead of parsing
+  human-oriented logs.</li>
+<li>Diagnostic logging can stay focused on operability without becoming the
+  product's replay contract.</li>
+<li>The model scales across process boundaries by adding process-local writers
+  under one correlation contract instead of introducing shared write paths.</li>
+<li>Frontend processes stay simpler because they do not need their own durable
+  execution-state stores.</li>
+</ul>
+<p>Trade-offs:</p>
+<ul>
+<li>WAL adds disk I/O, storage management, and retention policy ownership.</li>
+<li>Readers must correlate and order records across multiple streams during
+  replay, recovery analysis, or audit.</li>
+<li>WAL alone does not provide resumable execution; higher-level recovery
+  features would require additional policy and state management.</li>
+</ul>
 
 
 
@@ -1948,10 +1665,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

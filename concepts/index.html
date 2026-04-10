@@ -547,6 +547,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../supported-environments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supported Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../getting-started-ide-mcp/" class="md-nav__link">
         
   
@@ -1105,6 +1133,34 @@
     
   
     Preparing Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/using-precommit-hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Pre-commit Hooks
   
 
     
@@ -1852,7 +1908,7 @@
         M --&gt; R2[result]
     end</code></pre>
 <p><strong>Sequential mode</strong> (default): handlers run one after another. Each handler can read the accumulated result so far via <code>context.current_result</code>. Useful when handlers depend on each other's output (e.g. formatter → save-to-disk).</p>
-<p><strong>Concurrent mode</strong> (<code>run_handlers_concurrently: true</code>): all handlers run in parallel and results are merged afterward. Accessing <code>context.current_result</code> in concurrent mode raises <code>RuntimeError</code>. Useful for independent linters.</p>
+<p><strong>Concurrent mode</strong> (<code>HANDLER_EXECUTION = HandlerExecution.CONCURRENT</code>): all handlers run in parallel and results are merged afterward. Accessing <code>context.current_result</code> in concurrent mode raises <code>RuntimeError</code>. Useful for independent linters.</p>
 <h2 id="service">Service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h2>
 <p>A <strong>Service</strong> is a long-lived dependency that handlers (and other services) can request via dependency injection. The Extension Runner resolves services by type annotation and injects them into handler constructors.</p>
 <p>Service bindings are declared by interface and implementation:</p>

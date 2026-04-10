@@ -547,6 +547,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../supported-environments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supported Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../getting-started-ide-mcp/" class="md-nav__link">
         
   
@@ -919,6 +947,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../guides/using-precommit-hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Pre-commit Hooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../guides/workspace/" class="md-nav__link">
         
   
@@ -1126,10 +1182,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#format_python_files" class="md-nav__link">
+  <a href="#format_file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        format_python_files
+        format_file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format_python_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        format_python_file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#precommit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        precommit
       
     </span>
   </a>
@@ -1361,6 +1439,50 @@
     <span class="md-ellipsis">
       
         clean_finecode_logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingest_wal_to_store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ingest_wal_to_store
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summarize_wal_logs-extension-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        summarize_wal_logs (extension action)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export_wal_timeline_from_logs-extension-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        export_wal_timeline_from_logs (extension action)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serve_wal_explorer_from_store-extension-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        serve_wal_explorer_from_store (extension action)
       
     </span>
   </a>
@@ -1833,10 +1955,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#format_python_files" class="md-nav__link">
+  <a href="#format_file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        format_python_files
+        format_file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format_python_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        format_python_file
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#precommit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        precommit
       
     </span>
   </a>
@@ -2074,6 +2218,50 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ingest_wal_to_store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ingest_wal_to_store
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summarize_wal_logs-extension-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        summarize_wal_logs (extension action)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export_wal_timeline_from_logs-extension-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        export_wal_timeline_from_logs (extension action)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serve_wal_explorer_from_store-extension-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        serve_wal_explorer_from_store (extension action)
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2136,7 +2324,7 @@
 <li><strong>Source:</strong> <code>finecode_extension_api.actions.LintFilesAction</code></li>
 <li><strong>Default handler execution:</strong> concurrent</li>
 </ul>
-<p>The built-in <code>LintFilesDispatchHandler</code> groups the given files by language and dispatches each file individually to the matching language subaction — any action declaring <code>PARENT_ACTION = LintFilesAction</code> and the corresponding <code>LANGUAGE</code>. Files of unknown language are skipped.</p>
+<p>The built-in <code>LintFilesDispatchHandler</code> groups the given files by language and dispatches one call per language to the matching language subaction — any action declaring <code>PARENT_ACTION = LintFilesAction</code> and the corresponding <code>LANGUAGE</code>. Files of unknown language are skipped.</p>
 <hr />
 <h2 id="lint_python_files"><code>lint_python_files</code><a class="headerlink" href="#lint_python_files" title="Permanent link">&para;</a></h2>
 <p>Lint Python source files and report diagnostics. Language-specific subaction of <code>lint_files</code>.</p>
@@ -2186,7 +2374,7 @@
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <code>save</code> payload field controls whether changes are written to disk. The built-in <code>SaveFormatFilesHandler</code> reads this flag. If you omit the save handler from your preset, files won't be written regardless.</p>
+<p>The <code>save</code> payload field controls whether changes are written to disk. The built-in <code>SaveFormatFileHandler</code> reads this flag. If you omit the save handler from your preset, files won't be written regardless.</p>
 </div>
 <hr />
 <h2 id="format_files"><code>format_files</code><a class="headerlink" href="#format_files" title="Permanent link">&para;</a></h2>
@@ -2195,16 +2383,160 @@
 <li><strong>Source:</strong> <code>finecode_extension_api.actions.FormatFilesAction</code></li>
 <li><strong>Default handler execution:</strong> sequential</li>
 </ul>
-<p>The built-in <code>FormatFilesDispatchHandler</code> groups the given files by language and dispatches each language's batch to the matching language subaction — any action declaring <code>PARENT_ACTION = FormatFilesAction</code> and the corresponding <code>LANGUAGE</code>.</p>
+<p>The built-in <code>FormatFilesIterateHandler</code> iterates over all files and delegates each to <code>format_file</code>. Language routing is handled by <code>format_file</code> via its dispatch handler — <code>format_files</code> has no language awareness.</p>
 <hr />
-<h2 id="format_python_files"><code>format_python_files</code><a class="headerlink" href="#format_python_files" title="Permanent link">&para;</a></h2>
-<p>Format Python source files. Language-specific subaction of <code>format_files</code>.</p>
+<h2 id="format_file"><code>format_file</code><a class="headerlink" href="#format_file" title="Permanent link">&para;</a></h2>
+<p>Format a single file. Item-level action; handlers run sequentially as a pipeline.</p>
 <ul>
-<li><strong>Source:</strong> <code>finecode_extension_api.actions.FormatPythonFilesAction</code></li>
+<li><strong>Source:</strong> <code>finecode_extension_api.actions.FormatFileAction</code></li>
 <li><strong>Default handler execution:</strong> sequential</li>
 </ul>
-<p><strong>Payload fields:</strong> same as <code>format_files</code>.</p>
-<p>Register Python formatting tools (ruff, black, …) as handlers for this action.</p>
+<p><strong>Payload fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file_path</code></td>
+<td><code>ResourceUri</code></td>
+<td>The single file to format</td>
+</tr>
+<tr>
+<td><code>save</code></td>
+<td><code>bool</code></td>
+<td>Whether to write the result back to disk</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Run context kwargs</strong> (<code>FormatFileCallerRunContextKwargs</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file_editor_session</code></td>
+<td><code>IFileEditorSession \| None</code></td>
+<td><code>None</code></td>
+<td>Shared session from a parent action. If absent, the context opens its own.</td>
+</tr>
+<tr>
+<td><code>file_info</code></td>
+<td><code>FileInfo \| None</code></td>
+<td><code>None</code></td>
+<td>Pre-read file content. If absent, the context reads the file itself (with <code>block=True</code>).</td>
+</tr>
+</tbody>
+</table>
+<p>When called standalone (e.g. IDE on-save), no kwargs are needed — the context creates its own session and reads the file. When called from <code>format_files</code>, the iterate handler passes the parent session. When called from the dispatch handler into a language subaction, both session and file info are passed to avoid redundant reads.</p>
+<p><strong>Result fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>changed</code></td>
+<td><code>bool</code></td>
+<td>Whether the file content was modified</td>
+</tr>
+<tr>
+<td><code>code</code></td>
+<td><code>str</code></td>
+<td>The formatted content</td>
+</tr>
+</tbody>
+</table>
+<p>Handlers read and update <code>run_context.file_info</code> to pass formatted content to the next handler in the pipeline.</p>
+<hr />
+<h2 id="format_python_file"><code>format_python_file</code><a class="headerlink" href="#format_python_file" title="Permanent link">&para;</a></h2>
+<p>Format a single Python file. Language-specific item-level subaction of <code>format_file</code>.</p>
+<ul>
+<li><strong>Source:</strong> <code>finecode_extension_api.actions.FormatPythonFileAction</code></li>
+<li><strong>Default handler execution:</strong> sequential</li>
+</ul>
+<p><strong>Payload fields:</strong> same as <code>format_file</code>.</p>
+<p>Register Python formatting tools (ruff, isort, …) as handlers for this action. Handler order matters — they run sequentially as a pipeline.</p>
+<hr />
+<h2 id="precommit"><code>precommit</code><a class="headerlink" href="#precommit" title="Permanent link">&para;</a></h2>
+<p>Run configured code quality checks on git-staged files before commit. Provided by the <code>fine_precommit</code> preset (not registered by default).</p>
+<ul>
+<li><strong>Source:</strong> <code>finecode_extension_api.actions.PrecommitAction</code></li>
+<li><strong>Default handler execution:</strong> sequential</li>
+</ul>
+<p><strong>Payload fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file_paths</code></td>
+<td><code>list[Path]</code></td>
+<td><code>[]</code></td>
+<td>Explicit file list. Empty means auto-detect staged files from git (done by <code>StagedFilesDiscoveryHandler</code>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Result fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>action_results</code></td>
+<td><code>dict[str, RunActionResult]</code></td>
+<td>Results keyed by action name (<code>"lint"</code>, <code>"format"</code>, …). The overall <code>return_code</code> is <code>ERROR</code> if any sub-result is an error.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Run context (<code>PrecommitRunContext</code>):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>staged_files</code></td>
+<td><code>list[Path] \| None</code></td>
+<td>Populated by <code>StagedFilesDiscoveryHandler</code>. <code>None</code> = discovery has not run (bridge handlers raise); <code>[]</code> = no staged files (bridge handlers skip).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Handler roles:</strong></p>
+<ul>
+<li><strong><code>StagedFilesDiscoveryHandler</code></strong> — must be first; detects staged files via <code>git diff --cached --name-only --diff-filter=ACMR</code> and writes to <code>run_context.staged_files</code>.</li>
+<li><strong>Bridge handlers</strong> (<code>LintPrecommitBridgeHandler</code>, <code>FormatPrecommitBridgeHandler</code>) — each delegates to one existing action passing staged files. Register additional bridge handlers to run more tools.</li>
+</ul>
+<p>See <a href="../../guides/using-precommit-hooks/">Using Pre-commit Hooks</a> for setup instructions.</p>
 <hr />
 <h2 id="list_tests"><code>list_tests</code><a class="headerlink" href="#list_tests" title="Permanent link">&para;</a></h2>
 <p>Discover tests and return their hierarchical structure without running them.</p>
@@ -2571,6 +2903,446 @@
 <ul>
 <li><strong>Source:</strong> <code>finecode_extension_api.actions.CleanFinecodeLogsAction</code></li>
 </ul>
+<hr />
+<h2 id="ingest_wal_to_store"><code>ingest_wal_to_store</code><a class="headerlink" href="#ingest_wal_to_store" title="Permanent link">&para;</a></h2>
+<p>Ingest write-ahead-log events from one or more generic sources into a durable store.</p>
+<ul>
+<li><strong>Source:</strong> <code>finecode_extension_api.actions.IngestWalToStoreAction</code></li>
+</ul>
+<p><strong>Payload fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source_specs</code></td>
+<td><code>list[WalSourceSpec]</code></td>
+<td></td>
+<td>Source definitions to ingest from</td>
+</tr>
+<tr>
+<td><code>since_ts_iso</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Ignore events older than this ISO8601 UTC timestamp</td>
+</tr>
+<tr>
+<td><code>store_uri</code></td>
+<td><code>ResourceUri \| None</code></td>
+<td><code>None</code></td>
+<td>Destination store URI. If omitted, handler chooses a default path</td>
+</tr>
+</tbody>
+</table>
+<p><code>WalSourceSpec</code> fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source_id</code></td>
+<td><code>str</code></td>
+<td></td>
+<td>Stable source identifier used in summaries</td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td><code>str</code></td>
+<td></td>
+<td>Source format, e.g. <code>jsonl_events</code></td>
+</tr>
+<tr>
+<td><code>location_uri</code></td>
+<td><code>ResourceUri</code></td>
+<td></td>
+<td>File or directory URI containing events</td>
+</tr>
+<tr>
+<td><code>include_glob</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Include pattern for directory scanning</td>
+</tr>
+<tr>
+<td><code>exclude_glob</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Exclude pattern for directory scanning</td>
+</tr>
+<tr>
+<td><code>field_mapping</code></td>
+<td><code>dict[str, str] \| None</code></td>
+<td><code>None</code></td>
+<td>Optional canonical-to-source mapping (<code>ts</code>, <code>event_type</code>, <code>run_id</code>, <code>action_name</code>, <code>payload</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Result fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema_version</code></td>
+<td><code>int</code></td>
+<td>Result schema version</td>
+</tr>
+<tr>
+<td><code>source_summary</code></td>
+<td><code>list[SourceIngestSummary]</code></td>
+<td>Per-source ingest counters</td>
+</tr>
+<tr>
+<td><code>events_ingested</code></td>
+<td><code>int</code></td>
+<td>Successfully inserted event count</td>
+</tr>
+<tr>
+<td><code>events_skipped_duplicate</code></td>
+<td><code>int</code></td>
+<td>Duplicate event count</td>
+</tr>
+<tr>
+<td><code>events_failed_parse</code></td>
+<td><code>int</code></td>
+<td>Parse/normalization failure count</td>
+</tr>
+<tr>
+<td><code>first_event_ts_iso</code></td>
+<td><code>str \| None</code></td>
+<td>Earliest inserted event timestamp</td>
+</tr>
+<tr>
+<td><code>last_event_ts_iso</code></td>
+<td><code>str \| None</code></td>
+<td>Latest inserted event timestamp</td>
+</tr>
+<tr>
+<td><code>store_uri</code></td>
+<td><code>ResourceUri</code></td>
+<td>Final store URI</td>
+</tr>
+<tr>
+<td><code>warnings</code></td>
+<td><code>list[str]</code></td>
+<td>Non-fatal ingest warnings</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="summarize_wal_logs-extension-action"><code>summarize_wal_logs</code> (extension action)<a class="headerlink" href="#summarize_wal_logs-extension-action" title="Permanent link">&para;</a></h2>
+<p>Read write-ahead-log events directly from generic sources and compute run-level summaries and aggregate metrics.</p>
+<ul>
+<li><strong>Source:</strong> <code>finecode_extension_api.actions.SummarizeWalLogsAction</code></li>
+</ul>
+<p>This action is source-agnostic and does not require a database.</p>
+<p><strong>Payload fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source_specs</code></td>
+<td><code>list[WalSourceSpec]</code></td>
+<td></td>
+<td>Source definitions to summarize</td>
+</tr>
+<tr>
+<td><code>from_ts_iso</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Optional lower timestamp bound (inclusive)</td>
+</tr>
+<tr>
+<td><code>to_ts_iso</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Optional upper timestamp bound (inclusive)</td>
+</tr>
+<tr>
+<td><code>max_runs</code></td>
+<td><code>int</code></td>
+<td><code>1000</code></td>
+<td>Maximum number of run summaries returned</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Result fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema_version</code></td>
+<td><code>int</code></td>
+<td>Result schema version</td>
+</tr>
+<tr>
+<td><code>discovered_sources</code></td>
+<td><code>list[WalSourceInfo]</code></td>
+<td>Source metadata used during scan</td>
+</tr>
+<tr>
+<td><code>run_summaries</code></td>
+<td><code>list[RunSummary]</code></td>
+<td>Per-run summary rows</td>
+</tr>
+<tr>
+<td><code>aggregate_metrics</code></td>
+<td><code>AggregateMetrics</code></td>
+<td>Global counters and duration percentiles</td>
+</tr>
+<tr>
+<td><code>warnings</code></td>
+<td><code>list[str]</code></td>
+<td>Non-fatal parse/filter warnings</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="export_wal_timeline_from_logs-extension-action"><code>export_wal_timeline_from_logs</code> (extension action)<a class="headerlink" href="#export_wal_timeline_from_logs-extension-action" title="Permanent link">&para;</a></h2>
+<p>Read write-ahead-log events directly from generic sources and generate a static HTML timeline.</p>
+<ul>
+<li><strong>Source:</strong> <code>finecode_extension_api.actions.ExportWalTimelineFromLogsAction</code></li>
+</ul>
+<p>This action is source-agnostic and does not require a database.</p>
+<p><strong>Payload fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>source_specs</code></td>
+<td><code>list[WalSourceSpec]</code></td>
+<td></td>
+<td>Source definitions to read</td>
+</tr>
+<tr>
+<td><code>output_html_path</code></td>
+<td><code>ResourceUri</code></td>
+<td></td>
+<td>Destination HTML file path</td>
+</tr>
+<tr>
+<td><code>run_id_filter</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Optional run-id filter</td>
+</tr>
+<tr>
+<td><code>from_ts_iso</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Optional lower timestamp bound (inclusive)</td>
+</tr>
+<tr>
+<td><code>to_ts_iso</code></td>
+<td><code>str \| None</code></td>
+<td><code>None</code></td>
+<td>Optional upper timestamp bound (inclusive)</td>
+</tr>
+<tr>
+<td><code>max_events</code></td>
+<td><code>int</code></td>
+<td><code>20000</code></td>
+<td>Maximum number of events rendered</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Result fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema_version</code></td>
+<td><code>int</code></td>
+<td>Result schema version</td>
+</tr>
+<tr>
+<td><code>output_html_path</code></td>
+<td><code>ResourceUri</code></td>
+<td>Path to generated HTML file</td>
+</tr>
+<tr>
+<td><code>events_rendered</code></td>
+<td><code>int</code></td>
+<td>Number of events written to timeline</td>
+</tr>
+<tr>
+<td><code>runs_included</code></td>
+<td><code>int</code></td>
+<td>Distinct run IDs included in output</td>
+</tr>
+<tr>
+<td><code>time_window</code></td>
+<td><code>TimeWindow</code></td>
+<td>Effective time filter window</td>
+</tr>
+<tr>
+<td><code>warnings</code></td>
+<td><code>list[str]</code></td>
+<td>Non-fatal parse/filter warnings</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="serve_wal_explorer_from_store-extension-action"><code>serve_wal_explorer_from_store</code> (extension action)<a class="headerlink" href="#serve_wal_explorer_from_store-extension-action" title="Permanent link">&para;</a></h2>
+<p>Start a read-only HTTP API over the WAL DuckDB store and serve until interrupted.</p>
+<ul>
+<li><strong>Source:</strong> <code>finecode_extension_api.actions.ServeWalExplorerFromStoreAction</code></li>
+<li><strong>Default handler execution:</strong> sequential</li>
+</ul>
+<p><strong>Payload fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>store_uri</code></td>
+<td><code>ResourceUri \| None</code></td>
+<td><code>None</code></td>
+<td>Path to the DuckDB store. Defaults to <code>&lt;venv&gt;/state/finecode/wal_explorer/store.duckdb</code>.</td>
+</tr>
+<tr>
+<td><code>host</code></td>
+<td><code>str</code></td>
+<td><code>"127.0.0.1"</code></td>
+<td>Interface to bind the HTTP server to.</td>
+</tr>
+<tr>
+<td><code>port</code></td>
+<td><code>int</code></td>
+<td><code>8765</code></td>
+<td>Port number. If the default port is already occupied, the handler auto-selects a free port.</td>
+</tr>
+<tr>
+<td><code>read_only</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>Open the DuckDB store in read-only mode.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Result fields:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schema_version</code></td>
+<td><code>int</code></td>
+<td>Store schema version.</td>
+</tr>
+<tr>
+<td><code>base_url</code></td>
+<td><code>str</code></td>
+<td>Full base URL the server is listening on.</td>
+</tr>
+<tr>
+<td><code>bound_host</code></td>
+<td><code>str</code></td>
+<td>Resolved host after binding.</td>
+</tr>
+<tr>
+<td><code>bound_port</code></td>
+<td><code>int</code></td>
+<td>Resolved port after binding.</td>
+</tr>
+<tr>
+<td><code>store_uri</code></td>
+<td><code>ResourceUri</code></td>
+<td>Resolved store path used.</td>
+</tr>
+<tr>
+<td><code>warnings</code></td>
+<td><code>list[str]</code></td>
+<td>Non-fatal warnings.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Endpoints:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET /health</code></td>
+<td>Server status, schema version, event/run totals.</td>
+</tr>
+<tr>
+<td><code>GET /runs</code></td>
+<td>Run summaries. Query params: <code>source_id</code>, <code>from_ts</code>, <code>to_ts</code>, <code>limit</code>.</td>
+</tr>
+<tr>
+<td><code>GET /timeline</code></td>
+<td>Ordered event stream. Query params: <code>run_id</code>, <code>source_id</code>, <code>from_ts</code>, <code>to_ts</code>, <code>event_type</code>, <code>limit</code>.</td>
+</tr>
+<tr>
+<td><code>GET /metrics</code></td>
+<td>Aggregate counters and duration percentiles.</td>
+</tr>
+<tr>
+<td><code>GET /events</code></td>
+<td>Raw event rows. Query params: <code>run_id</code>, <code>source_id</code>, <code>from_ts</code>, <code>to_ts</code>, <code>limit</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>The action runs until its invocation is cancelled. Cancellation triggers deterministic cleanup: HTTP server shutdown and DuckDB connection close.</p>
 
 
 

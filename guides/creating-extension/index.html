@@ -547,6 +547,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../supported-environments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supported Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../getting-started-ide-mcp/" class="md-nav__link">
         
   
@@ -1048,6 +1076,34 @@
     
   
     Preparing Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-precommit-hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Pre-commit Hooks
   
 
     
@@ -1844,7 +1900,7 @@ See the <a href="../../reference/actions/">Built-in Actions reference</a> for th
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p><code>context.current_result</code> raises <code>RuntimeError</code> in concurrent handler mode. Only use it when <code>run_handlers_concurrently</code> is <code>false</code> (the default).</p>
+<p><code>context.current_result</code> raises <code>RuntimeError</code> in concurrent handler mode. Only use it when the action's <code>HANDLER_EXECUTION</code> is <code>HandlerExecution.SEQUENTIAL</code> (the default).</p>
 </div>
 <h2 id="available-actions-to-handle">Available actions to handle<a class="headerlink" href="#available-actions-to-handle" title="Permanent link">&para;</a></h2>
 <p>See the <a href="../../reference/actions/">Built-in Actions reference</a> for the full list of action classes, payload types, and result types you can implement handlers for.</p>

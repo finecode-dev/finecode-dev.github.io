@@ -547,6 +547,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../supported-environments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supported Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../getting-started-ide-mcp/" class="md-nav__link">
         
   
@@ -899,6 +927,34 @@
     
   
     Preparing Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/using-precommit-hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Pre-commit Hooks
   
 
     
@@ -1792,13 +1848,13 @@ Server APIs. Params are passed as the <code>params</code> array of <code>execute
 <h3 id="action-tree-and-projects">Action Tree and Projects<a class="headerlink" href="#action-tree-and-projects" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>finecode.getActions</code></li>
-<li>Params: <code>parent_node_id</code> (string or <code>null</code>)</li>
-<li>
-<p>Returns: action tree under the given node</p>
-</li>
-<li>
-<p><code>finecode.getActionsForPosition</code></p>
-</li>
+<li>Params: <code>parentNodeId</code> (string or <code>null</code>), or positional string argument</li>
+<li>Returns: action tree under the given node</li>
+</ul>
+<p>Action tree node payloads use camelCase fields in the LSP protocol:
+<code>nodeId</code>, <code>nodeType</code>, <code>subnodes</code>, <code>status</code>, <code>name</code>.</p>
+<ul>
+<li><code>finecode.getActionsForPosition</code></li>
 <li>Params: position object (currently ignored)</li>
 <li>
 <p>Returns: action tree (currently full tree)</p>

@@ -547,6 +547,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../supported-environments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supported Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../getting-started-ide-mcp/" class="md-nav__link">
         
   
@@ -899,6 +927,34 @@
     
   
     Preparing Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/using-precommit-hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Pre-commit Hooks
   
 
     
@@ -1753,7 +1809,10 @@ The protocol is LSP-shaped with a small set of custom commands.</p>
 <li><code>params</code> (object)</li>
 <li><code>options</code> (object, optional)</li>
 <li>Options (snake_case keys are expected):</li>
-<li><code>meta</code>: <code>{ "trigger": "user|system|unknown", "dev_env": "ide|cli|ai|precommit|ci" }</code></li>
+<li><code>meta</code>: <code>{ "trigger": "user|system|unknown", "dev_env": "ide|cli|ai|precommit|ci", "orchestration_depth": int }</code><ul>
+<li><code>orchestration_depth</code>: cross-boundary hop counter, defaults to <code>0</code>. The ER propagates it unchanged via <code>RunActionMeta.orchestration_depth</code>.</li>
+</ul>
+</li>
 <li><code>partial_result_token</code>: <code>int | string</code> (used to correlate <code>$/progress</code>)</li>
 <li><code>result_formats</code>: <code>["json", "string"]</code> (defaults to <code>["json"]</code>)</li>
 <li>Result (success):
@@ -1763,15 +1822,26 @@ The protocol is LSP-shaped with a small set of custom commands.</p>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
 </code></pre></div></li>
-<li>Result (stopped):
+<li>Result (streamed): used when <code>partial_result_token</code> was provided and all
+  results were delivered via <code>$/progress</code> notifications. Following LSP convention,
+  the final response is an explicit completion signal — <code>result_by_format</code> is
+  intentionally empty. The WM treats this as a valid completion; an empty
+  <code>result_by_format</code> with any other status is a protocol error.
   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stopped&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;result_by_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;json\&quot;: {\&quot;...\&quot;: \&quot;...\&quot;}}&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;streamed&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;result_by_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{}&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
 </code></pre></div></li>
+<li>Result (stopped):
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stopped&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;result_by_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;json\&quot;: {\&quot;...\&quot;: \&quot;...\&quot;}}&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+</code></pre></div></li>
 <li>Result (error):
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;message&quot;</span><span class="p">}</span>
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;message&quot;</span><span class="p">}</span>
 </code></pre></div></li>
 <li>Note: <code>result_by_format</code> is a JSON string (not a JSON object) due to
   LSP serialization constraints in the runner.</li>
@@ -1832,7 +1902,35 @@ The protocol is LSP-shaped with a small set of custom commands.</p>
 </li>
 <li>Params: <code>{ "projectDefPath": "/abs/path/to/project/finecode.toml" }</code></li>
 <li>Result: <code>{ "config": "&lt;stringified JSON config&gt;" }</code></li>
-<li>Used by ER during <code>finecodeRunner/updateConfig</code> to resolve project config.</li>
+<li>
+<p>Used by ER during <code>finecodeRunner/updateConfig</code> to resolve project config.</p>
+</li>
+<li>
+<p><code>finecode/runActionInProject</code></p>
+</li>
+<li>Params:<ul>
+<li><code>actionSource</code> (string): import path of the action class (e.g. <code>"myext.actions.lint.LintAction"</code>)</li>
+<li><code>payload</code> (object): serialized action payload (<code>dataclasses.asdict</code>)</li>
+<li><code>meta</code> (object): <code>{ "trigger": string, "devEnv": string, "orchestrationDepth": int }</code></li>
+</ul>
+</li>
+<li>Result: <code>{ "result": &lt;json result object&gt;, "returnCode": 0|1 }</code></li>
+<li>
+<p>Runs the action at project scope (all env-runners of the ER's own project). WM enforces <code>OrchestrationPolicy.max_recursion_depth</code> before dispatching.</p>
+</li>
+<li>
+<p><code>finecode/runActionInWorkspace</code></p>
+</li>
+<li>Params:<ul>
+<li><code>actionSource</code> (string): import path of the action class</li>
+<li><code>payload</code> (object): serialized action payload</li>
+<li><code>meta</code> (object): <code>{ "trigger": string, "devEnv": string, "orchestrationDepth": int }</code></li>
+<li><code>projectPaths</code> (list[string] | null): explicit POSIX project paths, or <code>null</code> for all projects that declare the action</li>
+<li><code>concurrently</code> (boolean, default <code>true</code>): run projects concurrently.</li>
+</ul>
+</li>
+<li>Result: <code>{ "resultsByProject": { "&lt;posix path&gt;": &lt;json result&gt;, ... } }</code></li>
+<li>Fans out the action across the specified projects (or all projects that declare it). WM enforces <code>OrchestrationPolicy.max_project_fanout</code> before dispatching.</li>
 </ul>
 <p><strong>Notifications</strong></p>
 <ul>
@@ -1840,6 +1938,9 @@ The protocol is LSP-shaped with a small set of custom commands.</p>
 <li>Params: <code>{ "token": &lt;token&gt;, "value": "&lt;stringified JSON partial result&gt;" }</code></li>
 <li>The <code>token</code> must match <code>partial_result_token</code> from <code>actions/run</code>.</li>
 <li><code>value</code> is a JSON string produced by the ER from a partial run result.</li>
+<li>When <code>$/progress</code> is used to deliver results, the final <code>actions/run</code> response
+    must have <code>status: "streamed"</code> and empty <code>result_by_format</code>. See <code>actions/run</code>
+    result (streamed) above.</li>
 </ul>
 <h2 id="error-handling-and-cancellation">Error Handling and Cancellation<a class="headerlink" href="#error-handling-and-cancellation" title="Permanent link">&para;</a></h2>
 <ul>

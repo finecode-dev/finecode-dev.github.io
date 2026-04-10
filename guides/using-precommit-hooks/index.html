@@ -10,31 +10,31 @@
       
       
       
-        <link rel="canonical" href="http://localhost:8000/glossary/">
+        <link rel="canonical" href="http://localhost:8000/guides/using-precommit-hooks/">
       
       
-        <link rel="prev" href="../reference/lsp-protocol/">
+        <link rel="prev" href="../preparing-environments/">
       
       
-        <link rel="next" href="../about/">
+        <link rel="next" href="../workspace/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
-        <title>Glossary - FineCode</title>
+        <title>Git Pre-commit Hooks - FineCode</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,11 +53,11 @@
       
     
     
-      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#glossary" class="md-skip">
+        <a href="#using-pre-commit-hooks" class="md-skip">
           Skip to content
         </a>
       
@@ -96,9 +96,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
+    <a href="../.." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
       
-  <img src="../finecode_logo_white.png" alt="logo">
+  <img src="../../finecode_logo_white.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -115,13 +115,13 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Glossary
+              Git Pre-commit Hooks
             
           </span>
         </div>
-        <a href=".." title="FineCode" class="md-header__logo-mobile" aria-label="FineCode">
+        <a href="../.." title="FineCode" class="md-header__logo-mobile" aria-label="FineCode">
           
-  <img src="../finecode_logo_white.png" alt="logo">
+  <img src="../../finecode_logo_white.png" alt="logo">
 
         </a>
       </div>
@@ -235,7 +235,7 @@
     
     
       <li class="md-tabs__item">
-        <a href=".." class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
@@ -255,7 +255,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../concepts/" class="md-tabs__link">
+        <a href="../../concepts/" class="md-tabs__link">
           
   
   
@@ -273,7 +273,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../configuration/" class="md-tabs__link">
+      <a href="../../configuration/" class="md-tabs__link">
         
   
   
@@ -292,7 +292,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../cli/" class="md-tabs__link">
+      <a href="../../cli/" class="md-tabs__link">
         
   
   
@@ -309,11 +309,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../guides/creating-extension/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../creating-extension/" class="md-tabs__link">
           
   
   
@@ -329,13 +331,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../reference/actions/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../reference/actions/" class="md-tabs__link">
           
   
   
@@ -353,7 +353,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../about/" class="md-tabs__link">
+      <a href="../../about/" class="md-tabs__link">
         
   
   
@@ -374,7 +374,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../development/" class="md-tabs__link">
+        <a href="../../development/" class="md-tabs__link">
           
   
   
@@ -408,9 +408,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
+    <a href="../.." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
       
-  <img src="../finecode_logo_white.png" alt="logo">
+  <img src="../../finecode_logo_white.png" alt="logo">
 
     </a>
     FineCode
@@ -491,7 +491,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -519,7 +519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/" class="md-nav__link">
+      <a href="../../getting-started/" class="md-nav__link">
         
   
   
@@ -547,7 +547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../supported-environments/" class="md-nav__link">
+      <a href="../../supported-environments/" class="md-nav__link">
         
   
   
@@ -575,7 +575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started-ide-mcp/" class="md-nav__link">
+      <a href="../../getting-started-ide-mcp/" class="md-nav__link">
         
   
   
@@ -664,7 +664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../concepts/" class="md-nav__link">
+      <a href="../../concepts/" class="md-nav__link">
         
   
   
@@ -692,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../theory/why-action-model/" class="md-nav__link">
+      <a href="../../theory/why-action-model/" class="md-nav__link">
         
   
   
@@ -727,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/" class="md-nav__link">
+      <a href="../../configuration/" class="md-nav__link">
         
   
   
@@ -754,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cli/" class="md-nav__link">
+      <a href="../../cli/" class="md-nav__link">
         
   
   
@@ -770,235 +770,6 @@
   
 
       </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Guides
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Guides
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../guides/creating-extension/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Creating an Extension
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../guides/creating-preset/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Creating a Preset
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../guides/designing-actions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Designing Actions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../guides/preparing-environments/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Preparing Environments
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../guides/using-precommit-hooks/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Git Pre-commit Hooks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../guides/workspace/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Multi-Project Workspace
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -1028,17 +799,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Reference
+    Guides
   
 
     
@@ -1049,12 +820,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Reference
+    Guides
   
 
           </label>
@@ -1067,14 +838,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/actions/" class="md-nav__link">
+      <a href="../creating-extension/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Built-in Actions
+    Creating an Extension
   
 
     
@@ -1095,14 +866,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/services/" class="md-nav__link">
+      <a href="../creating-preset/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Services
+    Creating a Preset
   
 
     
@@ -1123,14 +894,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/extensions/" class="md-nav__link">
+      <a href="../designing-actions/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Extensions
+    Designing Actions
   
 
     
@@ -1151,42 +922,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/lsp-mcp-architecture/" class="md-nav__link">
+      <a href="../preparing-environments/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    LSP and MCP Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../reference/lsp-protocol/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    LSP Client Protocol
+    Preparing Environments
   
 
     
@@ -1223,7 +966,7 @@
   <span class="md-ellipsis">
     
   
-    Glossary
+    Git Pre-commit Hooks
   
 
     
@@ -1241,7 +984,7 @@
   <span class="md-ellipsis">
     
   
-    Glossary
+    Git Pre-commit Hooks
   
 
     
@@ -1267,10 +1010,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#action" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action
+        Prerequisites
       
     </span>
   </a>
@@ -1278,10 +1021,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#action-handler" class="md-nav__link">
+  <a href="#installing-the-hook" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action Handler
+        Installing the hook
       
     </span>
   </a>
@@ -1289,10 +1032,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#collection-action" class="md-nav__link">
+  <a href="#what-runs-by-default" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Collection Action
+        What runs by default
       
     </span>
   </a>
@@ -1300,10 +1043,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-handler-action" class="md-nav__link">
+  <a href="#adding-a-custom-bridge-handler" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Main Handler Action
+        Adding a custom bridge handler
       
     </span>
   </a>
@@ -1311,109 +1054,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#execution-environment" class="md-nav__link">
+  <a href="#uninstalling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Execution Environment
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extension-runner-er" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extension Runner (ER)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#item-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Item Action
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#preset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Preset
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Service
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-artifact" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Artifact
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-artifact-definition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Artifact Definition
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#virtual-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Virtual Environment
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workspace
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workspace-manager-wm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workspace Manager (WM)
+        Uninstalling
       
     </span>
   </a>
@@ -1424,6 +1068,263 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workspace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-Project Workspace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Built-in Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Extensions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/lsp-mcp-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LSP and MCP Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/lsp-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LSP Client Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1443,7 +1344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
+      <a href="../../about/" class="md-nav__link">
         
   
   
@@ -1524,7 +1425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../development/" class="md-nav__link">
+      <a href="../../development/" class="md-nav__link">
         
   
   
@@ -1552,7 +1453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wm-protocol/" class="md-nav__link">
+      <a href="../../wm-protocol/" class="md-nav__link">
         
   
   
@@ -1580,7 +1481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../wm-er-protocol/" class="md-nav__link">
+      <a href="../../wm-er-protocol/" class="md-nav__link">
         
   
   
@@ -1608,7 +1509,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/developing-finecode/" class="md-nav__link">
+      <a href="../developing-finecode/" class="md-nav__link">
         
   
   
@@ -1636,7 +1537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../adr/" class="md-nav__link">
+      <a href="../../adr/" class="md-nav__link">
         
   
   
@@ -1691,10 +1592,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#action" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action
+        Prerequisites
       
     </span>
   </a>
@@ -1702,10 +1603,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#action-handler" class="md-nav__link">
+  <a href="#installing-the-hook" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Action Handler
+        Installing the hook
       
     </span>
   </a>
@@ -1713,10 +1614,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#collection-action" class="md-nav__link">
+  <a href="#what-runs-by-default" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Collection Action
+        What runs by default
       
     </span>
   </a>
@@ -1724,10 +1625,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-handler-action" class="md-nav__link">
+  <a href="#adding-a-custom-bridge-handler" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Main Handler Action
+        Adding a custom bridge handler
       
     </span>
   </a>
@@ -1735,109 +1636,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#execution-environment" class="md-nav__link">
+  <a href="#uninstalling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Execution Environment
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extension-runner-er" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extension Runner (ER)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#item-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Item Action
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#preset" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Preset
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Service
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-artifact" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Artifact
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-artifact-definition" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Source Artifact Definition
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#virtual-environment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Virtual Environment
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workspace
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workspace-manager-wm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workspace Manager (WM)
+        Uninstalling
       
     </span>
   </a>
@@ -1864,35 +1666,53 @@
   
 
 
-<h1 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h1>
-<h2 id="action">Action<a class="headerlink" href="#action" title="Permanent link">&para;</a></h2>
-<p>A named operation (for example <code>lint</code>, <code>format</code>, <code>build_artifact</code>).</p>
-<h2 id="action-handler">Action Handler<a class="headerlink" href="#action-handler" title="Permanent link">&para;</a></h2>
-<p>A concrete implementation of an action. Multiple handlers can be registered for a single action, and they run sequentially or concurrently.</p>
-<h2 id="collection-action">Collection Action<a class="headerlink" href="#collection-action" title="Permanent link">&para;</a></h2>
-<p>An action whose payload carries multiple items and whose result describes that batch, often with per-item entries. Used when handlers need to iterate over, correlate, or optimize across the full set of items.</p>
-<h2 id="main-handler-action">Main Handler Action<a class="headerlink" href="#main-handler-action" title="Permanent link">&para;</a></h2>
-<p>When both an item action and a collection action exist for the same operation, the main handler action is the one where the main handler logic naturally lives. The other action mainly adapts to it. This term is for action design, not for telling callers which action they should prefer in every situation.</p>
-<h2 id="execution-environment">Execution Environment<a class="headerlink" href="#execution-environment" title="Permanent link">&para;</a></h2>
-<p>A named, isolated context in which handlers and project code execute (e.g. <code>runtime</code>, <code>dev_workspace</code>, <code>dev_no_runtime</code>). Each execution environment has its own dependency set, serving a specific purpose — for example, the project's runtime, dev tooling, or test execution. The concept is inter-language; in Python each execution environment is materialized as a virtual environment. Configuration uses the shorthand <code>env</code>.</p>
-<h2 id="extension-runner-er">Extension Runner (ER)<a class="headerlink" href="#extension-runner-er" title="Permanent link">&para;</a></h2>
-<p>A process that runs inside a specific execution environment and executes action handler code. The Workspace Manager spawns one ER per (project, execution environment) pair, on demand. ERs communicate with the WM over JSON-RPC. The concept is inter-language — <code>finecode_extension_runner</code> is the Python implementation.</p>
-<h2 id="item-action">Item Action<a class="headerlink" href="#item-action" title="Permanent link">&para;</a></h2>
-<p>An action whose payload carries one item and whose result describes that one item. Used when handlers naturally operate on a single unit of work.</p>
-<h2 id="preset">Preset<a class="headerlink" href="#preset" title="Permanent link">&para;</a></h2>
-<p>A reusable, distributable bundle of action and handler declarations. Users reference a preset in their project configuration; its declarations merge with the project's own configuration, giving full control to override or disable individual handlers. The concept is inter-language — in Python, presets are distributed as packages installed into the <code>dev_workspace</code> execution environment.</p>
-<h2 id="service">Service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h2>
-<p>A long-lived dependency injected into handlers by interface.</p>
-<h2 id="source-artifact">Source Artifact<a class="headerlink" href="#source-artifact" title="Permanent link">&para;</a></h2>
-<p>A unit of source code that build/publish-style actions operate on. It is identified by a <strong>source artifact definition file</strong> (for example <code>pyproject.toml</code> or <code>package.json</code>). This is what many tools call a “project”, but FineCode uses <strong>source artifact</strong> to be more concrete.</p>
-<h2 id="source-artifact-definition">Source Artifact Definition<a class="headerlink" href="#source-artifact-definition" title="Permanent link">&para;</a></h2>
-<p>The definition file for a source artifact (for example content of <code>pyproject.toml</code>).</p>
-<h2 id="virtual-environment">Virtual Environment<a class="headerlink" href="#virtual-environment" title="Permanent link">&para;</a></h2>
-<p>The Python-specific materialization of an execution environment. FineCode creates one virtual environment per environment name per project at <code>.venvs/{env_name}/</code> and installs the declared handler dependencies into it. Created by <code>prepare-envs</code>.</p>
-<h2 id="workspace">Workspace<a class="headerlink" href="#workspace" title="Permanent link">&para;</a></h2>
-<p>A set of related source artifacts a developer is working on. Often this is a single directory root, but it can also be multiple directories (workspace roots). FineCode can run actions across all source artifacts that include FineCode configuration. (Some CLI flags and protocol fields still use the word “project” for compatibility.)</p>
-<h2 id="workspace-manager-wm">Workspace Manager (WM)<a class="headerlink" href="#workspace-manager-wm" title="Permanent link">&para;</a></h2>
-<p>A long-running server that discovers source artifacts, resolves merged configuration, manages execution environments, exposes an LSP and MCP API to clients, and delegates action execution to Extension Runners. Typically one shared WM instance runs per virtual environment.</p>
+<h1 id="using-pre-commit-hooks">Using Pre-commit Hooks<a class="headerlink" href="#using-pre-commit-hooks" title="Permanent link">&para;</a></h1>
+<p>FineCode can install a git pre-commit hook that automatically runs code quality checks on staged files before each commit.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Add the <code>fine_precommit</code> preset to your project's <code>pyproject.toml</code>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[tool.finecode]</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">presets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_python_recommended&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_precommit&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">]</span>
+</code></pre></div>
+<ol>
+<li>Run <code>prepare-envs</code> to install the preset's dependencies:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
+</code></pre></div>
+<h2 id="installing-the-hook">Installing the hook<a class="headerlink" href="#installing-the-hook" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>install_git_hooks
+</code></pre></div>
+<p>This writes <code>.git/hooks/pre-commit</code> and makes it executable. The hook is a small Python script that calls <code>python -m finecode run --dev-env=git_hook precommit</code> at commit time.</p>
+<p>If a pre-commit hook file already exists, the command skips it and warns you. To overwrite it:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>install_git_hooks<span class="w"> </span>--force<span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+<h2 id="what-runs-by-default">What runs by default<a class="headerlink" href="#what-runs-by-default" title="Permanent link">&para;</a></h2>
+<p>The <code>fine_precommit</code> preset registers two bridge handlers in order:</p>
+<ol>
+<li><strong>Format check</strong> (<code>FormatPrecommitBridgeHandler</code>) — checks that staged files are formatted correctly. Does <strong>not</strong> modify files (<code>save=False</code>). The commit is blocked if any file needs reformatting.</li>
+<li><strong>Lint</strong> (<code>LintPrecommitBridgeHandler</code>) — runs the configured linters on staged files. The commit is blocked if any linter reports errors.</li>
+</ol>
+<p>Only files that are staged (<code>git add</code>ed) are checked. Deleted files are excluded automatically.</p>
+<blockquote>
+<p><strong>V1 limitation:</strong> checks run against the working-tree version of each file, not the git index. If you have partially staged files, the full file is checked. Stash/unstash support is planned for v2.</p>
+</blockquote>
+<h2 id="adding-a-custom-bridge-handler">Adding a custom bridge handler<a class="headerlink" href="#adding-a-custom-bridge-handler" title="Permanent link">&para;</a></h2>
+<p>To run an additional tool (e.g. type checking) before commit, register its bridge handler in <code>pyproject.toml</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[[tool.finecode.action.precommit.handlers]]</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mypy_precommit_bridge&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fine_python_mypy.MypyPrecommitBridgeHandler&quot;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dev_workspace&quot;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;fine_python_mypy~=0.1.0&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>Handlers execute in the order they are declared. No other configuration changes are needed.</p>
+<h2 id="uninstalling">Uninstalling<a class="headerlink" href="#uninstalling" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>uninstall_git_hooks
+</code></pre></div>
+<p>This removes <code>.git/hooks/pre-commit</code> only if it was installed by FineCode (identified by a marker comment inside the file). If the file was created by another tool, FineCode refuses to delete it and warns you.</p>
 
 
 
@@ -1948,10 +1768,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

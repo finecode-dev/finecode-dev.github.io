@@ -547,6 +547,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../supported-environments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supported Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../getting-started-ide-mcp/" class="md-nav__link">
         
   
@@ -899,6 +927,34 @@
     
   
     Preparing Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/using-precommit-hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Pre-commit Hooks
   
 
     
@@ -1944,9 +2000,9 @@
 <td>Lint Python files with Ruff</td>
 </tr>
 <tr>
-<td><code>fine_python_ruff.RuffFormatFilesHandler</code></td>
-<td><code>format_files</code></td>
-<td>Format Python files with Ruff formatter</td>
+<td><code>fine_python_ruff.RuffFormatFileHandler</code></td>
+<td><code>format_python_file</code></td>
+<td>Format a single Python file with Ruff formatter</td>
 </tr>
 </tbody>
 </table>
@@ -1996,8 +2052,8 @@
 </thead>
 <tbody>
 <tr>
-<td><code>fine_python_mypy.MypyLintHandler</code></td>
-<td><code>lint</code> / <code>lint_files</code></td>
+<td><code>fine_python_mypy.MypyLintFilesHandler</code></td>
+<td><code>lint_python_files</code></td>
 <td>Type-check Python files</td>
 </tr>
 </tbody>
@@ -2093,15 +2149,15 @@
 </thead>
 <tbody>
 <tr>
-<td><code>fine_python_isort.IsortFormatFilesHandler</code></td>
-<td><code>format_files</code></td>
-<td>Sort Python imports</td>
+<td><code>fine_python_isort.IsortFormatFileHandler</code></td>
+<td><code>format_python_file</code></td>
+<td>Sort Python imports in a single file</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Example config</strong> (compatible with Ruff formatter / Black):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[[tool.finecode.action_handler]]</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fine_python_isort.IsortFormatFilesHandler&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fine_python_isort.IsortFormatFileHandler&quot;</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">config</span><span class="p">.</span><span class="n">multi_line_output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">config</span><span class="p">.</span><span class="n">include_trailing_comma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">config</span><span class="p">.</span><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">88</span>

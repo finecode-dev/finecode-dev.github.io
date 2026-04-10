@@ -16,7 +16,7 @@
         <link rel="prev" href="../designing-actions/">
       
       
-        <link rel="next" href="../workspace/">
+        <link rel="next" href="../using-precommit-hooks/">
       
       
         
@@ -527,6 +527,34 @@
     
   
     Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../supported-environments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supported Environments
   
 
     
@@ -1096,6 +1124,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-precommit-hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Pre-commit Hooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1851,9 +1907,9 @@
 </code></pre></div>
 <p>Only prepares environments for the listed projects. Useful in a large workspaces with multiple projects when you've only changed dependencies for a subset of packages.</p>
 <h3 id="filtering-by-environment-name">Filtering by environment name<a class="headerlink" href="#filtering-by-environment-name" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs<span class="w"> </span>--env-names<span class="o">=</span>dev_no_runtime
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs<span class="w"> </span>--env<span class="o">=</span>dev_no_runtime
 </code></pre></div>
-<p>Restricts the <code>install_envs</code> step (step 2) to the named environments. The <code>create_envs</code> step still runs for <strong>all</strong> envs regardless of this flag.</p>
+<p>Restricts the <code>install_envs</code> step (step 5) to the named environments. The <code>create_envs</code> step still runs for <strong>all</strong> envs regardless of this flag.</p>
 <p><strong>Why?</strong> Virtualenvs must exist for every env — they are cheap to create and skip if already valid. Filtering at that step would leave envs in a broken state if they don't exist yet.</p>
 <p>Useful when you've added a new handler in one env and want to update only that env without reinstalling everything.</p>
 <hr />

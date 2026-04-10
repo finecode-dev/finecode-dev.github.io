@@ -547,6 +547,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../supported-environments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supported Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../getting-started-ide-mcp/" class="md-nav__link">
         
   
@@ -1123,6 +1151,34 @@
     
   
     Preparing Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/using-precommit-hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Pre-commit Hooks
   
 
     
@@ -1903,6 +1959,10 @@
 <td>Connect to the shared persistent WM Server instead of starting a dedicated one</td>
 </tr>
 <tr>
+<td><code>--wal</code></td>
+<td>Enable WM write-ahead log (WAL) for the dedicated WM server started by this run command</td>
+</tr>
+<tr>
 <td><code>--log-level=&lt;level&gt;</code></td>
 <td>Set log level: <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code> (default: <code>INFO</code>)</td>
 </tr>
@@ -1920,6 +1980,7 @@
 </tr>
 </tbody>
 </table>
+<p>WAL environment variable and storage settings are shared with <code>start-wm-server</code> — see <a href="#start-wm-server"><code>start-wm-server</code></a> for details.</p>
 <h3 id="payload">Payload<a class="headerlink" href="#payload" title="Permanent link">&para;</a></h3>
 <p>Named parameters passed to the action payload. All must use <code>--&lt;name&gt;=&lt;value&gt;</code> form:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>format<span class="w"> </span>--save<span class="o">=</span><span class="nb">true</span>
@@ -1939,6 +2000,7 @@
 <li>With no <code>--project</code>: FineCode treats <code>cwd</code> (or <code>--workdir</code>) as the workspace root, discovers all projects, and runs the action in each project that defines it.</li>
 <li>With <code>--project</code>: the action must exist in every specified project.</li>
 <li>Action results are saved to <code>&lt;venv&gt;/cache/finecode/results/&lt;action&gt;.json</code> (one entry per project path).</li>
+<li>WAL options on <code>run</code> apply only when FineCode starts a dedicated WM server (default mode). In <code>--shared-server</code> mode, configure WAL on the shared WM server process.</li>
 </ul>
 <h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Lint all projects</span>
@@ -1959,7 +2021,7 @@
 <hr />
 <h2 id="prepare-envs"><code>prepare-envs</code><a class="headerlink" href="#prepare-envs" title="Permanent link">&para;</a></h2>
 <p>Create and populate virtual environments for all handler dependencies.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python -m finecode prepare-envs [--recreate] [--env-names=&lt;name&gt;]...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python -m finecode prepare-envs [--recreate] [--env=&lt;name&gt;]...
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>                                 [--project=&lt;name&gt;]... [--log-level=&lt;level&gt;] [--debug]
 </code></pre></div>
 <p>Must be run from the workspace or project root. Creates venvs under <code>.venvs/&lt;env_name&gt;/</code> and installs each handler's declared dependencies.</p>
@@ -1977,7 +2039,7 @@
 <td>Delete and recreate all venvs from scratch</td>
 </tr>
 <tr>
-<td><code>--env-names=&lt;name&gt;</code></td>
+<td><code>--env=&lt;name&gt;</code></td>
 <td>Restrict handler dependency installation to the named env(s). Repeatable. See note below.</td>
 </tr>
 <tr>
@@ -1998,7 +2060,7 @@
 </tr>
 </tbody>
 </table>
-<p>!!! note <code>--env-names</code> restricts only the <code>install_envs</code> step. The <code>create_envs</code> step still runs for <strong>all</strong> envs regardless of this flag — virtualenvs must exist for every env even when you only need to update dependencies in one of them.</p>
+<p>!!! note <code>--env</code> restricts only the <code>install_envs</code> step. The <code>create_envs</code> step still runs for <strong>all</strong> envs regardless of this flag — virtualenvs must exist for every env even when you only need to update dependencies in one of them.</p>
 <hr />
 <h2 id="dump-config"><code>dump-config</code><a class="headerlink" href="#dump-config" title="Permanent link">&para;</a></h2>
 <p>Dump the fully resolved configuration for a project to disk, useful for debugging preset and config merging.</p>
@@ -2129,11 +2191,12 @@
 </tr>
 </tbody>
 </table>
-<p>Typically started automatically by MCP-compatible clients (for example, Claude Code) — see <a href="../getting-started-ide-mcp/#mcp-setup-for-ai-clients">IDE and MCP Setup</a>.</p>
+<p>Typically started automatically by MCP-compatible clients (for example, Claude Code) or by VS Code Copilot when the FineCode VSCode extension registers the MCP provider.</p>
+<p>For setup details, see <a href="../getting-started-ide-mcp/#mcp-setup-for-ai-clients">IDE and MCP Setup</a>. If you use VS Code without the FineCode extension, use the fallback <code>.vscode/mcp.json</code> configuration from that page.</p>
 <hr />
 <h2 id="start-wm-server"><code>start-wm-server</code><a class="headerlink" href="#start-wm-server" title="Permanent link">&para;</a></h2>
 <p>Start the FineCode Workspace Manager Server standalone (TCP JSON-RPC), listen for client connections. Shuts down after the last client disconnects and the disconnect timeout expires.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>python -m finecode start-wm-server [--log-level=&lt;level&gt;] [--disconnect-timeout=&lt;seconds&gt;]
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>python -m finecode start-wm-server [--log-level=&lt;level&gt;] [--disconnect-timeout=&lt;seconds&gt;] [--wal]
 </code></pre></div>
 <table>
 <thead>
@@ -2151,8 +2214,22 @@
 <td><code>--disconnect-timeout=&lt;seconds&gt;</code></td>
 <td>Seconds to wait after the last client disconnects before shutting down (default: 30)</td>
 </tr>
+<tr>
+<td><code>--wal</code></td>
+<td>Enable WM write-ahead log (WAL) for run lifecycle events.</td>
+</tr>
 </tbody>
 </table>
+<p>Environment variable equivalent:</p>
+<ul>
+<li><code>FINECODE_WAL_ENABLED=1</code> (or <code>true</code>/<code>yes</code>/<code>on</code>)</li>
+</ul>
+<p>WAL storage and retention are fixed in this version:</p>
+<ul>
+<li>WAL directory: <code>&lt;venv&gt;/state/finecode/wal/wm</code></li>
+<li>Max segment size: <code>1048576</code> bytes</li>
+<li>Retention: last <code>20</code> segment files</li>
+</ul>
 <p>Usually started automatically by <code>start-lsp</code> or <code>start-mcp</code>. Can also be started manually for debugging.</p>
 
 
