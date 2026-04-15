@@ -22,7 +22,7 @@
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
@@ -1500,6 +1500,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#multi-env-action-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Env Action Orchestration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Env Action Orchestration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequential-mode-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequential mode (default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrent-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrent mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-env-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-env actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#walrunid-continuity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        walRunId continuity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#error-handling-and-cancellation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1681,6 +1742,67 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#multi-env-action-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Env Action Orchestration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Env Action Orchestration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequential-mode-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequential mode (default)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concurrent-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concurrent mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-env-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single-env actions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#walrunid-continuity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        walRunId continuity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#error-handling-and-cancellation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1725,8 +1847,11 @@
 <h1 id="finecode-wm-er-protocol">FineCode WM-ER Protocol<a class="headerlink" href="#finecode-wm-er-protocol" title="Permanent link">&para;</a></h1>
 <p>This document describes the communication protocol between the FineCode Workspace
 Manager (WM) and Extension Runners (ER). WM is the JSON-RPC client; each ER is a
-JSON-RPC server implemented via the LSP stack (<code>finecode_extension_runner/lsp_server.py</code>).
-The protocol is LSP-shaped with a small set of custom commands.</p>
+JSON-RPC server.</p>
+<p>The WM-ER protocol uses JSON-RPC 2.0 with LSP-style wire framing. Lifecycle method
+names (<code>initialize</code>, <code>initialized</code>, <code>shutdown</code>, <code>exit</code>) and text-document notification
+names follow LSP conventions; all FineCode-specific commands use direct JSON-RPC
+method names.</p>
 <h2 id="transport">Transport<a class="headerlink" href="#transport" title="Permanent link">&para;</a></h2>
 <ul>
 <li>JSON-RPC 2.0</li>
@@ -1734,8 +1859,7 @@ The protocol is LSP-shaped with a small set of custom commands.</p>
 <li>WM spawns ER processes with:</li>
 <li><code>python -m finecode_extension_runner.cli start --project-path=... --env-name=...</code></li>
 <li><code>--debug</code> enables a debugpy attach flow before WM connects</li>
-<li>Field names are camelCase for standard LSP params, but command arguments are
-  passed verbatim (snake_case is common in FineCode payloads).</li>
+<li>All parameter object keys use camelCase.</li>
 </ul>
 <h2 id="lifecycle">Lifecycle<a class="headerlink" href="#lifecycle" title="Permanent link">&para;</a></h2>
 <ol>
@@ -1743,8 +1867,19 @@ The protocol is LSP-shaped with a small set of custom commands.</p>
 <li>WM sends <code>initialize</code> and waits for the ER response.</li>
 <li>WM sends <code>initialized</code>.</li>
 <li>WM sends <code>finecodeRunner/updateConfig</code> to bootstrap handlers and services.</li>
+<li>ER processes it and returns <code>{}</code>.</li>
+<li>WM sends <code>finecodeRunner/resolveActionMeta</code> to get action meta info.</li>
+<li>ER returns a complete map of <code>configSource → { canonical_source, runs_concurrently }</code> for every action
+     whose class can be imported in this env.  Actions that fail to import are omitted.</li>
+<li>WM stores these on its <code>Action</code> domain objects before the runner is considered ready.</li>
 <li>On shutdown: WM sends <code>shutdown</code> then <code>exit</code>.</li>
 </ol>
+<blockquote>
+<p><strong>Multi-env runs:</strong> when an action's handlers span more than one env, the WM
+orchestrates execution segment-by-segment using <code>actions/runHandlers</code> so that
+the serialized run context (<code>previousResult</code>) crosses the wire only at actual
+env boundaries. See <a href="#multi-env-action-orchestration">Multi-Env Action Orchestration</a>.</p>
+</blockquote>
 <h2 id="message-catalog">Message Catalog<a class="headerlink" href="#message-catalog" title="Permanent link">&para;</a></h2>
 <h3 id="wm-er">WM -&gt; ER<a class="headerlink" href="#wm-er" title="Permanent link">&para;</a></h3>
 <p><strong>Requests</strong></p>
@@ -1769,116 +1904,186 @@ The protocol is LSP-shaped with a small set of custom commands.</p>
 <p>Standard LSP shutdown request.</p>
 </li>
 <li>
-<p><code>workspace/executeCommand</code></p>
-</li>
-<li>Used for all FineCode WM → ER commands. The <code>arguments</code> array is passed to
-    the handler verbatim.</li>
-</ul>
-<p><strong>Commands</strong></p>
-<ul>
-<li>
 <p><code>finecodeRunner/updateConfig</code></p>
-<ul>
-<li>Arguments:</li>
-<li><code>working_dir</code> (string path)</li>
-<li><code>project_name</code> (string)</li>
-<li><code>project_def_path</code> (string path)</li>
-<li><code>config</code> (object)</li>
-<li>Config shape (top-level):</li>
+</li>
+<li>Params: <code>{ "workingDir": string, "projectName": string, "projectDefPath": string, "config": object }</code></li>
+<li>Config shape (top-level):<ul>
 <li><code>actions</code>: list of action objects (<code>name</code>, <code>handlers</code>, <code>source</code>, <code>config</code>)</li>
 <li><code>action_handler_configs</code>: map of handler source → config</li>
 <li><code>services</code>: list of service declarations (optional)</li>
 <li><code>handlers_to_initialize</code>: map of action name → handler names (optional)</li>
-<li>Result: <code>{}</code> (empty object)</li>
 </ul>
+</li>
+<li>
+<p>Result: <code>{}</code> (empty object)</p>
 </li>
 <li>
 <p><code>finecodeRunner/getInfo</code></p>
-<ul>
-<li>Arguments: none</li>
+</li>
+<li>Params: <code>{}</code></li>
 <li>Result: <code>{ "logFilePath": "/abs/path/to/runner.log" | null }</code></li>
-<li>Returns runtime information about the runner. Currently reports the path
-  to the runner's log file, or <code>null</code> if logging to a file is not configured.</li>
-</ul>
+<li>
+<p>Returns runtime information about the runner. Currently reports the path
+    to the runner's log file, or <code>null</code> if logging to a file is not configured.</p>
 </li>
 <li>
 <p><code>actions/run</code></p>
-<ul>
-<li>Arguments:</li>
-<li><code>action_name</code> (string)</li>
-<li><code>params</code> (object)</li>
-<li><code>options</code> (object, optional)</li>
-<li>Options (snake_case keys are expected):</li>
-<li><code>meta</code>: <code>{ "trigger": "user|system|unknown", "dev_env": "ide|cli|ai|precommit|ci", "orchestration_depth": int }</code><ul>
-<li><code>orchestration_depth</code>: cross-boundary hop counter, defaults to <code>0</code>. The ER propagates it unchanged via <code>RunActionMeta.orchestration_depth</code>.</li>
+</li>
+<li>Params: <code>{ "actionName": string, "params": object, "options": object | null }</code></li>
+<li>Options keys (camelCase):<ul>
+<li><code>meta</code>: <code>{ "trigger": "user|system|unknown", "devEnv": "ide|cli|ai|git_hook|ci", "orchestrationDepth": int }</code></li>
+<li><code>orchestrationDepth</code>: cross-boundary hop counter, defaults to <code>0</code>. The ER propagates it unchanged via <code>RunActionMeta.orchestration_depth</code>.</li>
+<li><code>partialResultToken</code>: <code>int | string</code> (used to correlate <code>$/progress</code>)</li>
+<li><code>resultFormats</code>: <code>["json", "string"]</code> (defaults to <code>["json"]</code>)</li>
 </ul>
 </li>
-<li><code>partial_result_token</code>: <code>int | string</code> (used to correlate <code>$/progress</code>)</li>
-<li><code>result_formats</code>: <code>["json", "string"]</code> (defaults to <code>["json"]</code>)</li>
 <li>Result (success):
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;result_by_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;json\&quot;: {\&quot;...\&quot;: \&quot;...\&quot;}}&quot;</span><span class="p">,</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
 </code></pre></div></li>
-<li>Result (streamed): used when <code>partial_result_token</code> was provided and all
-  results were delivered via <code>$/progress</code> notifications. Following LSP convention,
-  the final response is an explicit completion signal — <code>result_by_format</code> is
-  intentionally empty. The WM treats this as a valid completion; an empty
-  <code>result_by_format</code> with any other status is a protocol error.
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<li>Result (streamed): used when <code>partialResultToken</code> was provided and all
+    results were delivered via <code>$/progress</code> notifications. The final response
+    is an explicit completion signal — <code>result_by_format</code> is intentionally empty.
+    The WM treats this as a valid completion; an empty <code>result_by_format</code> with
+    any other status is a protocol error.
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;streamed&quot;</span><span class="p">,</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;result_by_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{}&quot;</span><span class="p">,</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
 </code></pre></div></li>
 <li>Result (stopped):
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stopped&quot;</span><span class="p">,</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;result_by_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;json\&quot;: {\&quot;...\&quot;: \&quot;...\&quot;}}&quot;</span><span class="p">,</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;return_code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
 </code></pre></div></li>
 <li>Result (error):
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;message&quot;</span><span class="p">}</span>
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;message&quot;</span><span class="p">}</span>
 </code></pre></div></li>
-<li>Note: <code>result_by_format</code> is a JSON string (not a JSON object) due to
-  LSP serialization constraints in the runner.</li>
+<li>
+<p>Note: <code>result_by_format</code> is a JSON-encoded string (not a nested object) —
+    the WM decodes it with <code>json.loads</code> after receiving the response.</p>
+</li>
+<li>
+<p><code>actions/runHandlers</code></p>
+</li>
+<li>Runs a named subset of an action's handlers sequentially within this ER,
+    seeding <code>context.current_result</code> from a prior segment's serialized result.
+    Used by the WM to orchestrate multi-env action runs; not used for single-env
+    actions (those still use <code>actions/run</code>).</li>
+<li>Params:<ul>
+<li><code>actionName</code> (string): action name as registered via <code>finecodeRunner/updateConfig</code></li>
+<li><code>handlerNames</code> (list of string): ordered list of handler names to execute;
+  all must belong to this ER's env</li>
+<li><code>previousResult</code> (object | null): serialized <code>RunActionResult</code>
+  (<code>dataclasses.asdict</code>) from the last handler of the preceding segment, or
+  <code>null</code> for the first segment. Reconstructed as <code>context.current_result</code>
+  before the first handler in <code>handlerNames</code> is invoked.</li>
+<li><code>options</code> (object | null): same keys as <code>actions/run</code>. <code>resultFormats</code>
+  should be omitted (or <code>[]</code>) for intermediate segments and non-empty only
+  for the final segment of a run.</li>
 </ul>
+</li>
+<li>Result (success):
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;&lt;resultField&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">},</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">&quot;resultByFormat&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;string&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">},</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">&quot;returnCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
+</code></pre></div><ul>
+<li><code>result</code>: serialized <code>RunActionResult</code> after all specified handlers ran
+  (<code>dataclasses.asdict</code>). Pass as <code>previousResult</code> to the next segment's
+  <code>actions/runHandlers</code> call.</li>
+<li><code>resultByFormat</code>: formatted results in the requested formats; <code>{}</code> when
+  <code>resultFormats</code> was empty in options.</li>
+</ul>
+</li>
+<li>Result (streamed): used when <code>partialResultToken</code> was provided and all
+    results were delivered via <code>$/progress</code>. <code>result</code> is still populated for
+    context chaining.
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;streamed&quot;</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;&lt;resultField&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">},</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">&quot;resultByFormat&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="nt">&quot;returnCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span>
+</code></pre></div></li>
+<li>Result (stopped):
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stopped&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;&lt;resultField&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">},</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">&quot;resultByFormat&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;json&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;...&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">}},</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nt">&quot;returnCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">}</span>
+</code></pre></div></li>
+<li>
+<p>Result (error): <code>{"error": "message"}</code></p>
 </li>
 <li>
 <p><code>actions/getPayloadSchemas</code></p>
-<ul>
-<li>Arguments: none</li>
+</li>
+<li>Params: <code>{}</code></li>
 <li>Result: <code>{ action_name: JSON Schema fragment | null }</code></li>
-<li>Returns a payload schema for every action currently known to the runner.
-  Each schema has <code>properties</code> (field name → JSON Schema type object) and
-  <code>required</code> (list of field names without defaults).
-  <code>null</code> means the action class could not be imported.</li>
-</ul>
+<li>
+<p>Returns a payload schema for every action currently known to the runner.
+    Each schema has <code>properties</code> (field name → JSON Schema type object) and
+    <code>required</code> (list of field names without defaults).
+    <code>null</code> means the action class could not be imported.</p>
 </li>
 <li>
 <p><code>actions/mergeResults</code></p>
-<ul>
-<li>Arguments: <code>[action_name, results]</code></li>
-<li>Result: <code>{ "merged": ... }</code> or <code>{ "error": "..." }</code></li>
-</ul>
+</li>
+<li>Params: <code>{ "actionName": string, "results": list }</code></li>
+<li><code>results</code>: list of serialized <code>RunActionResult</code> objects (<code>dataclasses.asdict</code>),
+    one per concurrent segment or handler. Used by the WM after a concurrent
+    multi-env run to merge the per-env results into a single final result.</li>
+<li>
+<p>Result: <code>{ "merged": &lt;serialized RunActionResult&gt; }</code> or <code>{ "error": "..." }</code></p>
 </li>
 <li>
 <p><code>actions/reload</code></p>
-<ul>
-<li>Arguments: <code>[action_name]</code></li>
-<li>Result: <code>{}</code></li>
-</ul>
+</li>
+<li>Params: <code>{ "actionName": string }</code></li>
+<li>
+<p>Result: <code>{}</code></p>
+</li>
+<li>
+<p><code>finecodeRunner/resolveActionMeta</code></p>
+</li>
+<li>Params: <code>{}</code> (no params)</li>
+<li>Result: complete map of <code>{ "&lt;configSource&gt;": { "canonical_source": string, "runs_concurrently": bool }, ... }</code> for every
+    action whose class can be imported in this env.  Actions that fail to import are
+    omitted entirely.
+    Example: <code>{ "myext.LintAction": { "canonical_source": "myext.actions.lint.LintAction", "runs_concurrently": true } }</code></li>
+<li>
+<p>Called by the WM after <code>finecodeRunner/updateConfig</code> completes to store canonical
+    sources and execution modes on its <code>Action</code> domain objects before the runner is
+    considered ready.  The WM uses <code>canonical_source</code> as the primary identifier in all
+    subsequent action lookups.  Actions absent from the response (import failure) keep
+    <code>canonical_source = None</code> until another runner for the same project resolves them.</p>
+</li>
+<li>
+<p><code>actions/resolveSource</code></p>
+</li>
+<li>Params: <code>{ "source": string }</code> — an arbitrary import-path alias to resolve.</li>
+<li>Result: <code>{ "canonicalSource": string }</code> — the fully qualified class path
+    (<code>cls.__module__ + "." + cls.__qualname__</code>).</li>
+<li>Raises a JSON-RPC error if the alias cannot be imported or resolved.</li>
+<li>
+<p>Used during action lookup when a caller provides an alias not already known
+    from <code>finecodeRunner/resolveActionMeta</code> (full ADR-0019 support).</p>
 </li>
 <li>
 <p><code>packages/resolvePath</code></p>
-<ul>
-<li>Arguments: <code>[package_name]</code></li>
-<li>Result: <code>{ "packagePath": "/abs/path/to/package" }</code></li>
-</ul>
 </li>
+<li>Params: <code>{ "packageName": string }</code></li>
+<li>Result: <code>{ "packagePath": "/abs/path/to/package" }</code></li>
 </ul>
 <p><strong>Notifications</strong></p>
 <ul>
@@ -1909,7 +2114,12 @@ The protocol is LSP-shaped with a small set of custom commands.</p>
 <p><code>finecode/runActionInProject</code></p>
 </li>
 <li>Params:<ul>
-<li><code>actionSource</code> (string): import path of the action class (e.g. <code>"myext.actions.lint.LintAction"</code>)</li>
+<li><code>actionSource</code> (string): <strong>fully qualified</strong> import path of the action class —
+  <code>f"{cls.__module__}.{cls.__qualname__}"</code> (e.g. <code>"myext.actions.lint.LintAction"</code>).
+  Must not be a re-exported alias such as <code>"myext.LintAction"</code>. The WM resolves
+  the action name by matching against the canonical source reported by
+  <code>finecodeRunner/resolveActionMeta</code>; a re-exported path will not match and the
+  request will fail.</li>
 <li><code>payload</code> (object): serialized action payload (<code>dataclasses.asdict</code>)</li>
 <li><code>meta</code> (object): <code>{ "trigger": string, "devEnv": string, "orchestrationDepth": int }</code></li>
 </ul>
@@ -1922,7 +2132,8 @@ The protocol is LSP-shaped with a small set of custom commands.</p>
 <p><code>finecode/runActionInWorkspace</code></p>
 </li>
 <li>Params:<ul>
-<li><code>actionSource</code> (string): import path of the action class</li>
+<li><code>actionSource</code> (string): <strong>fully qualified</strong> import path of the action class —
+  same constraint as <code>finecode/runActionInProject</code> above.</li>
 <li><code>payload</code> (object): serialized action payload</li>
 <li><code>meta</code> (object): <code>{ "trigger": string, "devEnv": string, "orchestrationDepth": int }</code></li>
 <li><code>projectPaths</code> (list[string] | null): explicit POSIX project paths, or <code>null</code> for all projects that declare the action</li>
@@ -1936,12 +2147,63 @@ The protocol is LSP-shaped with a small set of custom commands.</p>
 <ul>
 <li><code>$/progress</code></li>
 <li>Params: <code>{ "token": &lt;token&gt;, "value": "&lt;stringified JSON partial result&gt;" }</code></li>
-<li>The <code>token</code> must match <code>partial_result_token</code> from <code>actions/run</code>.</li>
+<li>The <code>token</code> must match <code>partialResultToken</code> from <code>actions/run</code> or
+    <code>actions/runHandlers</code>.</li>
 <li><code>value</code> is a JSON string produced by the ER from a partial run result.</li>
-<li>When <code>$/progress</code> is used to deliver results, the final <code>actions/run</code> response
-    must have <code>status: "streamed"</code> and empty <code>result_by_format</code>. See <code>actions/run</code>
-    result (streamed) above.</li>
+<li>When <code>$/progress</code> is used to deliver results, the final <code>actions/run</code> or
+    <code>actions/runHandlers</code> response must have <code>status: "streamed"</code> and empty
+    <code>result_by_format</code>. See result (streamed) entries above.</li>
 </ul>
+<h2 id="multi-env-action-orchestration">Multi-Env Action Orchestration<a class="headerlink" href="#multi-env-action-orchestration" title="Permanent link">&para;</a></h2>
+<p>When an action's handlers span more than one env, the WM cannot delegate the
+whole run to a single ER via <code>actions/run</code>. Instead the WM becomes the
+orchestrator and drives execution using <code>actions/runHandlers</code>.</p>
+<h3 id="sequential-mode-default">Sequential mode (default)<a class="headerlink" href="#sequential-mode-default" title="Permanent link">&para;</a></h3>
+<p>The WM groups the action's handlers into <strong>consecutive same-env segments</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>handlers:  [h1/env1, h2/env1, h3/env1, h4/env2]
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>segments:  [(env1, [h1, h2, h3]), (env2, [h4])]
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>handlers:  [h1/env1, h2/env2, h3/env1]
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>segments:  [(env1, [h1]), (env2, [h2]), (env1, [h3])]
+</code></pre></div>
+<p>Execution:</p>
+<ol>
+<li>WM calls <code>actions/runHandlers</code> for segment 1 with <code>previousResult: null</code>.</li>
+<li>For each subsequent segment, WM calls <code>actions/runHandlers</code> on that segment's
+   ER with <code>previousResult</code> set to the <code>result</code> returned by the previous call.
+   The ER reconstructs this as <code>context.current_result</code> before the first handler
+   in the segment runs.</li>
+<li>If any call returns <code>status: "stopped"</code>, WM stops the chain and returns that
+   result to the caller.</li>
+<li><code>resultFormats</code> is passed only in the final segment's options — earlier
+   segments return <code>resultByFormat: {}</code> to avoid unnecessary serialization.</li>
+<li>WM assembles the final response from the last segment's <code>result</code> and
+   <code>resultByFormat</code>.</li>
+</ol>
+<h3 id="concurrent-mode">Concurrent mode<a class="headerlink" href="#concurrent-mode" title="Permanent link">&para;</a></h3>
+<p>The WM groups handlers by env (order within an env does not matter for
+concurrent execution):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>handlers:  [h1/env1, h2/env2, h3/env1]
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>groups:    [(env1, [h1, h3]), (env2, [h2])]
+</code></pre></div>
+<p>Execution:</p>
+<ol>
+<li>WM dispatches <code>actions/runHandlers</code> to all env groups in parallel, all with
+   <code>previousResult: null</code>.</li>
+<li>WM collects all <code>result</code> objects from the parallel calls.</li>
+<li>WM calls <code>actions/mergeResults</code> on any available ER for the action, passing
+   the collected <code>result</code> objects.</li>
+<li>The merged result and its formatted representation form the final response.</li>
+</ol>
+<h3 id="single-env-actions">Single-env actions<a class="headerlink" href="#single-env-actions" title="Permanent link">&para;</a></h3>
+<p>When all handlers are in the same env, the WM uses <code>actions/run</code> — a single
+delegated call where the ER manages handler sequencing internally.
+<code>actions/runHandlers</code> is only used when handlers span multiple envs.</p>
+<h3 id="walrunid-continuity"><code>walRunId</code> continuity<a class="headerlink" href="#walrunid-continuity" title="Permanent link">&para;</a></h3>
+<p>The WM generates a single <code>walRunId</code> for the whole logical action run and
+passes it in every <code>actions/runHandlers</code> call's options. Each ER emits WAL
+events tagged with that ID for the handler(s) it executes, so traces can be
+correlated across envs for the same logical run.</p>
 <h2 id="error-handling-and-cancellation">Error Handling and Cancellation<a class="headerlink" href="#error-handling-and-cancellation" title="Permanent link">&para;</a></h2>
 <ul>
 <li>JSON-RPC errors are used for protocol-level failures.</li>

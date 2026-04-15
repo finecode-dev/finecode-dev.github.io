@@ -22,7 +22,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
@@ -2510,7 +2510,7 @@
 <tr>
 <td><code>action_results</code></td>
 <td><code>dict[str, RunActionResult]</code></td>
-<td>Results keyed by action name (<code>"lint"</code>, <code>"format"</code>, …). The overall <code>return_code</code> is <code>ERROR</code> if any sub-result is an error.</td>
+<td>Results keyed by action name (for example, <code>"lint"</code>). The overall <code>return_code</code> is <code>ERROR</code> if any sub-result is an error.</td>
 </tr>
 </tbody>
 </table>
@@ -2534,7 +2534,7 @@
 <p><strong>Handler roles:</strong></p>
 <ul>
 <li><strong><code>StagedFilesDiscoveryHandler</code></strong> — must be first; detects staged files via <code>git diff --cached --name-only --diff-filter=ACMR</code> and writes to <code>run_context.staged_files</code>.</li>
-<li><strong>Bridge handlers</strong> (<code>LintPrecommitBridgeHandler</code>, <code>FormatPrecommitBridgeHandler</code>) — each delegates to one existing action passing staged files. Register additional bridge handlers to run more tools.</li>
+<li><strong>Bridge handlers</strong> (for example, <code>LintPrecommitBridgeHandler</code>) — each delegates to one existing action passing staged files. Register additional bridge handlers to run more tools.</li>
 </ul>
 <p>See <a href="../../guides/using-precommit-hooks/">Using Pre-commit Hooks</a> for setup instructions.</p>
 <hr />

@@ -22,7 +22,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
@@ -1021,6 +1021,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#declaring-an-env" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Declaring an env
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Declaring an env">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runtime-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editable-path-installs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editable path installs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composing-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Composing environments
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-dev_workspace-bootstrap" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1715,6 +1765,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#declaring-an-env" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Declaring an env
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Declaring an env">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runtime-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editable-path-installs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editable path installs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#composing-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Composing environments
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-dev_workspace-bootstrap" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1853,27 +1953,54 @@
 <p>Installs the full dependency set into each virtualenv. This reads the <code>dependency-groups</code> entries and calls <code>install_deps_in_env</code> for each env, including <code>finecode_extension_runner</code> and all handler tool dependencies (e.g. ruff, mypy).</p>
 <p>After this step every handler has all its dependencies available and can execute.</p>
 <hr />
+<h2 id="declaring-an-env">Declaring an env<a class="headerlink" href="#declaring-an-env" title="Permanent link">&para;</a></h2>
+<p>A FineCode environment is declared by adding an entry to <code>[dependency-groups]</code> in <code>pyproject.toml</code>. The group name becomes the environment name; handlers reference that name with <code>env = "&lt;name&gt;"</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[dependency-groups]</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">dev</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;pytest==7.4.*&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;debugpy==1.8.*&quot;</span><span class="p">]</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">docs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mkdocs==1.6.*&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mkdocs-material==9.7.*&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>This single table is what <code>create_envs</code> and <code>install_envs</code> read to decide which virtualenvs to create and what to install into them. If you declare an environment anywhere else, FineCode will not see it. This rule is documented in <a href="../../adr/0018-pep735-groups-as-env-registry/">ADR-0018</a>.</p>
+<h3 id="runtime-dependencies">Runtime dependencies<a class="headerlink" href="#runtime-dependencies" title="Permanent link">&para;</a></h3>
+<p>Environments that need the project's runtime dependencies reference the project itself by name — for example <code>dev = ["finecode", ...]</code>. This pulls <code>[project.dependencies]</code> transitively through the project package and keeps the runtime dependency list in exactly one place. Do not re-list the project's runtime deps inside the group.</p>
+<h3 id="editable-path-installs">Editable path installs<a class="headerlink" href="#editable-path-installs" title="Permanent link">&para;</a></h3>
+<p>PEP 508 requirement strings cannot express editable installs from a local path. For development workspaces that need them, add a companion table under <code>[tool.finecode.env.&lt;name&gt;.dependencies]</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[dependency-groups]</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;pytest==7.4.*&quot;</span><span class="p">]</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">[tool.finecode.env.dev.dependencies]</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">finecode</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;./&quot;</span><span class="p">,</span><span class="w">                       </span><span class="n">editable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">finecode_extension_api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;./finecode_extension_api&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">editable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>The companion table is a <strong>supplement</strong>: FineCode's install logic rewrites matching entries in the group to use the editable local path. It does not introduce new environments, and it is ignored by tools that only understand PEP 735 (<code>uv sync --group=dev</code>, <code>pip install --group=dev</code>). Every environment must still have a <code>[dependency-groups]</code> entry of the same name — the supplement alone is not enough.</p>
+<h3 id="composing-environments">Composing environments<a class="headerlink" href="#composing-environments" title="Permanent link">&para;</a></h3>
+<p>To reuse a group inside another group, use the standard PEP 735 <code>include-group</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[dependency-groups]</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">docs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mkdocs==1.6.*&quot;</span><span class="p">]</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">dev</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="n">include-group</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;docs&quot;</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;pytest==7.4.*&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>Because every FineCode environment is also a real <code>[dependency-groups]</code> entry, <code>include-group</code> always resolves and standard tooling accepts the file unchanged. FineCode does not provide a separate composition primitive.</p>
+<hr />
 <h2 id="the-dev_workspace-bootstrap">The <code>dev_workspace</code> bootstrap<a class="headerlink" href="#the-dev_workspace-bootstrap" title="Permanent link">&para;</a></h2>
 <p>The <code>dev_workspace</code> env is special: it contains FineCode itself and the preset packages. The handlers that implement <code>create_envs</code> and <code>install_envs</code> live inside <code>dev_workspace</code> — which creates a bootstrapping constraint.</p>
 <h3 id="workspace-root-bootstrap-one-time">Workspace root bootstrap (one-time)<a class="headerlink" href="#workspace-root-bootstrap-one-time" title="Permanent link">&para;</a></h3>
 <p>The workspace root's <code>dev_workspace</code> is the <strong>seed</strong> for everything. <code>prepare-envs</code> cannot run unless FineCode is already installed somewhere, so the workspace root's <code>dev_workspace</code> must be created before <code>prepare-envs</code> can run.</p>
 <p>Use the <code>bootstrap</code> command — it handles this automatically using the invoking Python (e.g. the pipx/uvx ephemeral environment):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># With pipx (bundled with Python 3.13+):</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pipx<span class="w"> </span>run<span class="w"> </span>finecode<span class="w"> </span>bootstrap
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># With uv (also works when you have no Python — uv installs it):</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>uvx<span class="w"> </span>finecode<span class="w"> </span>bootstrap
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># With pipx (bundled with Python 3.13+):</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>pipx<span class="w"> </span>run<span class="w"> </span>finecode<span class="w"> </span>bootstrap
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># With uv (also works when you have no Python — uv installs it):</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>uvx<span class="w"> </span>finecode<span class="w"> </span>bootstrap
 </code></pre></div>
 <blockquote>
 <p><strong>Note:</strong> <code>bootstrap</code> uses the built-in default handlers: <code>virtualenv</code> for environment creation and <code>pip</code> for dependency installation. If your project requires custom handlers for either action (e.g. a different package manager or venv backend), <code>bootstrap</code> is not suitable — you must bootstrap the <code>dev_workspace</code> manually (see the <strong>Manual alternative</strong> below) or via your own tooling.</p>
 </blockquote>
 <p>To delete and recreate an existing <code>dev_workspace</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pipx<span class="w"> </span>run<span class="w"> </span>finecode<span class="w"> </span>bootstrap<span class="w"> </span>--recreate
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pipx<span class="w"> </span>run<span class="w"> </span>finecode<span class="w"> </span>bootstrap<span class="w"> </span>--recreate
 </code></pre></div>
 <p><strong>Manual alternative</strong> (requires pip 25.1+):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venvs/dev_workspace
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">source</span><span class="w"> </span>.venvs/dev_workspace/bin/activate<span class="w">   </span><span class="c1"># Windows: .venvs\dev_workspace\Scripts\activate</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--group<span class="o">=</span><span class="s2">&quot;dev_workspace&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venvs/dev_workspace
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">source</span><span class="w"> </span>.venvs/dev_workspace/bin/activate<span class="w">   </span><span class="c1"># Windows: .venvs\dev_workspace\Scripts\activate</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--group<span class="o">=</span><span class="s2">&quot;dev_workspace&quot;</span>
 </code></pre></div>
 <p>See <a href="../../getting-started/">Getting Started</a> for the full first-time setup sequence.</p>
 <h3 id="subproject-bootstrap-automated-by-prepare-envs">Subproject bootstrap (automated by <code>prepare-envs</code>)<a class="headerlink" href="#subproject-bootstrap-automated-by-prepare-envs" title="Permanent link">&para;</a></h3>
@@ -1887,7 +2014,7 @@
 <hr />
 <h2 id="cli-command">CLI command<a class="headerlink" href="#cli-command" title="Permanent link">&para;</a></h2>
 <p>The <code>prepare-envs</code> command runs the full sequence automatically:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
 </code></pre></div>
 <p>This is the only command most users need. It:</p>
 <ol>
@@ -1899,15 +2026,15 @@
 </ol>
 <p>See <a href="../../cli/#prepare-envs">CLI reference — prepare-envs</a> for available options.</p>
 <h3 id="re-creating-environments">Re-creating environments<a class="headerlink" href="#re-creating-environments" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs<span class="w"> </span>--recreate
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs<span class="w"> </span>--recreate
 </code></pre></div>
 <p>Deletes all existing virtualenvs and rebuilds them from scratch. Use this when a venv becomes corrupted or when you want a clean slate after dependency changes.</p>
 <h3 id="filtering-by-project">Filtering by project<a class="headerlink" href="#filtering-by-project" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs<span class="w"> </span>--project<span class="o">=</span>package_a<span class="w"> </span>--project<span class="o">=</span>package_b
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs<span class="w"> </span>--project<span class="o">=</span>package_a<span class="w"> </span>--project<span class="o">=</span>package_b
 </code></pre></div>
 <p>Only prepares environments for the listed projects. Useful in a large workspaces with multiple projects when you've only changed dependencies for a subset of packages.</p>
 <h3 id="filtering-by-environment-name">Filtering by environment name<a class="headerlink" href="#filtering-by-environment-name" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs<span class="w"> </span>--env<span class="o">=</span>dev_no_runtime
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs<span class="w"> </span>--env<span class="o">=</span>dev_no_runtime
 </code></pre></div>
 <p>Restricts the <code>install_envs</code> step (step 5) to the named environments. The <code>create_envs</code> step still runs for <strong>all</strong> envs regardless of this flag.</p>
 <p><strong>Why?</strong> Virtualenvs must exist for every env — they are cheap to create and skip if already valid. Filtering at that step would leave envs in a broken state if they don't exist yet.</p>

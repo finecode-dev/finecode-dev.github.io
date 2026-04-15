@@ -10,13 +10,9 @@
       
       
       
-        <link rel="canonical" href="http://localhost:8000/guides/creating-preset/">
+        <link rel="canonical" href="http://localhost:8000/adr/0022-wm-orchestrates-multi-env-handler-execution/">
       
       
-        <link rel="prev" href="../creating-extension/">
-      
-      
-        <link rel="next" href="../designing-actions/">
       
       
         
@@ -27,7 +23,7 @@
     
     
       
-        <title>Creating a Preset - FineCode</title>
+        <title>ADR-0022: WM orchestrates multi-env handler execution; run context serializes at env boundaries - FineCode</title>
       
     
     
@@ -82,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-a-preset" class="md-skip">
+        <a href="#adr-0022-wm-orchestrates-multi-env-handler-execution-run-context-serializes-at-env-boundaries" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating a Preset
+              ADR-0022: WM orchestrates multi-env handler execution; run context serializes at env boundaries
             
           </span>
         </div>
@@ -309,13 +305,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../creating-extension/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../guides/creating-extension/" class="md-tabs__link">
           
   
   
@@ -778,31 +772,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -820,7 +811,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -838,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../creating-extension/" class="md-nav__link">
+      <a href="../../guides/creating-extension/" class="md-nav__link">
         
   
   
@@ -863,37 +854,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Creating a Preset
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../guides/creating-preset/" class="md-nav__link">
         
   
   
@@ -909,92 +873,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-create-the-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Create the package
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-declare-actions-in-presettoml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Declare actions in preset.toml
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-use-the-preset-in-a-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Use the preset in a project
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-allow-users-to-override-your-defaults" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Allow users to override your defaults
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#composing-multiple-presets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Composing multiple presets
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#publishing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Publishing
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1007,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../designing-actions/" class="md-nav__link">
+      <a href="../../guides/designing-actions/" class="md-nav__link">
         
   
   
@@ -1035,7 +913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../preparing-environments/" class="md-nav__link">
+      <a href="../../guides/preparing-environments/" class="md-nav__link">
         
   
   
@@ -1063,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../using-precommit-hooks/" class="md-nav__link">
+      <a href="../../guides/using-precommit-hooks/" class="md-nav__link">
         
   
   
@@ -1091,7 +969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../workspace/" class="md-nav__link">
+      <a href="../../guides/workspace/" class="md-nav__link">
         
   
   
@@ -1520,7 +1398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../developing-finecode/" class="md-nav__link">
+      <a href="../../guides/developing-finecode/" class="md-nav__link">
         
   
   
@@ -1548,7 +1426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -1603,10 +1481,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-create-the-package" class="md-nav__link">
+  <a href="#context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Create the package
+        Context
       
     </span>
   </a>
@@ -1614,10 +1492,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-declare-actions-in-presettoml" class="md-nav__link">
+  <a href="#related-adrs-considered" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Declare actions in preset.toml
+        Related ADRs Considered
       
     </span>
   </a>
@@ -1625,46 +1503,91 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-use-the-preset-in-a-project" class="md-nav__link">
+  <a href="#decision" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Use the preset in a project
+        Decision
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Decision">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rule-1-wm-owns-handler-sequencing-when-handlers-span-multiple-envs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rule 1 — WM owns handler sequencing when handlers span multiple envs
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4-allow-users-to-override-your-defaults" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#rule-2-run-context-serializes-only-at-actual-env-boundaries" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Allow users to override your defaults
+        Rule 2 — Run context serializes only at actual env boundaries
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#composing-multiple-presets" class="md-nav__link">
+  <a href="#consequences" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Composing multiple presets
+        Consequences
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consequences">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alternatives-considered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternatives Considered
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#publishing" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#related-decisions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Publishing
+        Related Decisions
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1688,99 +1611,121 @@
   
 
 
-<h1 id="creating-a-preset">Creating a Preset<a class="headerlink" href="#creating-a-preset" title="Permanent link">&para;</a></h1>
-<p>A <strong>Preset</strong> is a Python package that bundles action and handler declarations into a reusable, distributable configuration. Teams use presets to standardize tooling across projects without duplicating config.</p>
-<h2 id="1-create-the-package">1. Create the package<a class="headerlink" href="#1-create-the-package" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>my_preset/
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    pyproject.toml
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    my_preset/
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        __init__.py
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        preset.toml
-</code></pre></div>
-<p><strong><code>pyproject.toml</code></strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[project]</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my_preset&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.11&quot;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w">   </span><span class="c1"># no runtime dependencies needed for a preset-only package</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">[build-system]</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;setuptools&gt;=64&quot;</span><span class="p">]</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;setuptools.build_meta&quot;</span>
-</code></pre></div>
-<p><strong><code>my_preset/__init__.py</code></strong> — can be empty:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>
-</code></pre></div>
-<h2 id="2-declare-actions-in-presettoml">2. Declare actions in <code>preset.toml</code><a class="headerlink" href="#2-declare-actions-in-presettoml" title="Permanent link">&para;</a></h2>
-<p>The <code>preset.toml</code> file lives inside the package directory (next to <code>__init__.py</code>). It uses the same <code>[tool.finecode.*]</code> syntax as <code>pyproject.toml</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># my_preset/my_preset/preset.toml</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">[tool.finecode.action.lint]</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api.actions.lint.LintAction&quot;</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">handlers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;ruff&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_python_ruff.RuffLintFilesHandler&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;dev_no_runtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="s2">&quot;fine_python_ruff~=0.2.0&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;mypy&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_python_mypy.MypyLintFilesHandler&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;dev_no_runtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="s2">&quot;fine_python_mypy~=0.3.0&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">]</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="k">[tool.finecode.action.format_python_file]</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api.actions.FormatPythonFileAction&quot;</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="n">handlers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;ruff&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_python_ruff.RuffFormatFileHandler&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;dev_no_runtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="s2">&quot;fine_python_ruff~=0.2.0&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;save&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;finecode_builtin_handlers.SaveFormatFileHandler&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;dev_no_runtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="s2">&quot;finecode_builtin_handlers~=0.2.0&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="p">]</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="c1"># Set default handler configs</span>
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="k">[[tool.finecode.action_handler]]</span>
-<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fine_python_ruff.RuffLintFilesHandler&quot;</span>
-<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="n">config</span><span class="p">.</span><span class="n">extend_select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;I&quot;</span><span class="p">]</span>
-<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="n">config</span><span class="p">.</span><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">88</span>
-</code></pre></div>
-<h2 id="3-use-the-preset-in-a-project">3. Use the preset in a project<a class="headerlink" href="#3-use-the-preset-in-a-project" title="Permanent link">&para;</a></h2>
-<p>Install the preset package (e.g. from PyPI or a local path) into the <code>dev_workspace</code> dependency group:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># User&#39;s pyproject.toml</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">[dependency-groups]</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">dev_workspace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="s2">&quot;finecode==0.3.*&quot;</span><span class="p">,</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="s2">&quot;my_preset==0.1.*&quot;</span><span class="p">,</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">]</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="k">[tool.finecode]</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">presets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_preset&quot;</span><span class="w"> </span><span class="p">}]</span>
-</code></pre></div>
-<p>Then run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--group<span class="o">=</span><span class="s2">&quot;dev_workspace&quot;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
-</code></pre></div>
-<h2 id="4-allow-users-to-override-your-defaults">4. Allow users to override your defaults<a class="headerlink" href="#4-allow-users-to-override-your-defaults" title="Permanent link">&para;</a></h2>
-<p>Users can add <code>[[tool.finecode.action_handler]]</code> entries in their own <code>pyproject.toml</code> to override any config you set in <code>preset.toml</code>. Your preset's values are the baseline; user config always wins.</p>
-<p>Users can also:</p>
+<h1 id="adr-0022-wm-orchestrates-multi-env-handler-execution-run-context-serializes-at-env-boundaries">ADR-0022: WM orchestrates multi-env handler execution; run context serializes at env boundaries<a class="headerlink" href="#adr-0022-wm-orchestrates-multi-env-handler-execution-run-context-serializes-at-env-boundaries" title="Permanent link">&para;</a></h1>
 <ul>
-<li>Add more handlers to actions you declared</li>
-<li>Replace all handlers with <code>handlers_mode = "replace"</code></li>
-<li>Disable specific handlers with <code>disabled = true</code></li>
+<li><strong>Status:</strong> proposed</li>
+<li><strong>Date:</strong> 2026-04-14</li>
+<li><strong>Deciders:</strong> @Aksem</li>
+<li><strong>Tags:</strong> actions, architecture, orchestration, extension-runner, wm-server</li>
 </ul>
-<h2 id="composing-multiple-presets">Composing multiple presets<a class="headerlink" href="#composing-multiple-presets" title="Permanent link">&para;</a></h2>
-<p>A project can activate multiple presets. They are applied in order, and later preset handlers are added after earlier ones:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[tool.finecode]</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">presets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_lint_preset&quot;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_format_preset&quot;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">]</span>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<p>An action can declare handlers in more than one execution environment. For
+example, a formatting action might have one handler in a <code>runtime</code> env and
+another in a <code>dev_no_runtime</code> env.</p>
+<p>ADR-0003 established that each env runs in an isolated process (one ER per
+env). ADR-0016 established that the WM owns cross-runner coordination at
+project and workspace scope. Neither ADR addresses who owns handler sequencing
+when a single action run spans multiple ER processes.</p>
+<p>The current design delegates the entire action run to one ER via <code>actions/run</code>,
+which has two problems:</p>
+<ol>
+<li><strong>Wrong ownership.</strong> A single ER cannot execute handlers that live in a
+   different env — it can only run handlers installed in its own virtualenv.</li>
+<li><strong>No context path.</strong> In sequential mode, each handler reads the accumulated
+   result of all previous handlers through <code>context.current_result</code>. When
+   handlers are in different ER processes there is no in-process path for that
+   state to travel between them.</li>
+</ol>
+<h2 id="related-adrs-considered">Related ADRs Considered<a class="headerlink" href="#related-adrs-considered" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../0003-process-isolation-per-extension-environment/">ADR-0003</a> — establishes
+  process isolation per env; this ADR defines handler-level coordination across
+  those isolated processes.</li>
+<li><a href="../0013-action-declares-handler-execution-strategy/">ADR-0013</a> — establishes
+  that the action declares whether its handlers are sequential or concurrent;
+  this ADR defines how that strategy is carried out when handlers span multiple
+  envs.</li>
+<li><a href="../0016-layered-execution-scopes-for-action-invocation/">ADR-0016</a> — establishes
+  WM ownership of cross-runner coordination at action/project/workspace scope;
+  this ADR extends that ownership rule down to handler-granularity when handlers
+  cross env boundaries.</li>
+</ul>
+<h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<h3 id="rule-1-wm-owns-handler-sequencing-when-handlers-span-multiple-envs">Rule 1 — WM owns handler sequencing when handlers span multiple envs<a class="headerlink" href="#rule-1-wm-owns-handler-sequencing-when-handlers-span-multiple-envs" title="Permanent link">&para;</a></h3>
+<p>When all of an action's handlers are in the same env, the ER runs them
+internally: it already has the handler code in-process and manages
+<code>current_result</code> without any wire round-trips. The WM delegates the full action
+run to that ER with a single call.</p>
+<p>When handlers span more than one env, the ER can no longer own sequencing: it
+does not have access to handlers installed in other envs. The WM takes over as
+the orchestrator and drives execution handler-by-handler across the relevant ER
+processes.</p>
+<h3 id="rule-2-run-context-serializes-only-at-actual-env-boundaries">Rule 2 — Run context serializes only at actual env boundaries<a class="headerlink" href="#rule-2-run-context-serializes-only-at-actual-env-boundaries" title="Permanent link">&para;</a></h3>
+<p>The run context (the accumulated result available to sequential handlers as
+<code>context.current_result</code>) travels between handlers as an in-memory value inside
+a single ER. It must be serialized to cross a process boundary.</p>
+<p>The serialization scope must match the architectural boundary: context crosses
+the wire <strong>only when it actually crosses an env boundary</strong>, not between every
+handler call. Within the same env, consecutive handlers share context in memory
+as they always have.</p>
+<p>This rule determines the unit of WM orchestration: the WM groups consecutive
+handlers that share an env into a <strong>segment</strong>, issues one call per segment, and
+passes the serialized context only between segments.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>handlers:  [h1/env1, h2/env1, h3/env1, h4/env2]
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>segments:  [(env1, [h1, h2, h3]),  (env2, [h4])]
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>           one call to ER_env1     one call to ER_env2
 </code></pre></div>
-<p>A preset can itself reference other presets in its <code>preset.toml</code> if needed.</p>
-<h2 id="publishing">Publishing<a class="headerlink" href="#publishing" title="Permanent link">&para;</a></h2>
-<p>Presets are regular Python packages — publish them to PyPI with any standard build tool:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python<span class="w"> </span>-m<span class="w"> </span>build
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>python<span class="w"> </span>-m<span class="w"> </span>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
-</code></pre></div>
+<p>For sequential execution the WM calls each segment in order, threading the
+serialized context as input to the next segment. For concurrent execution the
+WM dispatches all per-env groups in parallel (each with no prior context) and
+merges the results.</p>
+<h2 id="consequences">Consequences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Correct multi-env execution.</strong> Actions with handlers spread across envs
+  now run correctly; previously only single-env actions behaved as intended.</li>
+<li><strong>WM protocol grows a new primitive.</strong> The WM–ER protocol needs a new
+  request (<code>actions/runHandlers</code>) that accepts an explicit handler list and an
+  optional serialized prior result. <code>actions/run</code> remains unchanged for
+  single-env actions.</li>
+<li><strong>Serialization at env boundaries only.</strong> Consecutive same-env handlers share
+  context in memory; serialization cost scales with the number of env crossings,
+  not the number of handlers.</li>
+<li><strong>ER execution logic is reused.</strong> Within a segment the ER still manages
+  sequential handler execution internally, so existing ER handler-sequencing
+  code is not replaced.</li>
+<li><strong>WM gains handler-level visibility.</strong> To form segments the WM must know
+  which env each handler belongs to. That information is already present in the
+  resolved project config.</li>
+</ul>
+<h3 id="alternatives-considered">Alternatives Considered<a class="headerlink" href="#alternatives-considered" title="Permanent link">&para;</a></h3>
+<p><strong>Single-handler calls (<code>actions/runHandler</code>) with context passed on every
+call.</strong> The WM would call one handler at a time and pass the serialized context
+after every call, including calls within the same env. Rejected because it
+forces unnecessary serialization and deserialization for consecutive handlers
+that share a process, and multiplies round-trips proportionally to the handler
+count rather than the env-boundary count.</p>
+<p><strong>Delegating multi-env coordination to the ER via cross-runner calls.</strong> An ER
+could invoke handlers in other ERs by calling back to the WM (<code>finecode/runActionInProject</code>)
+and relying on the WM to re-route. Rejected because it hides orchestration
+inside a handler invocation, conflicts with the ownership boundary in ADR-0016,
+and makes the recursion depth harder to track.</p>
+<h3 id="related-decisions">Related Decisions<a class="headerlink" href="#related-decisions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Extends <a href="../0016-layered-execution-scopes-for-action-invocation/">ADR-0016</a>:
+  WM ownership of cross-runner coordination now applies at handler granularity,
+  not only at action/project/workspace granularity.</li>
+<li>Applies <a href="../0013-action-declares-handler-execution-strategy/">ADR-0013</a>:
+  the action's declared execution strategy (sequential / concurrent) governs how
+  the WM forms segments and whether it threads context or dispatches in parallel.</li>
+</ul>
+<h3 id="implementation-notes">Implementation Notes<a class="headerlink" href="#implementation-notes" title="Permanent link">&para;</a></h3>
+<p>The new WM–ER request <code>actions/runHandlers</code> carries: the action name, an
+ordered list of handler names to execute, an optional serialized prior result
+(<code>previousResult</code>), and the standard run options. The ER seeds
+<code>context.current_result</code> from <code>previousResult</code> before running the first handler
+in the list, then executes the remaining handlers in sequence as it does today.
+The response includes both a serialized final result (for context chaining) and
+the formatted output requested by the caller.</p>
 
 
 

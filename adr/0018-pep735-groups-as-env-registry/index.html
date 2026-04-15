@@ -10,13 +10,9 @@
       
       
       
-        <link rel="canonical" href="http://localhost:8000/guides/creating-preset/">
+        <link rel="canonical" href="http://localhost:8000/adr/0018-pep735-groups-as-env-registry/">
       
       
-        <link rel="prev" href="../creating-extension/">
-      
-      
-        <link rel="next" href="../designing-actions/">
       
       
         
@@ -27,7 +23,7 @@
     
     
       
-        <title>Creating a Preset - FineCode</title>
+        <title>ADR-0018: PEP 735 dependency groups are the registry of FineCode environments - FineCode</title>
       
     
     
@@ -82,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#creating-a-preset" class="md-skip">
+        <a href="#adr-0018-pep-735-dependency-groups-are-the-registry-of-finecode-environments" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating a Preset
+              ADR-0018: PEP 735 dependency groups are the registry of FineCode environments
             
           </span>
         </div>
@@ -309,13 +305,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../creating-extension/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../guides/creating-extension/" class="md-tabs__link">
           
   
   
@@ -778,31 +772,28 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -820,7 +811,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -838,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../creating-extension/" class="md-nav__link">
+      <a href="../../guides/creating-extension/" class="md-nav__link">
         
   
   
@@ -863,37 +854,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Creating a Preset
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../guides/creating-preset/" class="md-nav__link">
         
   
   
@@ -909,92 +873,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-create-the-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Create the package
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-declare-actions-in-presettoml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Declare actions in preset.toml
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-use-the-preset-in-a-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Use the preset in a project
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-allow-users-to-override-your-defaults" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Allow users to override your defaults
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#composing-multiple-presets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Composing multiple presets
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#publishing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Publishing
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1007,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../designing-actions/" class="md-nav__link">
+      <a href="../../guides/designing-actions/" class="md-nav__link">
         
   
   
@@ -1035,7 +913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../preparing-environments/" class="md-nav__link">
+      <a href="../../guides/preparing-environments/" class="md-nav__link">
         
   
   
@@ -1063,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../using-precommit-hooks/" class="md-nav__link">
+      <a href="../../guides/using-precommit-hooks/" class="md-nav__link">
         
   
   
@@ -1091,7 +969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../workspace/" class="md-nav__link">
+      <a href="../../guides/workspace/" class="md-nav__link">
         
   
   
@@ -1520,7 +1398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../developing-finecode/" class="md-nav__link">
+      <a href="../../guides/developing-finecode/" class="md-nav__link">
         
   
   
@@ -1548,7 +1426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adr/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -1603,10 +1481,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-create-the-package" class="md-nav__link">
+  <a href="#context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Create the package
+        Context
       
     </span>
   </a>
@@ -1614,10 +1492,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-declare-actions-in-presettoml" class="md-nav__link">
+  <a href="#related-adrs-considered" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Declare actions in preset.toml
+        Related ADRs Considered
       
     </span>
   </a>
@@ -1625,10 +1503,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-use-the-preset-in-a-project" class="md-nav__link">
+  <a href="#decision" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Use the preset in a project
+        Decision
       
     </span>
   </a>
@@ -1636,35 +1514,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-allow-users-to-override-your-defaults" class="md-nav__link">
+  <a href="#consequences" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Allow users to override your defaults
+        Consequences
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consequences">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alternatives-considered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Alternatives Considered
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#composing-multiple-presets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Composing multiple presets
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#publishing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Publishing
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1688,99 +1561,176 @@
   
 
 
-<h1 id="creating-a-preset">Creating a Preset<a class="headerlink" href="#creating-a-preset" title="Permanent link">&para;</a></h1>
-<p>A <strong>Preset</strong> is a Python package that bundles action and handler declarations into a reusable, distributable configuration. Teams use presets to standardize tooling across projects without duplicating config.</p>
-<h2 id="1-create-the-package">1. Create the package<a class="headerlink" href="#1-create-the-package" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>my_preset/
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    pyproject.toml
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    my_preset/
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        __init__.py
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        preset.toml
-</code></pre></div>
-<p><strong><code>pyproject.toml</code></strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[project]</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my_preset&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1.0&quot;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">requires-python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;=3.11&quot;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w">   </span><span class="c1"># no runtime dependencies needed for a preset-only package</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">[build-system]</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">requires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;setuptools&gt;=64&quot;</span><span class="p">]</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">build-backend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;setuptools.build_meta&quot;</span>
-</code></pre></div>
-<p><strong><code>my_preset/__init__.py</code></strong> — can be empty:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>
-</code></pre></div>
-<h2 id="2-declare-actions-in-presettoml">2. Declare actions in <code>preset.toml</code><a class="headerlink" href="#2-declare-actions-in-presettoml" title="Permanent link">&para;</a></h2>
-<p>The <code>preset.toml</code> file lives inside the package directory (next to <code>__init__.py</code>). It uses the same <code>[tool.finecode.*]</code> syntax as <code>pyproject.toml</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># my_preset/my_preset/preset.toml</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">[tool.finecode.action.lint]</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api.actions.lint.LintAction&quot;</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">handlers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;ruff&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_python_ruff.RuffLintFilesHandler&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;dev_no_runtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="s2">&quot;fine_python_ruff~=0.2.0&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;mypy&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_python_mypy.MypyLintFilesHandler&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;dev_no_runtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="s2">&quot;fine_python_mypy~=0.3.0&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">]</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="k">[tool.finecode.action.format_python_file]</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api.actions.FormatPythonFileAction&quot;</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="n">handlers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;ruff&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_python_ruff.RuffFormatFileHandler&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;dev_no_runtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">        </span><span class="s2">&quot;fine_python_ruff~=0.2.0&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;save&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;finecode_builtin_handlers.SaveFormatFileHandler&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">env</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;dev_no_runtime&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dependencies</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="s2">&quot;finecode_builtin_handlers~=0.2.0&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="p">]</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="c1"># Set default handler configs</span>
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="k">[[tool.finecode.action_handler]]</span>
-<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fine_python_ruff.RuffLintFilesHandler&quot;</span>
-<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="n">config</span><span class="p">.</span><span class="n">extend_select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;I&quot;</span><span class="p">]</span>
-<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="n">config</span><span class="p">.</span><span class="n">line_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">88</span>
-</code></pre></div>
-<h2 id="3-use-the-preset-in-a-project">3. Use the preset in a project<a class="headerlink" href="#3-use-the-preset-in-a-project" title="Permanent link">&para;</a></h2>
-<p>Install the preset package (e.g. from PyPI or a local path) into the <code>dev_workspace</code> dependency group:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># User&#39;s pyproject.toml</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">[dependency-groups]</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">dev_workspace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="s2">&quot;finecode==0.3.*&quot;</span><span class="p">,</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="s2">&quot;my_preset==0.1.*&quot;</span><span class="p">,</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">]</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="k">[tool.finecode]</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">presets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_preset&quot;</span><span class="w"> </span><span class="p">}]</span>
-</code></pre></div>
-<p>Then run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--group<span class="o">=</span><span class="s2">&quot;dev_workspace&quot;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
-</code></pre></div>
-<h2 id="4-allow-users-to-override-your-defaults">4. Allow users to override your defaults<a class="headerlink" href="#4-allow-users-to-override-your-defaults" title="Permanent link">&para;</a></h2>
-<p>Users can add <code>[[tool.finecode.action_handler]]</code> entries in their own <code>pyproject.toml</code> to override any config you set in <code>preset.toml</code>. Your preset's values are the baseline; user config always wins.</p>
-<p>Users can also:</p>
+<h1 id="adr-0018-pep-735-dependency-groups-are-the-registry-of-finecode-environments">ADR-0018: PEP 735 dependency groups are the registry of FineCode environments<a class="headerlink" href="#adr-0018-pep-735-dependency-groups-are-the-registry-of-finecode-environments" title="Permanent link">&para;</a></h1>
 <ul>
-<li>Add more handlers to actions you declared</li>
-<li>Replace all handlers with <code>handlers_mode = "replace"</code></li>
-<li>Disable specific handlers with <code>disabled = true</code></li>
+<li><strong>Status:</strong> proposed</li>
+<li><strong>Date:</strong> 2026-04-11</li>
+<li><strong>Deciders:</strong> @Aksem</li>
+<li><strong>Tags:</strong> configuration, environments, packaging</li>
 </ul>
-<h2 id="composing-multiple-presets">Composing multiple presets<a class="headerlink" href="#composing-multiple-presets" title="Permanent link">&para;</a></h2>
-<p>A project can activate multiple presets. They are applied in order, and later preset handlers are added after earlier ones:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[tool.finecode]</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">presets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_lint_preset&quot;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;my_format_preset&quot;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">]</span>
-</code></pre></div>
-<p>A preset can itself reference other presets in its <code>preset.toml</code> if needed.</p>
-<h2 id="publishing">Publishing<a class="headerlink" href="#publishing" title="Permanent link">&para;</a></h2>
-<p>Presets are regular Python packages — publish them to PyPI with any standard build tool:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python<span class="w"> </span>-m<span class="w"> </span>build
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>python<span class="w"> </span>-m<span class="w"> </span>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
-</code></pre></div>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<p>FineCode runs handlers in purpose-specific virtual environments. A FineCode
+project declares environments in two places in <code>pyproject.toml</code>:</p>
+<ul>
+<li><code>[dependency-groups]</code> — standard PEP 735 groups that any PEP 735–aware tool
+  (uv, pip 25.1+) can read. Each group is a list of PEP 508 requirement
+  strings, optionally including other groups via <code>{ include-group = "..." }</code>.</li>
+<li><code>[tool.finecode.env.&lt;name&gt;.dependencies]</code> — a FineCode-native table where
+  each entry is a dependency descriptor that may carry fields PEP 508 cannot
+  express, such as editable path installs (<code>{ path = "./pkg", editable = true }</code>).</li>
+</ul>
+<p>The relationship between the two has so far been implicit. The
+<code>create_envs</code> and <code>install_envs</code> discovery handlers list environments by
+iterating the keys of <code>[dependency-groups]</code>, and FineCode's install logic
+treats the <code>[tool.finecode.env.&lt;name&gt;.dependencies]</code> table as a <strong>supplement</strong>
+that rewrites matching entries in the corresponding PEP 735 group (and
+appends entries that had no prior string form). With the rule unwritten,
+three problems surfaced:</p>
+<ul>
+<li>A FineCode environment could be declared only under
+  <code>[tool.finecode.env.&lt;name&gt;.dependencies]</code>, with no <code>[dependency-groups]</code>
+  entry at all. Such an environment was invisible to env discovery and
+  never got a venv created, even though FineCode would not warn about it.</li>
+<li>Cross-group composition via <code>{ include-group = "&lt;name&gt;" }</code> is valid PEP 735
+  only when the referenced group exists in <code>[dependency-groups]</code>. Tools like
+  uv reject a group reference that does not. This blocked a <code>dev</code> group from
+  pulling in a <code>runtime</code> group that lived only under
+  <code>[tool.finecode.env.*]</code>.</li>
+<li>A temptation arose to paper over the validation error by adding an empty
+  <code>runtime = []</code> stub. That is valid PEP 735, but it turns the config file
+  into something a non-FineCode reader has to be told about, and it hides
+  the real question — what does "a FineCode environment" mean at the
+  configuration layer?</li>
+</ul>
+<p>These problems share one root cause: there was no stated rule for which
+table owns the list of FineCode environments. This ADR writes that rule
+down.</p>
+<h2 id="related-adrs-considered">Related ADRs Considered<a class="headerlink" href="#related-adrs-considered" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../0003-process-isolation-per-extension-environment/">ADR-0003</a> — each
+  Extension Runner runs in its own process tied to one environment. That
+  ADR establishes <em>why</em> environments exist; this ADR establishes <em>how</em>
+  they are declared.</li>
+<li><a href="../0006-shared-action-types-as-the-action-identity-contract/">ADR-0006</a> —
+  defines the contract between action declarations and their runtime
+  environment. This ADR is the configuration-surface counterpart: it fixes
+  where the environment identifier a handler references must be declared.</li>
+<li>Reviewed the remaining ADRs (0001–0002, 0004–0005, 0007–0017). None
+  overlap with the configuration surface for environments.</li>
+</ul>
+<h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<p><code>[dependency-groups]</code> is the <strong>single registry</strong> of FineCode environments.
+<code>[tool.finecode.env.&lt;name&gt;.dependencies]</code> is a <strong>supplement</strong> that may
+refine entries in the corresponding group but never introduces new
+environments.</p>
+<p>The rule has four parts:</p>
+<ol>
+<li>
+<p><strong>Every FineCode environment corresponds to a <code>[dependency-groups]</code> entry
+   of the same name.</strong> An environment that appears only under
+   <code>[tool.finecode.env.*]</code> is a configuration error. Env discovery,
+   virtualenv creation, and dependency installation all key off the
+   <code>[dependency-groups]</code> table; anything declared outside it is
+   unreachable.</p>
+</li>
+<li>
+<p><strong><code>[tool.finecode.env.&lt;name&gt;.dependencies]</code> is install-time supplement
+   only.</strong> Its sole purpose is to express installation details that PEP 508
+   requirement strings cannot carry — at time of writing, editable path
+   installs. FineCode's install logic merges each entry into the matching
+   PEP 735 group before handing dependencies to the install handler.
+   The supplement never defines an environment, never defines a dependency
+   that is not already listed (or referenced through the project) by the
+   PEP 735 group, and is ignored by non-FineCode tools by design.</p>
+</li>
+<li>
+<p><strong>Environments that need the project's runtime dependencies reference
+   the project itself by name.</strong> A group entry such as
+   <code>dev = ["finecode", "pytest==7.4.*"]</code> pulls <code>[project.dependencies]</code>
+   transitively through the project package, keeping runtime deps declared
+   in exactly one place. Editable path overrides for sub-packages of the
+   project live in <code>[tool.finecode.env.&lt;name&gt;.dependencies]</code> as in rule 2.
+   Re-listing runtime deps inside a dependency group — or inside the
+   FineCode supplement table — is prohibited.</p>
+</li>
+<li>
+<p><strong>Environment composition uses standard PEP 735 <code>include-group</code>.</strong>
+   FineCode does not introduce a parallel composition primitive. Because
+   every environment is a real <code>[dependency-groups]</code> entry by rule 1,
+   <code>include-group</code> always resolves against a present group and uv-style
+   validators accept the file unchanged.</p>
+</li>
+</ol>
+<h2 id="consequences">Consequences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>A <code>pyproject.toml</code> remains readable by non-FineCode tools.</strong> Every
+  environment is a conventional PEP 735 group with a conventional shape.
+  <code>uv sync --group=dev</code> works for an outside contributor who does not run
+  FineCode; the supplement table is simply ignored by tools that do not
+  understand it, without altering group semantics.</p>
+</li>
+<li>
+<p><strong>No duplication of <code>[project.dependencies]</code>.</strong> Rule 3 keeps runtime
+  dependencies in one place and lets group entries that need them pull
+  them in through the project package. Previously the temptation was to
+  re-list runtime deps under an environment-specific group; this is now
+  explicitly rejected.</p>
+</li>
+<li>
+<p><strong>Env discovery becomes a one-line invariant.</strong> The set of FineCode
+  environments for a project equals the set of keys in
+  <code>[dependency-groups]</code>. Discovery handlers do not need to consult
+  <code>[tool.finecode.env.*]</code> to decide what to create.</p>
+</li>
+<li>
+<p><strong>Config errors are catchable.</strong> An environment defined only under
+  <code>[tool.finecode.env.*]</code> is now a rule violation, so FineCode can
+  surface it as a configuration error instead of silently producing no
+  venv. Implementations of the discovery handlers should warn or fail
+  when they encounter such an entry.</p>
+</li>
+<li>
+<p><strong>Empty placeholder groups are unnecessary.</strong> The two historical motives
+  for an empty group — reserving an environment name and satisfying
+  <code>include-group</code> validation — are both removed. An environment name is
+  reserved by declaring a real group with real contents (rule 3); an
+  <code>include-group</code> reference resolves because the referenced group always
+  exists (rules 1 and 4).</p>
+</li>
+<li>
+<p><strong>The supplement table has a narrow, stable purpose.</strong> As long as PEP 508
+  requirement strings cannot express a capability FineCode needs (editable
+  paths today, potentially other install-time hints in the future), the
+  table earns its place. If a future standard subsumes the remaining cases,
+  the table can be removed without disturbing environment identity.</p>
+</li>
+</ul>
+<h3 id="alternatives-considered">Alternatives Considered<a class="headerlink" href="#alternatives-considered" title="Permanent link">&para;</a></h3>
+<p><strong>Treat <code>[tool.finecode.env.*]</code> as the primary registry and regenerate
+<code>[dependency-groups]</code> from it as a codegen step.</strong> Rejected because it
+introduces a drift risk whenever a contributor edits <code>pyproject.toml</code>
+directly, and because it splits the source of truth in a way that makes
+debugging installation problems harder rather than easier. The current
+rule achieves the same single-source-of-truth property without a build
+step.</p>
+<p><strong>Introduce a FineCode-native environment composition primitive (for
+example <code>[tool.finecode.env.dev].include = ["runtime"]</code>) so that
+<code>include-group</code> never has to point at a FineCode-only environment.</strong>
+Rejected because FineCode has no current consumer for the primitive, it
+duplicates PEP 735 for marginal benefit, and it moves composition out of
+the standard surface that uv and pip already understand. Reopen this if
+FineCode ever needs composition semantics that PEP 735 cannot express.</p>
+<p><strong>Allow environments to be declared only under <code>[tool.finecode.env.*]</code>
+and have env discovery read from that table instead.</strong> Rejected because it
+cuts the config off from PEP 735 tooling for no upside: any such
+environment must still be installable, and installation is far simpler
+when the dependency list is already in the standard shape.</p>
+<p><strong>Add an empty <code>runtime = []</code> stub to unblock a single <code>include-group</code>
+reference.</strong> Rejected because it leaves a configuration artifact that a
+non-FineCode reader cannot interpret without documentation, and because
+it does not address the underlying question of what
+<code>[tool.finecode.env.*]</code> is allowed to express on its own.</p>
 
 
 

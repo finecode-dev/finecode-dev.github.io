@@ -22,7 +22,7 @@
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
@@ -1685,7 +1685,17 @@
 <tr>
 <td><code>finecode_extension_api.interfaces.iactionrunner.IActionRunner</code></td>
 <td><code>finecode_extension_runner.impls.action_runner.ActionRunner</code></td>
-<td>Run actions and query action declarations.</td>
+<td>Run actions within the current ER process only. Use only when you are certain all handlers are in the same env. For cross-env action calls, use <code>IProjectActionRunner</code> instead.</td>
+</tr>
+<tr>
+<td><code>finecode_extension_api.interfaces.iprojectactionrunner.IProjectActionRunner</code></td>
+<td><code>finecode_extension_runner.impls.project_action_runner.ProjectActionRunnerImpl</code></td>
+<td>Run an action at project scope, routing through WM so the correct env-runner is chosen. Available only when the ER has a WM back-channel (i.e. not in standalone mode). Use this instead of <code>IActionRunner</code> whenever the target action may live in a different env.</td>
+</tr>
+<tr>
+<td><code>finecode_extension_api.interfaces.iworkspaceactionrunner.IWorkspaceActionRunner</code></td>
+<td><code>finecode_extension_runner.impls.workspace_action_runner.WorkspaceActionRunnerImpl</code></td>
+<td>Fan-out an action across all workspace projects. Available only when the ER has a WM back-channel.</td>
 </tr>
 <tr>
 <td><code>finecode_extension_api.interfaces.irepositorycredentialsprovider.IRepositoryCredentialsProvider</code></td>
