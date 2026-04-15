@@ -14,9 +14,21 @@
   );
 }
 
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #02050b;
+  --md-default-bg-color--light: #02050b;
+}
+
 .md-header,
 .md-tabs {
   background: var(--fc-header-gradient);
+}
+
+[data-md-color-scheme="slate"] .md-main,
+[data-md-color-scheme="slate"] .md-main__inner,
+[data-md-color-scheme="slate"] .md-content,
+[data-md-color-scheme="slate"] .md-content__inner {
+  background: #02050b;
 }
 
 .md-typeset a,
