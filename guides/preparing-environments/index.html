@@ -16,7 +16,7 @@
         <link rel="prev" href="../designing-actions/">
       
       
-        <link rel="next" href="../using-precommit-hooks/">
+        <link rel="next" href="../using-git-hooks/">
       
       
         
@@ -1186,14 +1186,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../using-precommit-hooks/" class="md-nav__link">
+      <a href="../using-git-hooks/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Git Pre-commit Hooks
+    Using Git Hooks
   
 
     
@@ -1941,7 +1941,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>create_envs  →  install_envs
 </code></pre></div>
 <h3 id="step-1-create_envs">Step 1 — <code>create_envs</code><a class="headerlink" href="#step-1-create_envs" title="Permanent link">&para;</a></h3>
-<p>Creates the virtual environments (<code>.venvs/&lt;env_name&gt;/</code>) discovered from the project's <code>dependency-groups</code>. No packages are installed yet.</p>
+<p>Creates the virtual environments (<code>.venvs/&lt;env_name&gt;/</code>) discovered from the project's effective <code>dependency-groups</code>. No packages are installed yet.</p>
 <p>Each env name found in <code>[dependency-groups]</code> becomes a virtualenv:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[dependency-groups]</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">dev_workspace</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;finecode==0.3.*&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">...]</span>
@@ -1954,12 +1954,13 @@
 <p>After this step every handler has all its dependencies available and can execute.</p>
 <hr />
 <h2 id="declaring-an-env">Declaring an env<a class="headerlink" href="#declaring-an-env" title="Permanent link">&para;</a></h2>
-<p>A FineCode environment is declared by adding an entry to <code>[dependency-groups]</code> in <code>pyproject.toml</code>. The group name becomes the environment name; handlers reference that name with <code>env = "&lt;name&gt;"</code>.</p>
+<p>A FineCode environment is usually declared by adding an entry to <code>[dependency-groups]</code> in <code>pyproject.toml</code>. The group name becomes the environment name; handlers reference that name with <code>env = "&lt;name&gt;"</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[dependency-groups]</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">dev</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;finecode&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;pytest==7.4.*&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;debugpy==1.8.*&quot;</span><span class="p">]</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">docs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;mkdocs==1.6.*&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mkdocs-material==9.7.*&quot;</span><span class="p">]</span>
 </code></pre></div>
-<p>This single table is what <code>create_envs</code> and <code>install_envs</code> read to decide which virtualenvs to create and what to install into them. If you declare an environment anywhere else, FineCode will not see it. This rule is documented in <a href="../../adr/0018-pep735-groups-as-env-registry/">ADR-0018</a>.</p>
+<p><code>[dependency-groups]</code> is the canonical explicit place to declare environments, and <code>create_envs</code> / <code>install_envs</code> ultimately read that table to decide what to create and install. FineCode also synthesizes missing groups for env names referenced by action handlers or services, so an env used only through <code>env = "&lt;name&gt;"</code> is still created and installed even if it was not written explicitly under <code>[dependency-groups]</code>.</p>
+<p>Even so, explicit <code>[dependency-groups]</code> entries are still preferred when you want the environment to be visible in the raw <code>pyproject.toml</code> and usable by standard tooling such as <code>uv sync --group=...</code> or <code>pip install --group=...</code>. This rule is documented in <a href="../../adr/0018-pep735-groups-as-env-registry/">ADR-0018</a>.</p>
 <h3 id="runtime-dependencies">Runtime dependencies<a class="headerlink" href="#runtime-dependencies" title="Permanent link">&para;</a></h3>
 <p>Environments that need the project's runtime dependencies reference the project itself by name — for example <code>dev = ["finecode", ...]</code>. This pulls <code>[project.dependencies]</code> transitively through the project package and keeps the runtime dependency list in exactly one place. Do not re-list the project's runtime deps inside the group.</p>
 <h3 id="editable-path-installs">Editable path installs<a class="headerlink" href="#editable-path-installs" title="Permanent link">&para;</a></h3>
@@ -1971,7 +1972,7 @@
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">finecode</span><span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;./&quot;</span><span class="p">,</span><span class="w">                       </span><span class="n">editable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">finecode_extension_api</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;./finecode_extension_api&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">editable</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
-<p>The companion table is a <strong>supplement</strong>: FineCode's install logic rewrites matching entries in the group to use the editable local path. It does not introduce new environments, and it is ignored by tools that only understand PEP 735 (<code>uv sync --group=dev</code>, <code>pip install --group=dev</code>). Every environment must still have a <code>[dependency-groups]</code> entry of the same name — the supplement alone is not enough.</p>
+<p>The companion table is a <strong>supplement</strong>: FineCode's install logic rewrites matching entries in the group to use the editable local path. It does not introduce new environments by itself, and it is ignored by tools that only understand PEP 735 (<code>uv sync --group=dev</code>, <code>pip install --group=dev</code>). The env must still come from either a <code>[dependency-groups]</code> entry of the same name or from a handler/service that references that <code>env</code> name — the supplement alone is not enough.</p>
 <h3 id="composing-environments">Composing environments<a class="headerlink" href="#composing-environments" title="Permanent link">&para;</a></h3>
 <p>To reuse a group inside another group, use the standard PEP 735 <code>include-group</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[dependency-groups]</span>

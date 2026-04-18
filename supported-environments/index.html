@@ -1063,14 +1063,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../guides/using-precommit-hooks/" class="md-nav__link">
+      <a href="../guides/using-git-hooks/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Git Pre-commit Hooks
+    Using Git Hooks
   
 
     
@@ -1735,7 +1735,7 @@
 <tr>
 <td>Git hooks</td>
 <td>Supported</td>
-<td><a href="../guides/using-precommit-hooks/">Using Pre-commit Hooks</a></td>
+<td><a href="../guides/using-git-hooks/">Using Git Hooks</a></td>
 <td>FineCode can install a git <code>pre-commit</code> hook that runs staged-file checks before commit.</td>
 </tr>
 <tr>
@@ -1771,10 +1771,10 @@
 <p>In CI environments, FineCode automatically detects <code>CI=...</code> and marks the run as <code>ci</code>.</p>
 <h2 id="git-hooks">Git Hooks<a class="headerlink" href="#git-hooks" title="Permanent link">&para;</a></h2>
 <p>Git hooks are the lightweight enforcement layer before code even reaches CI.</p>
-<p>After enabling the <code>fine_precommit</code> preset and preparing environments, install the hook with:</p>
+<p>Install the hook with:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>install_git_hooks
 </code></pre></div>
-<p>The installed hook runs FineCode's <code>precommit</code> action on staged files.</p>
+<p>The installed hook runs FineCode's <code>precommit</code> action on staged files. You can supply that action through the <code>fine_precommit</code> preset or by declaring your own <code>precommit</code> handlers.</p>
 <h2 id="ai-assistants-and-mcp">AI Assistants and MCP<a class="headerlink" href="#ai-assistants-and-mcp" title="Permanent link">&para;</a></h2>
 <p>FineCode exposes actions through an MCP server, so AI clients can call the same action surface that developers use in the CLI and IDE.</p>
 <p>At a minimum, MCP clients launch:</p>

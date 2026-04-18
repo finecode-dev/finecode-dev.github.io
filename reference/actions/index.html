@@ -947,14 +947,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/using-precommit-hooks/" class="md-nav__link">
+      <a href="../../guides/using-git-hooks/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Git Pre-commit Hooks
+    Using Git Hooks
   
 
     
@@ -1428,17 +1428,6 @@
     <span class="md-ellipsis">
       
         init_repository_provider
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#clean_finecode_logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        clean_finecode_logs
       
     </span>
   </a>
@@ -2208,17 +2197,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#clean_finecode_logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        clean_finecode_logs
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#ingest_wal_to_store" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2473,7 +2451,7 @@
 <p>Register Python formatting tools (ruff, isort, …) as handlers for this action. Handler order matters — they run sequentially as a pipeline.</p>
 <hr />
 <h2 id="precommit"><code>precommit</code><a class="headerlink" href="#precommit" title="Permanent link">&para;</a></h2>
-<p>Run configured code quality checks on git-staged files before commit. Provided by the <code>fine_precommit</code> preset (not registered by default).</p>
+<p>Run configured code quality checks on git-staged files before commit. This action is not registered by default; add it through the <code>fine_precommit</code> preset or declare <code>tool.finecode.action.precommit</code> yourself.</p>
 <ul>
 <li><strong>Source:</strong> <code>finecode_extension_api.actions.PrecommitAction</code></li>
 <li><strong>Default handler execution:</strong> sequential</li>
@@ -2536,7 +2514,7 @@
 <li><strong><code>StagedFilesDiscoveryHandler</code></strong> — must be first; detects staged files via <code>git diff --cached --name-only --diff-filter=ACMR</code> and writes to <code>run_context.staged_files</code>.</li>
 <li><strong>Bridge handlers</strong> (for example, <code>LintPrecommitBridgeHandler</code>) — each delegates to one existing action passing staged files. Register additional bridge handlers to run more tools.</li>
 </ul>
-<p>See <a href="../../guides/using-precommit-hooks/">Using Pre-commit Hooks</a> for setup instructions.</p>
+<p>See <a href="../../guides/using-git-hooks/">Using Git Hooks</a> for setup instructions.</p>
 <hr />
 <h2 id="list_tests"><code>list_tests</code><a class="headerlink" href="#list_tests" title="Permanent link">&para;</a></h2>
 <p>Discover tests and return their hierarchical structure without running them.</p>
@@ -2782,9 +2760,13 @@
 <td><code>list[Path]</code></td>
 <td>All lock files generated — one entry for single-lock, N entries for multi-lock</td>
 </tr>
+<tr>
+<td>---</td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<hr />
 <h2 id="lock_python_dependencies"><code>lock_python_dependencies</code><a class="headerlink" href="#lock_python_dependencies" title="Permanent link">&para;</a></h2>
 <p>Lock Python dependencies for a specific Python version and platform. Language-specific subaction of <code>lock_dependencies</code>.</p>
 <ul>
@@ -2828,6 +2810,7 @@
 </tbody>
 </table>
 <p><strong>Result fields:</strong> same as <code>lock_dependencies</code>.</p>
+<p><code>target_python_version</code> and <code>target_platform</code> are typically used for target projection or target-specific lock generation.</p>
 <p>See <a href="../../guides/designing-actions/">Designing Actions</a> for the rationale behind generic vs. language-specific actions.</p>
 <hr />
 <h2 id="publish_artifact"><code>publish_artifact</code><a class="headerlink" href="#publish_artifact" title="Permanent link">&para;</a></h2>
@@ -2896,12 +2879,6 @@
 <p>Initialize a repository provider (used in artifact publishing flows).</p>
 <ul>
 <li><strong>Source:</strong> <code>finecode_extension_api.actions.InitRepositoryProviderAction</code></li>
-</ul>
-<hr />
-<h2 id="clean_finecode_logs"><code>clean_finecode_logs</code><a class="headerlink" href="#clean_finecode_logs" title="Permanent link">&para;</a></h2>
-<p>Remove FineCode log files.</p>
-<ul>
-<li><strong>Source:</strong> <code>finecode_extension_api.actions.CleanFinecodeLogsAction</code></li>
 </ul>
 <hr />
 <h2 id="ingest_wal_to_store"><code>ingest_wal_to_store</code><a class="headerlink" href="#ingest_wal_to_store" title="Permanent link">&para;</a></h2>

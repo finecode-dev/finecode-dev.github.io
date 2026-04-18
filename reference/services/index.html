@@ -947,14 +947,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/using-precommit-hooks/" class="md-nav__link">
+      <a href="../../guides/using-git-hooks/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Git Pre-commit Hooks
+    Using Git Hooks
   
 
     
@@ -1683,19 +1683,14 @@
 <td>In-memory, file-versioned cache.</td>
 </tr>
 <tr>
-<td><code>finecode_extension_api.interfaces.iactionrunner.IActionRunner</code></td>
-<td><code>finecode_extension_runner.impls.action_runner.ActionRunner</code></td>
-<td>Run actions within the current ER process only. Use only when you are certain all handlers are in the same env. For cross-env action calls, use <code>IProjectActionRunner</code> instead.</td>
-</tr>
-<tr>
 <td><code>finecode_extension_api.interfaces.iprojectactionrunner.IProjectActionRunner</code></td>
 <td><code>finecode_extension_runner.impls.project_action_runner.ProjectActionRunnerImpl</code></td>
-<td>Run an action at project scope, routing through WM so the correct env-runner is chosen. Available only when the ER has a WM back-channel (i.e. not in standalone mode). Use this instead of <code>IActionRunner</code> whenever the target action may live in a different env.</td>
+<td>Run an action at project scope, routing through WM so the correct env-runner is chosen. If all handlers are in the current environment, communication with WM is omitted.</td>
 </tr>
 <tr>
 <td><code>finecode_extension_api.interfaces.iworkspaceactionrunner.IWorkspaceActionRunner</code></td>
 <td><code>finecode_extension_runner.impls.workspace_action_runner.WorkspaceActionRunnerImpl</code></td>
-<td>Fan-out an action across all workspace projects. Available only when the ER has a WM back-channel.</td>
+<td>Fan-out an action across all workspace projects.</td>
 </tr>
 <tr>
 <td><code>finecode_extension_api.interfaces.irepositorycredentialsprovider.IRepositoryCredentialsProvider</code></td>

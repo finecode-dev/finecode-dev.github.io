@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="http://localhost:8000/guides/using-precommit-hooks/">
+        <link rel="canonical" href="http://localhost:8000/guides/using-git-hooks/">
       
       
         <link rel="prev" href="../preparing-environments/">
@@ -27,7 +27,7 @@
     
     
       
-        <title>Git Pre-commit Hooks - FineCode</title>
+        <title>Using Git Hooks - FineCode</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-pre-commit-hooks" class="md-skip">
+        <a href="#using-git-hooks" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Git Pre-commit Hooks
+              Using Git Hooks
             
           </span>
         </div>
@@ -966,7 +966,7 @@
   <span class="md-ellipsis">
     
   
-    Git Pre-commit Hooks
+    Using Git Hooks
   
 
     
@@ -984,7 +984,7 @@
   <span class="md-ellipsis">
     
   
-    Git Pre-commit Hooks
+    Using Git Hooks
   
 
     
@@ -1010,17 +1010,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prerequisites
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#installing-the-hook" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1032,10 +1021,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-runs-by-default" class="md-nav__link">
+  <a href="#configuring-what-the-hook-runs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What runs by default
+        Configuring what the hook runs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring what the hook runs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-use-the-fine_precommit-preset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Use the fine_precommit preset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-declare-precommit-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Declare precommit yourself
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-another-bridge-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding another bridge handler
       
     </span>
   </a>
@@ -1043,10 +1071,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-a-custom-bridge-handler" class="md-nav__link">
+  <a href="#what-the-hook-checks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding a custom bridge handler
+        What the hook checks
       
     </span>
   </a>
@@ -1592,17 +1620,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prerequisites
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#installing-the-hook" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1614,10 +1631,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-runs-by-default" class="md-nav__link">
+  <a href="#configuring-what-the-hook-runs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What runs by default
+        Configuring what the hook runs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring what the hook runs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-use-the-fine_precommit-preset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Use the fine_precommit preset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-declare-precommit-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Declare precommit yourself
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-another-bridge-handler" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding another bridge handler
       
     </span>
   </a>
@@ -1625,10 +1681,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-a-custom-bridge-handler" class="md-nav__link">
+  <a href="#what-the-hook-checks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding a custom bridge handler
+        What the hook checks
       
     </span>
   </a>
@@ -1666,50 +1722,69 @@
   
 
 
-<h1 id="using-pre-commit-hooks">Using Pre-commit Hooks<a class="headerlink" href="#using-pre-commit-hooks" title="Permanent link">&para;</a></h1>
-<p>FineCode can install a git pre-commit hook that automatically runs code quality checks on staged files before each commit.</p>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Add the <code>fine_precommit</code> preset to your project's <code>pyproject.toml</code>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[tool.finecode]</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">presets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_python_recommended&quot;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_precommit&quot;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">]</span>
-</code></pre></div>
-<ol>
-<li>Run <code>prepare-envs</code> to install the preset's dependencies:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
-</code></pre></div>
+<h1 id="using-git-hooks">Using Git Hooks<a class="headerlink" href="#using-git-hooks" title="Permanent link">&para;</a></h1>
+<p>Git hooks let you run automation at specific points in the Git workflow. FineCode currently installs a git <code>pre-commit</code> hook, which runs the configured <code>precommit</code> action on staged files before each commit.</p>
 <h2 id="installing-the-hook">Installing the hook<a class="headerlink" href="#installing-the-hook" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>install_git_hooks
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>install_git_hooks
 </code></pre></div>
 <p>This writes <code>.git/hooks/pre-commit</code> and makes it executable. The hook is a small Python script that calls <code>python -m finecode run --dev-env=git_hook precommit</code> at commit time.</p>
 <p>If a pre-commit hook file already exists, the command skips it and warns you. To overwrite it:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>install_git_hooks<span class="w"> </span>--force<span class="o">=</span><span class="nb">true</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>install_git_hooks<span class="w"> </span>--force<span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
-<h2 id="what-runs-by-default">What runs by default<a class="headerlink" href="#what-runs-by-default" title="Permanent link">&para;</a></h2>
-<p>The <code>fine_precommit</code> preset registers one bridge handler by default:</p>
+<h2 id="configuring-what-the-hook-runs">Configuring what the hook runs<a class="headerlink" href="#configuring-what-the-hook-runs" title="Permanent link">&para;</a></h2>
+<p>Installing the git hook only connects Git to FineCode. You also need to configure the <code>precommit</code> action that the hook will run.</p>
+<p>The two common options are:</p>
+<h3 id="option-1-use-the-fine_precommit-preset">Option 1: Use the <code>fine_precommit</code> preset<a class="headerlink" href="#option-1-use-the-fine_precommit-preset" title="Permanent link">&para;</a></h3>
+<p><code>fine_precommit</code> is the ready-made option. It registers the <code>precommit</code> action and default handlers that:</p>
 <ol>
-<li><strong>Lint</strong> (<code>LintPrecommitBridgeHandler</code>) — runs the configured linters on staged files. The commit is blocked if any linter reports errors.</li>
+<li>discover staged files</li>
+<li>run lint checks on those files</li>
+<li>check formatting without applying autofixes</li>
 </ol>
-<p>Only files that are staged (<code>git add</code>ed) are checked. Deleted files are excluded automatically.</p>
-<blockquote>
-<p><strong>V1 limitation:</strong> checks run against the working-tree version of each file, not the git index. If you have partially staged files, the full file is checked. Stash/unstash support is planned for v2.</p>
-</blockquote>
-<h2 id="adding-a-custom-bridge-handler">Adding a custom bridge handler<a class="headerlink" href="#adding-a-custom-bridge-handler" title="Permanent link">&para;</a></h2>
-<p>To run an additional tool (e.g. type checking) before commit, register its bridge handler in <code>pyproject.toml</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[[tool.finecode.action.precommit.handlers]]</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mypy_precommit_bridge&quot;</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fine_python_mypy.MypyPrecommitBridgeHandler&quot;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dev_workspace&quot;</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;fine_python_mypy~=0.1.0&quot;</span><span class="p">]</span>
+<p>Add it to your project's <code>pyproject.toml</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[tool.finecode]</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">presets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_python_recommended&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;fine_precommit&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">]</span>
+</code></pre></div>
+<p>Then prepare the environments needed by the preset:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
+</code></pre></div>
+<h3 id="option-2-declare-precommit-yourself">Option 2: Declare <code>precommit</code> yourself<a class="headerlink" href="#option-2-declare-precommit-yourself" title="Permanent link">&para;</a></h3>
+<p>If you want a custom hook workflow, define the <code>precommit</code> action and only the handlers you need:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[tool.finecode.action.precommit]</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;finecode_extension_api.actions.PrecommitAction&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">[[tool.finecode.action.precommit.handlers]]</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;staged_files_discovery&quot;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;finecode_builtin_handlers.StagedFilesDiscoveryHandler&quot;</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dev_workspace&quot;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;finecode_builtin_handlers~=0.2.0a0&quot;</span><span class="p">]</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="k">[[tool.finecode.action.precommit.handlers]]</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mypy_precommit_bridge&quot;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fine_python_mypy.MypyPrecommitBridgeHandler&quot;</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dev_workspace&quot;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;fine_python_mypy~=0.1.0&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>Keep <code>StagedFilesDiscoveryHandler</code> first so later handlers receive the staged file list. Bridge handlers run in the order they are declared.</p>
+<h2 id="adding-another-bridge-handler">Adding another bridge handler<a class="headerlink" href="#adding-another-bridge-handler" title="Permanent link">&para;</a></h2>
+<p>If <code>precommit</code> is already configured and you just want to extend it, register another bridge handler in <code>pyproject.toml</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[[tool.finecode.action.precommit.handlers]]</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mypy_precommit_bridge&quot;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;fine_python_mypy.MypyPrecommitBridgeHandler&quot;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;dev_workspace&quot;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;fine_python_mypy~=0.1.0&quot;</span><span class="p">]</span>
 </code></pre></div>
 <p>Handlers execute in the order they are declared. No other configuration changes are needed.</p>
+<h2 id="what-the-hook-checks">What the hook checks<a class="headerlink" href="#what-the-hook-checks" title="Permanent link">&para;</a></h2>
+<p>Only files that are staged (<code>git add</code>ed) are checked. Deleted files are excluded automatically.</p>
+<blockquote>
+<p><strong>V1 limitation:</strong> checks run against the working-tree version of each file, not the git index. If you have partially staged files, the full file is checked. Stash/unstash support is planned in future.</p>
+</blockquote>
 <h2 id="uninstalling">Uninstalling<a class="headerlink" href="#uninstalling" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>uninstall_git_hooks
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>uninstall_git_hooks
 </code></pre></div>
 <p>This removes <code>.git/hooks/pre-commit</code> only if it was installed by FineCode (identified by a marker comment inside the file). If the file was created by another tool, FineCode refuses to delete it and warns you.</p>
 

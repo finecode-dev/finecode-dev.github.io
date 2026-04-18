@@ -1548,6 +1548,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#action-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action names
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#handler-class-names" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1746,14 +1757,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../using-precommit-hooks/" class="md-nav__link">
+      <a href="../using-git-hooks/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Git Pre-commit Hooks
+    Using Git Hooks
   
 
     
@@ -2880,6 +2891,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#action-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Action names
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#handler-class-names" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3941,16 +3963,47 @@
 <li><strong>Handler files</strong>: <code>{verb}_{noun}_handler.py</code>. Example: <code>list_tests_handler.py</code>, <code>format_python_file_handler.py</code>.</li>
 </ul>
 <p>The <code>_action</code> / <code>_handler</code> suffix is the primary way to tell the two apart when both refer to the same operation. Never use the bare action name as a handler filename (e.g. <code>list_tests.py</code> for a handler is wrong).</p>
+<h3 id="action-names">Action names<a class="headerlink" href="#action-names" title="Permanent link">&para;</a></h3>
+<p><strong>Names must be self-describing.</strong> Action names become MCP tool names. When an AI assistant or user browses the tool list, they see flat action names without module or group context. A name that is clear within a module (<code>list_services</code>) may be ambiguous in the flat list. Include enough domain context in the name itself:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="c1"># Ambiguous — &quot;services&quot; of what?</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="n">list_services</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="c1"># Self-describing regardless of context</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="n">list_observability_services</span>
+</code></pre></div>
+<p>The module grouping (<code>observability/</code>, <code>code_quality/</code>) is a source organisation convention, not a namespace visible to callers. Action names carry the full semantic weight.</p>
+<p><strong>Item/collection naming when the primary noun is already plural.</strong> The standard convention (<code>format_file</code> / <code>format_files</code>) relies on pluralising the primary noun. When the primary noun is already plural (e.g. "logs"), pluralising it again produces nothing useful. Instead, make the item dimension explicit by shifting pluralisation to the scope noun:</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Example</th>
+<th>Scope noun pluralised</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Item</td>
+<td><code>clean_service_logs</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>Collection</td>
+<td><code>clean_services_logs</code></td>
+<td><code>service</code> → <code>services</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="handler-class-names">Handler class names<a class="headerlink" href="#handler-class-names" title="Permanent link">&para;</a></h3>
 <p>Always prefix the handler class name with a qualifier that distinguishes it from the action class it implements. Without a qualifier, <code>ListTestsHandler</code> and <code>ListTestsAction</code> look nearly identical at a glance — especially when both appear in the same import list or stack trace.</p>
 <p><strong>Tool-specific handlers</strong> (the common case in extensions) use the tool name as the prefix:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">PytestListTestsHandler</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="c1"># not: ListTestsHandler</span>
-<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">RuffLintFilesHandler</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="c1"># not: LintFilesHandler</span>
-<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">BlackFormatFileHandler</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="c1"># not: FormatFileHandler</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">PytestListTestsHandler</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="c1"># not: ListTestsHandler</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">RuffLintFilesHandler</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="c1"># not: LintFilesHandler</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">BlackFormatFileHandler</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="c1"># not: FormatFileHandler</span>
 </code></pre></div>
 <p><strong>Built-in or generic handlers</strong> that are not tool-specific use a qualifier describing the step they perform:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">SaveFormatFileHandler</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="c1"># step: saving the formatted result</span>
-<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">FormatFilesIterateHandler</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>  <span class="c1"># step: iterating over files</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">SaveFormatFileHandler</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="c1"># step: saving the formatted result</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">FormatFilesIterateHandler</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>  <span class="c1"># step: iterating over files</span>
 </code></pre></div>
 <p>Do not include "Action" in a handler class name — <code>DiscoverWalSourcesActionHandler</code> reads as if the class is related to the action definition, not to a handler implementing it.</p>
 <h3 id="bridge-handler-class-names">Bridge handler class names<a class="headerlink" href="#bridge-handler-class-names" title="Permanent link">&para;</a></h3>
@@ -3967,14 +4020,21 @@
 <p>Action descriptions and field descriptions are read by the MCP server to populate AI assistant tool schemas. Write them as you write the action — they are the primary source of truth.</p>
 <h3 id="action-description">Action description<a class="headerlink" href="#action-description" title="Permanent link">&para;</a></h3>
 <p>Add a one-line class docstring to every <code>Action</code> subclass. It should describe what the action does from the caller's perspective — not implementation details or design rationale (those belong in module docstrings or comments).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">LintAction</span><span class="p">(</span><span class="n">code_action</span><span class="o">.</span><span class="n">Action</span><span class="p">[</span><span class="n">LintRunPayload</span><span class="p">,</span> <span class="n">LintRunContext</span><span class="p">,</span> <span class="n">LintRunResult</span><span class="p">]):</span>
-<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Run linters on a project or specific files and report diagnostics.&quot;&quot;&quot;</span>
-<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>
-<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>    <span class="n">PAYLOAD_TYPE</span> <span class="o">=</span> <span class="n">LintRunPayload</span>
-<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>    <span class="n">RUN_CONTEXT_TYPE</span> <span class="o">=</span> <span class="n">LintRunContext</span>
-<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>    <span class="n">RESULT_TYPE</span> <span class="o">=</span> <span class="n">LintRunResult</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">LintAction</span><span class="p">(</span><span class="n">code_action</span><span class="o">.</span><span class="n">Action</span><span class="p">[</span><span class="n">LintRunPayload</span><span class="p">,</span> <span class="n">LintRunContext</span><span class="p">,</span> <span class="n">LintRunResult</span><span class="p">]):</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Run linters on a project or specific files and report diagnostics.&quot;&quot;&quot;</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>    <span class="n">PAYLOAD_TYPE</span> <span class="o">=</span> <span class="n">LintRunPayload</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>    <span class="n">RUN_CONTEXT_TYPE</span> <span class="o">=</span> <span class="n">LintRunContext</span>
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>    <span class="n">RESULT_TYPE</span> <span class="o">=</span> <span class="n">LintRunResult</span>
 </code></pre></div>
 <p>The docstring is read at runtime via <code>LintAction.__doc__</code> and exposed through the ER → WM → MCP pipeline as the <code>Tool.description</code>.</p>
+<p><strong>Do not claim execution scope.</strong> The framework routes actions to the appropriate scope — a single action definition is invoked once per project in a workspace run, or once for a standalone project run. A claim like "in the current project environment" is misleading in a workspace context. Describe what the action does, not where it runs:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="c1"># Avoid — scope claim that breaks in a workspace context</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="sd">&quot;&quot;&quot;List observability services available in the current project environment.&quot;&quot;&quot;</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="c1"># Correct — describes the action; scope is framework-managed</span>
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="sd">&quot;&quot;&quot;Discover available observability services.&quot;&quot;&quot;</span>
+</code></pre></div>
 <h3 id="behavioral-contract">Behavioral contract<a class="headerlink" href="#behavioral-contract" title="Permanent link">&para;</a></h3>
 <p>The action docstring is the <strong>contract</strong>: it states what callers can rely on regardless of which handlers are registered. When an action has scope rules, edge-case behaviors, or skip conditions that are not obvious from the action's name, document them on the action class — not only inside a specific handler.</p>
 <p>This matters because:</p>
@@ -3992,25 +4052,25 @@
 </ul>
 <p>Do not include handler-local implementation details: which interface the handler uses to discover the project directory, which subprocess is invoked, or how existence checks are performed. Those belong in handler code, not on the action.</p>
 <p>Keep the expanded docstring tight — one summary line plus one to three short paragraphs. Longer rationale belongs in an ADR or the design guide.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">InstallGitHooksAction</span><span class="p">(</span>
-<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>    <span class="n">code_action</span><span class="o">.</span><span class="n">Action</span><span class="p">[</span>
-<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>        <span class="n">InstallGitHooksRunPayload</span><span class="p">,</span>
-<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>        <span class="n">InstallGitHooksRunContext</span><span class="p">,</span>
-<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>        <span class="n">InstallGitHooksRunResult</span><span class="p">,</span>
-<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>    <span class="p">]</span>
-<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="p">):</span>
-<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Install git hooks that run FineCode into the project&#39;s git repository.</span>
-<a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>
-<a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a><span class="sd">    Scope: operates only on a git repository rooted at the project directory —</span>
-<a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a><span class="sd">    a `.git` directory sitting directly in the project directory. Does not</span>
-<a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a><span class="sd">    walk upward, so a FineCode project nested inside a larger git repository</span>
-<a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a><span class="sd">    will not touch that outer repository.</span>
-<a id="__codelineno-38-14" name="__codelineno-38-14" href="#__codelineno-38-14"></a>
-<a id="__codelineno-38-15" name="__codelineno-38-15" href="#__codelineno-38-15"></a><span class="sd">    Non-git projects are a no-op: when no local `.git` is found, the action</span>
-<a id="__codelineno-38-16" name="__codelineno-38-16" href="#__codelineno-38-16"></a><span class="sd">    returns successfully with `skip_reason` set on the result and no hooks</span>
-<a id="__codelineno-38-17" name="__codelineno-38-17" href="#__codelineno-38-17"></a><span class="sd">    installed. This makes the action safe to include in a general preset</span>
-<a id="__codelineno-38-18" name="__codelineno-38-18" href="#__codelineno-38-18"></a><span class="sd">    that applies to projects with and without git.</span>
-<a id="__codelineno-38-19" name="__codelineno-38-19" href="#__codelineno-38-19"></a><span class="sd">    &quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">InstallGitHooksAction</span><span class="p">(</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>    <span class="n">code_action</span><span class="o">.</span><span class="n">Action</span><span class="p">[</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>        <span class="n">InstallGitHooksRunPayload</span><span class="p">,</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>        <span class="n">InstallGitHooksRunContext</span><span class="p">,</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>        <span class="n">InstallGitHooksRunResult</span><span class="p">,</span>
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>    <span class="p">]</span>
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="p">):</span>
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Install git hooks that run FineCode into the project&#39;s git repository.</span>
+<a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a>
+<a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a><span class="sd">    Scope: operates only on a git repository rooted at the project directory —</span>
+<a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a><span class="sd">    a `.git` directory sitting directly in the project directory. Does not</span>
+<a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a><span class="sd">    walk upward, so a FineCode project nested inside a larger git repository</span>
+<a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a><span class="sd">    will not touch that outer repository.</span>
+<a id="__codelineno-40-14" name="__codelineno-40-14" href="#__codelineno-40-14"></a>
+<a id="__codelineno-40-15" name="__codelineno-40-15" href="#__codelineno-40-15"></a><span class="sd">    Non-git projects are a no-op: when no local `.git` is found, the action</span>
+<a id="__codelineno-40-16" name="__codelineno-40-16" href="#__codelineno-40-16"></a><span class="sd">    returns successfully with `skip_reason` set on the result and no hooks</span>
+<a id="__codelineno-40-17" name="__codelineno-40-17" href="#__codelineno-40-17"></a><span class="sd">    installed. This makes the action safe to include in a general preset</span>
+<a id="__codelineno-40-18" name="__codelineno-40-18" href="#__codelineno-40-18"></a><span class="sd">    that applies to projects with and without git.</span>
+<a id="__codelineno-40-19" name="__codelineno-40-19" href="#__codelineno-40-19"></a><span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div>
 <h3 id="field-descriptions">Field descriptions<a class="headerlink" href="#field-descriptions" title="Permanent link">&para;</a></h3>
 <p>Add an <strong>attribute docstring</strong> — a bare string literal on the line immediately after a field assignment — to every <code>RunActionPayload</code> field that needs explanation. This is especially important for:</p>
@@ -4019,12 +4079,12 @@
 <li>Optional fields that are only meaningful in combination with another field</li>
 <li>Fields that accept free-form strings in a specific format</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
-<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">LintRunPayload</span><span class="p">(</span><span class="n">code_action</span><span class="o">.</span><span class="n">RunActionPayload</span><span class="p">):</span>
-<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>    <span class="n">target</span><span class="p">:</span> <span class="n">LintTarget</span> <span class="o">=</span> <span class="n">LintTarget</span><span class="o">.</span><span class="n">PROJECT</span>
-<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Scope of linting: &#39;project&#39; (default) lints the whole project, &#39;files&#39; lints only file_paths.&quot;&quot;&quot;</span>
-<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>    <span class="n">file_paths</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Files to lint. Only used when target is &#39;files&#39;. Empty list means lint the whole project.&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">LintRunPayload</span><span class="p">(</span><span class="n">code_action</span><span class="o">.</span><span class="n">RunActionPayload</span><span class="p">):</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>    <span class="n">target</span><span class="p">:</span> <span class="n">LintTarget</span> <span class="o">=</span> <span class="n">LintTarget</span><span class="o">.</span><span class="n">PROJECT</span>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Scope of linting: &#39;project&#39; (default) lints the whole project, &#39;files&#39; lints only file_paths.&quot;&quot;&quot;</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>    <span class="n">file_paths</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataclasses</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Files to lint. Only used when target is &#39;files&#39;. Empty list means lint the whole project.&quot;&quot;&quot;</span>
 </code></pre></div>
 <p>Attribute docstrings are extracted from source via <code>ast.parse()</code> in <code>schema_utils.py</code> and injected as <code>"description"</code> into the JSON Schema property for each field. They are the only form of field documentation readable at runtime — <strong>inline comments are stripped by the Python parser and are invisible to the MCP layer</strong>.</p>
 <h3 id="what-to-write">What to write<a class="headerlink" href="#what-to-write" title="Permanent link">&para;</a></h3>
@@ -4036,34 +4096,34 @@
 <p>When a parent action delegates to a child action, it sometimes needs to pass runtime state that the child's run context requires — for example, a shared file editor session. This state is not part of the payload (which is pure data) and is not a DI service (which is singleton per handler). It is <strong>caller-provided</strong> state specific to this particular invocation.</p>
 <h3 id="the-callerruncontextkwargs-pattern">The <code>CallerRunContextKwargs</code> pattern<a class="headerlink" href="#the-callerruncontextkwargs-pattern" title="Permanent link">&para;</a></h3>
 <p>Define a concrete <code>CallerRunContextKwargs</code> subclass with typed fields for the caller-provided state:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
-<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">FormatFileCallerRunContextKwargs</span><span class="p">(</span><span class="n">code_action</span><span class="o">.</span><span class="n">CallerRunContextKwargs</span><span class="p">):</span>
-<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>    <span class="n">file_editor_session</span><span class="p">:</span> <span class="n">ifileeditor</span><span class="o">.</span><span class="n">IFileEditorSession</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>    <span class="n">file_info</span><span class="p">:</span> <span class="n">FileInfo</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">FormatFileCallerRunContextKwargs</span><span class="p">(</span><span class="n">code_action</span><span class="o">.</span><span class="n">CallerRunContextKwargs</span><span class="p">):</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>    <span class="n">file_editor_session</span><span class="p">:</span> <span class="n">ifileeditor</span><span class="o">.</span><span class="n">IFileEditorSession</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>    <span class="n">file_info</span><span class="p">:</span> <span class="n">FileInfo</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 </code></pre></div>
 <p>The child run context declares a <code>caller_kwargs</code> parameter in its constructor. The framework injects it when the caller passes <code>caller_kwargs</code> to <code>run_action</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">FormatFileRunContext</span><span class="p">(</span><span class="n">code_action</span><span class="o">.</span><span class="n">RunActionContext</span><span class="p">[</span><span class="n">FormatFileRunPayload</span><span class="p">]):</span>
-<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>        <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>        <span class="n">run_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>        <span class="n">initial_payload</span><span class="p">:</span> <span class="n">FormatFileRunPayload</span><span class="p">,</span>
-<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>        <span class="n">meta</span><span class="p">:</span> <span class="n">code_action</span><span class="o">.</span><span class="n">RunActionMeta</span><span class="p">,</span>
-<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a>        <span class="n">info_provider</span><span class="p">:</span> <span class="n">code_action</span><span class="o">.</span><span class="n">RunContextInfoProvider</span><span class="p">,</span>
-<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a>        <span class="n">file_editor</span><span class="p">:</span> <span class="n">ifileeditor</span><span class="o">.</span><span class="n">IFileEditor</span><span class="p">,</span>              <span class="c1"># DI-resolved</span>
-<a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a>        <span class="n">caller_kwargs</span><span class="p">:</span> <span class="n">FormatFileCallerRunContextKwargs</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a>        <span class="o">...</span>
-<a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a>        <span class="o">...</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">FormatFileRunContext</span><span class="p">(</span><span class="n">code_action</span><span class="o">.</span><span class="n">RunActionContext</span><span class="p">[</span><span class="n">FormatFileRunPayload</span><span class="p">]):</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>        <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>        <span class="n">run_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>        <span class="n">initial_payload</span><span class="p">:</span> <span class="n">FormatFileRunPayload</span><span class="p">,</span>
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>        <span class="n">meta</span><span class="p">:</span> <span class="n">code_action</span><span class="o">.</span><span class="n">RunActionMeta</span><span class="p">,</span>
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>        <span class="n">info_provider</span><span class="p">:</span> <span class="n">code_action</span><span class="o">.</span><span class="n">RunContextInfoProvider</span><span class="p">,</span>
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a>        <span class="n">file_editor</span><span class="p">:</span> <span class="n">ifileeditor</span><span class="o">.</span><span class="n">IFileEditor</span><span class="p">,</span>              <span class="c1"># DI-resolved</span>
+<a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a>        <span class="n">caller_kwargs</span><span class="p">:</span> <span class="n">FormatFileCallerRunContextKwargs</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a>        <span class="o">...</span>
+<a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a>        <span class="o">...</span>
 </code></pre></div>
 <p>The caller constructs the kwargs object and passes it through <code>run_action</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="n">item_result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">action_runner</span><span class="o">.</span><span class="n">run_action</span><span class="p">(</span>
-<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>    <span class="n">action</span><span class="o">=</span><span class="n">item_action</span><span class="p">,</span>
-<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>    <span class="n">payload</span><span class="o">=</span><span class="n">FormatFileRunPayload</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="n">file_uri</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="n">save</span><span class="p">),</span>
-<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>    <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">,</span>
-<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>    <span class="n">caller_kwargs</span><span class="o">=</span><span class="n">FormatFileCallerRunContextKwargs</span><span class="p">(</span>
-<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>        <span class="n">file_editor_session</span><span class="o">=</span><span class="n">run_context</span><span class="o">.</span><span class="n">file_editor_session</span><span class="p">,</span>
-<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a>    <span class="p">),</span>
-<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="n">item_result</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">action_runner</span><span class="o">.</span><span class="n">run_action</span><span class="p">(</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>    <span class="n">action</span><span class="o">=</span><span class="n">item_action</span><span class="p">,</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>    <span class="n">payload</span><span class="o">=</span><span class="n">FormatFileRunPayload</span><span class="p">(</span><span class="n">file_path</span><span class="o">=</span><span class="n">file_uri</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="n">save</span><span class="p">),</span>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>    <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">,</span>
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>    <span class="n">caller_kwargs</span><span class="o">=</span><span class="n">FormatFileCallerRunContextKwargs</span><span class="p">(</span>
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>        <span class="n">file_editor_session</span><span class="o">=</span><span class="n">run_context</span><span class="o">.</span><span class="n">file_editor_session</span><span class="p">,</span>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>    <span class="p">),</span>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="p">)</span>
 </code></pre></div>
 <h3 id="design-principles">Design principles<a class="headerlink" href="#design-principles" title="Permanent link">&para;</a></h3>
 <p><strong>Separate what the caller controls from what DI resolves.</strong> The <code>caller_kwargs</code> parameter is a single typed object that groups all caller-provided state. Everything else in the constructor is either a framework parameter (<code>run_id</code>, <code>meta</code>, etc.) or a DI-resolved service (<code>file_editor</code>, <code>logger</code>, etc.). This makes the boundary visible in the constructor signature.</p>
@@ -4073,24 +4133,24 @@
 <h3 id="why-not-put-ecosystem-parameters-in-handler-config">Why not put ecosystem parameters in handler config?<a class="headerlink" href="#why-not-put-ecosystem-parameters-in-handler-config" title="Permanent link">&para;</a></h3>
 <p>If <code>target_python_version</code> lives in handler config, then switching from a pip-compile handler to a uv handler requires reconfiguring that parameter — even though it has nothing to do with the choice of tool. It is a property of the <em>target environment</em>, not the <em>tool</em>.</p>
 <p>A language-specific subaction fixes this: both the pip-compile handler and the uv handler implement <code>LockPythonDependenciesAction</code>, and <code>target_python_version</code> is declared once in the payload. Swapping the handler only changes the tool-specific config.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="c1"># Language-specific subaction — ecosystem parameters belong here</span>
-<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
-<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">LockPythonDependenciesRunPayload</span><span class="p">(</span><span class="n">code_action</span><span class="o">.</span><span class="n">RunActionPayload</span><span class="p">):</span>
-<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>    <span class="n">src_artifact_def_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>
-<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>    <span class="n">output_dir</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>
-<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>    <span class="n">target_python_version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>   <span class="c1"># e.g. &quot;3.11&quot;</span>
-<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>    <span class="n">target_platform</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>         <span class="c1"># e.g. &quot;linux_x86_64&quot;</span>
-<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a>
-<a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a><span class="c1"># pip-compile handler config — tool parameters belong here</span>
-<a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
-<a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a><span class="k">class</span><span class="w"> </span><span class="nc">PipCompileLockHandlerConfig</span><span class="p">(</span><span class="n">code_action</span><span class="o">.</span><span class="n">ActionHandlerConfig</span><span class="p">):</span>
-<a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a>    <span class="n">generate_hashes</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-<a id="__codelineno-43-13" name="__codelineno-43-13" href="#__codelineno-43-13"></a>    <span class="n">allow_unsafe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-43-14" name="__codelineno-43-14" href="#__codelineno-43-14"></a>
-<a id="__codelineno-43-15" name="__codelineno-43-15" href="#__codelineno-43-15"></a><span class="c1"># uv handler config — different tool, same ecosystem parameters above</span>
-<a id="__codelineno-43-16" name="__codelineno-43-16" href="#__codelineno-43-16"></a><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
-<a id="__codelineno-43-17" name="__codelineno-43-17" href="#__codelineno-43-17"></a><span class="k">class</span><span class="w"> </span><span class="nc">UvLockHandlerConfig</span><span class="p">(</span><span class="n">code_action</span><span class="o">.</span><span class="n">ActionHandlerConfig</span><span class="p">):</span>
-<a id="__codelineno-43-18" name="__codelineno-43-18" href="#__codelineno-43-18"></a>    <span class="n">resolution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;highest&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c1"># Language-specific subaction — ecosystem parameters belong here</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">LockPythonDependenciesRunPayload</span><span class="p">(</span><span class="n">code_action</span><span class="o">.</span><span class="n">RunActionPayload</span><span class="p">):</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>    <span class="n">src_artifact_def_path</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>    <span class="n">output_dir</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>    <span class="n">target_python_version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>   <span class="c1"># e.g. &quot;3.11&quot;</span>
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>    <span class="n">target_platform</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>         <span class="c1"># e.g. &quot;linux_x86_64&quot;</span>
+<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>
+<a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="c1"># pip-compile handler config — tool parameters belong here</span>
+<a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a><span class="k">class</span><span class="w"> </span><span class="nc">PipCompileLockHandlerConfig</span><span class="p">(</span><span class="n">code_action</span><span class="o">.</span><span class="n">ActionHandlerConfig</span><span class="p">):</span>
+<a id="__codelineno-45-12" name="__codelineno-45-12" href="#__codelineno-45-12"></a>    <span class="n">generate_hashes</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-45-13" name="__codelineno-45-13" href="#__codelineno-45-13"></a>    <span class="n">allow_unsafe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-45-14" name="__codelineno-45-14" href="#__codelineno-45-14"></a>
+<a id="__codelineno-45-15" name="__codelineno-45-15" href="#__codelineno-45-15"></a><span class="c1"># uv handler config — different tool, same ecosystem parameters above</span>
+<a id="__codelineno-45-16" name="__codelineno-45-16" href="#__codelineno-45-16"></a><span class="nd">@dataclasses</span><span class="o">.</span><span class="n">dataclass</span>
+<a id="__codelineno-45-17" name="__codelineno-45-17" href="#__codelineno-45-17"></a><span class="k">class</span><span class="w"> </span><span class="nc">UvLockHandlerConfig</span><span class="p">(</span><span class="n">code_action</span><span class="o">.</span><span class="n">ActionHandlerConfig</span><span class="p">):</span>
+<a id="__codelineno-45-18" name="__codelineno-45-18" href="#__codelineno-45-18"></a>    <span class="n">resolution</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;highest&quot;</span>
 </code></pre></div>
 
 

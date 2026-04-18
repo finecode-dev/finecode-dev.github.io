@@ -947,14 +947,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../using-precommit-hooks/" class="md-nav__link">
+      <a href="../using-git-hooks/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Git Pre-commit Hooks
+    Using Git Hooks
   
 
     
@@ -1606,21 +1606,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#lock-files-are-environment-specific" class="md-nav__link">
+  <a href="#canonical-lock-strategy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lock files are environment-specific
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lock-files-are-platform-and-python-version-specific" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lock files are platform- and Python version-specific
+        Canonical lock strategy
       
     </span>
   </a>
@@ -2086,21 +2075,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#lock-files-are-environment-specific" class="md-nav__link">
+  <a href="#canonical-lock-strategy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lock files are environment-specific
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lock-files-are-platform-and-python-version-specific" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lock files are platform- and Python version-specific
+        Canonical lock strategy
       
     </span>
   </a>
@@ -2496,47 +2474,30 @@
 <p>FineCode uses <a href="https://packaging.python.org/en/latest/specifications/pylock-toml/">pylock.toml</a> lock files for reproducible dependency installation.</p>
 <h3 id="why-lock-files">Why lock files<a class="headerlink" href="#why-lock-files" title="Permanent link">&para;</a></h3>
 <p>Without lock files, <code>prepare-envs</code> resolves dependency versions from the ranges declared in <code>pyproject.toml</code> at install time. This means two developers (or CI runs) can end up with different versions depending on when they ran the command. Lock files pin exact versions for reproducible environments.</p>
-<h3 id="lock-files-are-environment-specific">Lock files are environment-specific<a class="headerlink" href="#lock-files-are-environment-specific" title="Permanent link">&para;</a></h3>
-<p>Each FineCode environment (<code>dev_workspace</code>, <code>dev_no_runtime</code>, <code>runtime</code>, etc.) has its own set of dependencies, so each needs its own lock file:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pylock.&lt;env_name&gt;.toml
+<h3 id="canonical-lock-strategy">Canonical lock strategy<a class="headerlink" href="#canonical-lock-strategy" title="Permanent link">&para;</a></h3>
+<p>FineCode standardizes on a single canonical lock file as the source of truth:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>pylock.toml
 </code></pre></div>
-<p>For example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>myproject/
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  pyproject.toml
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  pylock.dev_workspace.toml
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>  pylock.dev_no_runtime.toml
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>  pylock.runtime.toml
-</code></pre></div>
-<h3 id="lock-files-are-platform-and-python-version-specific">Lock files are platform- and Python version-specific<a class="headerlink" href="#lock-files-are-platform-and-python-version-specific" title="Permanent link">&para;</a></h3>
-<p>A lock file records the exact dependency resolution for one platform and one Python version. The same <code>pyproject.toml</code> can resolve differently on Linux vs macOS, or Python 3.12 vs 3.13.</p>
-<p>If the project targets a single platform and Python version, one lock file per env is enough. For multiple targets, encode platform and version into the file name (the <code>&lt;name&gt;</code> segment in <code>pylock.&lt;name&gt;.toml</code> must not contain dots):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>myproject/
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  pyproject.toml
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  locks/
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    pylock.dev_workspace-linux-py312.toml
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    pylock.dev_workspace-linux-py313.toml
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    pylock.dev_workspace-macos-py312.toml
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    pylock.dev_no_runtime-linux-py312.toml
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    ...
-</code></pre></div>
+<p>The canonical lock should encode the supported target matrix (environment, platform, interpreter, architecture) using PEP 751 semantics (for example, marker-based package selection), rather than splitting truth across many authoritative files.</p>
+<p>The architecture decision is documented in ADR-0023.</p>
 <h3 id="generating-lock-files">Generating lock files<a class="headerlink" href="#generating-lock-files" title="Permanent link">&para;</a></h3>
 <p>Use the <code>lock_dependencies</code> action:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lock_dependencies<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span>--src_artifact_def_path<span class="o">=</span>pyproject.toml<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span>--output_path<span class="o">=</span>pylock.dev_workspace.toml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>run<span class="w"> </span>lock_dependencies<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span>--src_artifact_def_path<span class="o">=</span>pyproject.toml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span>--output_dir<span class="o">=</span>.
 </code></pre></div>
-<p>For the Python ecosystem, the <code>PipLockDependenciesHandler</code> runs <code>pip lock</code> under the hood.</p>
+<p>For Python, prefer handlers that can operate on standardized pylock data directly. <code>uv</code> is currently the preferred backend where available.</p>
 <h3 id="installing-from-lock-files">Installing from lock files<a class="headerlink" href="#installing-from-lock-files" title="Permanent link">&para;</a></h3>
 <p>There are two lock-file handlers depending on the pipeline you use:</p>
 <ul>
 <li><strong><code>PrepareEnvInstallDepsFromLockHandler</code></strong> — used in the per-environment <code>prepare_env</code> pipeline (the default). Reads <code>pylock.&lt;env_name&gt;.toml</code> and passes pinned versions to <code>install_deps_in_env</code> for that single env.</li>
 <li><strong><code>PrepareEnvsInstallDepsFromLockHandler</code></strong> — legacy multi-env variant that handles all environments in one handler. Use only if you are running a custom <code>prepare_envs</code> pipeline that does not go through <code>PrepareEnvsDispatchHandler</code>.</li>
 </ul>
-<p>Both look for <code>pylock.&lt;env_name&gt;.toml</code> next to the project's <code>pyproject.toml</code>. If a lock file is not found for an env, it is skipped with a warning.</p>
+<p>During migration, existing per-env lock handlers can continue to consume derived files such as <code>pylock.&lt;env_name&gt;.toml</code>. Long-term direction is canonical-first consumption with projection only when required for compatibility.</p>
 <h3 id="lock-files-in-ci">Lock files in CI<a class="headerlink" href="#lock-files-in-ci" title="Permanent link">&para;</a></h3>
 <p>Lock files should be committed to the repository. CI should install from them, not regenerate them:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># CI installs from existing lock files — reproducible</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># CI installs from existing lock files — reproducible</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>python<span class="w"> </span>-m<span class="w"> </span>finecode<span class="w"> </span>prepare-envs
 </code></pre></div>
 <p>To update lock files, run <code>lock_dependencies</code> locally or in a scheduled CI job and commit the result. For multi-platform projects, use a CI matrix to generate lock files on each target platform.</p>
 <h2 id="json-rpc-key-naming-convention">JSON-RPC key naming convention<a class="headerlink" href="#json-rpc-key-naming-convention" title="Permanent link">&para;</a></h2>
@@ -2569,11 +2530,11 @@
 </table>
 <h3 id="rule-write-keys-explicitly-no-auto-conversion">Rule: write keys explicitly, no auto-conversion<a class="headerlink" href="#rule-write-keys-explicitly-no-auto-conversion" title="Permanent link">&para;</a></h3>
 <p>Handler return dicts must use camelCase keys <strong>written explicitly</strong>. There is no automatic snake_case → camelCase conversion in the WM server. Auto-conversion is fragile — it was the root cause of the <code>return_code</code> bug in <code>_handle_run_action</code> where only the inner value was wrapped in <code>_NoConvert</code> but the outer keys were still silently converted.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># correct — keys written as camelCase explicitly</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">return</span> <span class="p">{</span><span class="s2">&quot;returnCode&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">return_code</span><span class="p">,</span> <span class="s2">&quot;resultByFormat&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">result_by_format</span><span class="p">}</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># wrong — snake_case keys in a JSON response</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">return</span> <span class="p">{</span><span class="s2">&quot;return_code&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">return_code</span><span class="p">,</span> <span class="s2">&quot;result_by_format&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">result_by_format</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># correct — keys written as camelCase explicitly</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">return</span> <span class="p">{</span><span class="s2">&quot;returnCode&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">return_code</span><span class="p">,</span> <span class="s2">&quot;resultByFormat&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">result_by_format</span><span class="p">}</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># wrong — snake_case keys in a JSON response</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">return</span> <span class="p">{</span><span class="s2">&quot;return_code&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">return_code</span><span class="p">,</span> <span class="s2">&quot;result_by_format&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">result_by_format</span><span class="p">}</span>
 </code></pre></div>
 <p>Python <strong>internal</strong> data structures (dataclass fields, local variables, function parameters) stay snake_case per Python convention. Only the dict keys that cross a JSON-RPC boundary are camelCase.</p>
 <h3 id="what-this-means-per-layer">What this means per layer<a class="headerlink" href="#what-this-means-per-layer" title="Permanent link">&para;</a></h3>
@@ -2598,21 +2559,21 @@
 <p>The final accumulated result becomes the action's return value. If no value is accumulated (generator yields nothing), the result is <code>None</code>.</p>
 <h3 id="pattern-yield-before-blocking">Pattern: yield before blocking<a class="headerlink" href="#pattern-yield-before-blocking" title="Permanent link">&para;</a></h3>
 <p>For handlers that start a server or watcher and then block indefinitely, yield the result as soon as the resource is ready, then enter the blocking loop:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">run_context</span><span class="p">):</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="n">server</span> <span class="o">=</span> <span class="n">_start_server</span><span class="p">(</span><span class="n">payload</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">payload</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="n">bound_host</span><span class="p">,</span> <span class="n">bound_port</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">server_address</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="c1"># Yield immediately — callers get address/port without waiting for cancellation</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="k">yield</span> <span class="n">MyRunResult</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">bound_host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">bound_port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    <span class="k">async</span> <span class="k">with</span> <span class="n">run_context</span><span class="o">.</span><span class="n">progress</span><span class="p">(</span><span class="s2">&quot;Serving&quot;</span><span class="p">,</span> <span class="n">cancellable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">prog</span><span class="p">:</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>        <span class="k">await</span> <span class="n">prog</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">bound_host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">bound_port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
-<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>        <span class="k">except</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">CancelledError</span><span class="p">:</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>            <span class="k">pass</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>    <span class="c1"># generator exhausts here; cleanup in finally block</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">run_context</span><span class="p">):</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="n">server</span> <span class="o">=</span> <span class="n">_start_server</span><span class="p">(</span><span class="n">payload</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="n">payload</span><span class="o">.</span><span class="n">port</span><span class="p">)</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">bound_host</span><span class="p">,</span> <span class="n">bound_port</span> <span class="o">=</span> <span class="n">server</span><span class="o">.</span><span class="n">server_address</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="c1"># Yield immediately — callers get address/port without waiting for cancellation</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="k">yield</span> <span class="n">MyRunResult</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">bound_host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">bound_port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="k">async</span> <span class="k">with</span> <span class="n">run_context</span><span class="o">.</span><span class="n">progress</span><span class="p">(</span><span class="s2">&quot;Serving&quot;</span><span class="p">,</span> <span class="n">cancellable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">prog</span><span class="p">:</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>        <span class="k">await</span> <span class="n">prog</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;http://</span><span class="si">{</span><span class="n">bound_host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">bound_port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>                <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>        <span class="k">except</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">CancelledError</span><span class="p">:</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>            <span class="k">pass</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    <span class="c1"># generator exhausts here; cleanup in finally block</span>
 </code></pre></div>
 <p>Without the <code>yield</code>, the caller would only receive the result after the action is cancelled — never during normal operation.</p>
 <h3 id="canonical-examples">Canonical examples<a class="headerlink" href="#canonical-examples" title="Permanent link">&para;</a></h3>
@@ -2652,8 +2613,8 @@
 <p>The MCP server (<code>src/finecode/mcp_server.py</code>) forwards <strong>both</strong> partial results and progress notifications as real-time <code>send_log_message</code> calls to the AI client. This means both mechanisms surface to the user immediately — there is no buffering at the MCP layer.</p>
 <h2 id="referencing-adrs-in-source-code">Referencing ADRs in source code<a class="headerlink" href="#referencing-adrs-in-source-code" title="Permanent link">&para;</a></h2>
 <p>When code implements a non-obvious constraint or design choice, add a comment referencing the relevant ADR. This prevents future contributors from accidentally "fixing" something that was intentionally designed that way.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Single shared IO thread services all active ERs — see docs/adr/0003-*.md</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">_io_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">_service_loop</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Single shared IO thread services all active ERs — see docs/adr/0003-*.md</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">_io_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">_service_loop</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <p><strong>When to add an ADR reference:</strong></p>
 <ul>

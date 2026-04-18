@@ -10,25 +10,27 @@
       
       
       
+        <link rel="canonical" href="http://localhost:8000/adr/0023-canonical-single-pylock-with-projections/">
+      
       
       
       
         
       
       
-      <link rel="icon" href="/favicon.ico">
+      <link rel="icon" href="../../favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
-        <title>FineCode</title>
+        <title>ADR-0023: Canonical single pylock with optional target projections - FineCode</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,11 +49,11 @@
       
     
     
-      <link rel="stylesheet" href="/assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -75,6 +77,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#adr-0023-canonical-single-pylock-with-optional-target-projections" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -85,9 +92,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
+    <a href="../.." title="FineCode" class="md-header__button md-logo" aria-label="FineCode" data-md-component="logo">
       
-  <img src="/finecode_logo_white.png" alt="logo">
+  <img src="../../finecode_logo_white.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -104,13 +111,13 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              ADR-0023: Canonical single pylock with optional target projections
             
           </span>
         </div>
-        <a href="/." title="FineCode" class="md-header__logo-mobile" aria-label="FineCode">
+        <a href="../.." title="FineCode" class="md-header__logo-mobile" aria-label="FineCode">
           
-  <img src="/finecode_logo_white.png" alt="logo">
+  <img src="../../finecode_logo_white.png" alt="logo">
 
         </a>
       </div>
@@ -224,7 +231,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/." class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
@@ -244,7 +251,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/concepts/" class="md-tabs__link">
+        <a href="../../concepts/" class="md-tabs__link">
           
   
   
@@ -262,7 +269,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/configuration/" class="md-tabs__link">
+      <a href="../../configuration/" class="md-tabs__link">
         
   
   
@@ -281,7 +288,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/cli/" class="md-tabs__link">
+      <a href="../../cli/" class="md-tabs__link">
         
   
   
@@ -302,7 +309,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/guides/creating-extension/" class="md-tabs__link">
+        <a href="../../guides/creating-extension/" class="md-tabs__link">
           
   
   
@@ -322,7 +329,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/reference/actions/" class="md-tabs__link">
+        <a href="../../reference/actions/" class="md-tabs__link">
           
   
   
@@ -340,7 +347,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/about/" class="md-tabs__link">
+      <a href="../../about/" class="md-tabs__link">
         
   
   
@@ -361,7 +368,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/development/" class="md-tabs__link">
+        <a href="../../development/" class="md-tabs__link">
           
   
   
@@ -395,9 +402,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
+    <a href="../.." title="FineCode" class="md-nav__button md-logo" aria-label="FineCode" data-md-component="logo">
       
-  <img src="/finecode_logo_white.png" alt="logo">
+  <img src="../../finecode_logo_white.png" alt="logo">
 
     </a>
     FineCode
@@ -478,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -506,7 +513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started/" class="md-nav__link">
+      <a href="../../getting-started/" class="md-nav__link">
         
   
   
@@ -534,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/supported-environments/" class="md-nav__link">
+      <a href="../../supported-environments/" class="md-nav__link">
         
   
   
@@ -562,7 +569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started-ide-mcp/" class="md-nav__link">
+      <a href="../../getting-started-ide-mcp/" class="md-nav__link">
         
   
   
@@ -651,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/concepts/" class="md-nav__link">
+      <a href="../../concepts/" class="md-nav__link">
         
   
   
@@ -679,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/theory/why-action-model/" class="md-nav__link">
+      <a href="../../theory/why-action-model/" class="md-nav__link">
         
   
   
@@ -714,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/configuration/" class="md-nav__link">
+      <a href="../../configuration/" class="md-nav__link">
         
   
   
@@ -741,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/cli/" class="md-nav__link">
+      <a href="../../cli/" class="md-nav__link">
         
   
   
@@ -822,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/creating-extension/" class="md-nav__link">
+      <a href="../../guides/creating-extension/" class="md-nav__link">
         
   
   
@@ -850,7 +857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/creating-preset/" class="md-nav__link">
+      <a href="../../guides/creating-preset/" class="md-nav__link">
         
   
   
@@ -878,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/designing-actions/" class="md-nav__link">
+      <a href="../../guides/designing-actions/" class="md-nav__link">
         
   
   
@@ -906,7 +913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/preparing-environments/" class="md-nav__link">
+      <a href="../../guides/preparing-environments/" class="md-nav__link">
         
   
   
@@ -934,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/using-git-hooks/" class="md-nav__link">
+      <a href="../../guides/using-git-hooks/" class="md-nav__link">
         
   
   
@@ -962,7 +969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/workspace/" class="md-nav__link">
+      <a href="../../guides/workspace/" class="md-nav__link">
         
   
   
@@ -1051,7 +1058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/actions/" class="md-nav__link">
+      <a href="../../reference/actions/" class="md-nav__link">
         
   
   
@@ -1079,7 +1086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/services/" class="md-nav__link">
+      <a href="../../reference/services/" class="md-nav__link">
         
   
   
@@ -1107,7 +1114,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/extensions/" class="md-nav__link">
+      <a href="../../reference/extensions/" class="md-nav__link">
         
   
   
@@ -1135,7 +1142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/lsp-mcp-architecture/" class="md-nav__link">
+      <a href="../../reference/lsp-mcp-architecture/" class="md-nav__link">
         
   
   
@@ -1163,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/reference/lsp-protocol/" class="md-nav__link">
+      <a href="../../reference/lsp-protocol/" class="md-nav__link">
         
   
   
@@ -1191,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/glossary/" class="md-nav__link">
+      <a href="../../glossary/" class="md-nav__link">
         
   
   
@@ -1226,7 +1233,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/about/" class="md-nav__link">
+      <a href="../../about/" class="md-nav__link">
         
   
   
@@ -1307,7 +1314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/development/" class="md-nav__link">
+      <a href="../../development/" class="md-nav__link">
         
   
   
@@ -1335,7 +1342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wm-protocol/" class="md-nav__link">
+      <a href="../../wm-protocol/" class="md-nav__link">
         
   
   
@@ -1363,7 +1370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/wm-er-protocol/" class="md-nav__link">
+      <a href="../../wm-er-protocol/" class="md-nav__link">
         
   
   
@@ -1391,7 +1398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/guides/developing-finecode/" class="md-nav__link">
+      <a href="../../guides/developing-finecode/" class="md-nav__link">
         
   
   
@@ -1419,7 +1426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/adr/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -1464,6 +1471,60 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Context
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-adrs-considered" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related ADRs Considered
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#consequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consequences
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1476,8 +1537,120 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+  
+
+
+<h1 id="adr-0023-canonical-single-pylock-with-optional-target-projections">ADR-0023: Canonical single pylock with optional target projections<a class="headerlink" href="#adr-0023-canonical-single-pylock-with-optional-target-projections" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>Status:</strong> proposed</li>
+<li><strong>Date:</strong> 2026-04-16</li>
+<li><strong>Deciders:</strong> @Aksem</li>
+<li><strong>Tags:</strong> packaging, lockfiles, reproducibility, environments</li>
+</ul>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<p>FineCode uses lock files to make environment preparation reproducible.</p>
+<p>Historically, projects tended to keep multiple target-specific lock files, often
+encoded in file names (platform, Python version, architecture). That pattern is
+practical with current tooling, but it duplicates data and makes consistency
+harder: one logical dependency update can require synchronized changes across many
+files.</p>
+<p>PEP 751 (<code>pylock.toml</code>) can represent multi-use lock data in one file through
+environment markers and multiple artifact entries. This enables one canonical lock
+file to describe the complete target matrix.</p>
+<p>The remaining challenge is tool interoperability. Some installers and pipelines
+fully support this model, while others are still maturing. FineCode therefore
+needs a decision that separates:</p>
+<ul>
+<li>canonical lock data model (architecture)</li>
+<li>compatibility mechanics for tools that cannot consume the canonical model directly</li>
+</ul>
+<h2 id="related-adrs-considered">Related ADRs Considered<a class="headerlink" href="#related-adrs-considered" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../0016-layered-execution-scopes-for-action-invocation/">ADR-0016</a> — different focus (action invocation scopes, not lockfile data model).</li>
+<li><a href="../0018-pep735-groups-as-env-registry/">ADR-0018</a> — related input surface (environment declaration), but not lockfile storage strategy.</li>
+<li><a href="../0022-wm-orchestrates-multi-env-handler-execution/">ADR-0022</a> — different focus (multi-env execution orchestration, not lockfile representation).</li>
+</ul>
+<h2 id="decision">Decision<a class="headerlink" href="#decision" title="Permanent link">&para;</a></h2>
+<p>FineCode adopts a <strong>single canonical lock file</strong> per source artifact, with
+optional derived files for compatibility.</p>
+<p>The decision has five rules:</p>
+<ol>
+<li><strong>Canonical source of truth</strong></li>
+<li>The canonical lock is <code>pylock.toml</code> (or a named <code>pylock.&lt;name&gt;.toml</code> when required by scope), following PEP 751 naming rules.</li>
+<li>
+<p>Canonical lock content should encode the full supported target matrix using PEP 751 semantics (<code>environments</code>, <code>packages.marker</code>, per-artifact hashes/metadata).</p>
+</li>
+<li>
+<p><strong>One canonical lock spans all dependency groups</strong></p>
+</li>
+<li>FineCode dependency groups (for example <code>dev_workspace</code>, <code>dev</code>, <code>dev_no_runtime</code>, <code>docs</code>, <code>wal_explorer</code>) share the same canonical lock source.</li>
+<li>This rule holds even when groups are always installed into separate virtualenvs; installation topology (many envs) does not imply multiple canonical lock sources.</li>
+<li>
+<p>Group-specific installation is achieved by filtering canonical lock data by dependency group and environment markers for the target env.</p>
+</li>
+<li>
+<p><strong>Installation prefers canonical consumption</strong></p>
+</li>
+<li>
+<p>If the selected installer can consume the canonical lock directly, FineCode installs from that file without transformation.</p>
+</li>
+<li>
+<p><strong>Projection for compatibility</strong></p>
+</li>
+<li>If a selected installer cannot consume the canonical lock directly, FineCode may generate a target-specific projected lock file from the canonical lock before install.</li>
+<li>
+<p>Projection is a filtering/selection step only; it must not perform dependency resolution.</p>
+</li>
+<li>
+<p><strong>Optional merge+validate component</strong></p>
+</li>
+<li>If the selected locker cannot emit the complete canonical lock in one run, FineCode may generate multiple target locks and merge them into the canonical file.</li>
+<li>
+<p>This merge step must validate determinism and ambiguity constraints (for a target, package selection must resolve to one unambiguous install set).</p>
+</li>
+<li>
+<p><strong>Target-specific file naming is for derived artifacts, not canonical truth</strong></p>
+</li>
+<li>Naming that encodes platform/interpreter/architecture is allowed for derived projection files (for example in <code>locks/</code>), but those files are derivative outputs, not the authoritative lock source.</li>
+</ol>
+<h2 id="consequences">Consequences<a class="headerlink" href="#consequences" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Pros</strong></li>
+<li>One authoritative lock view reduces drift and review overhead.</li>
+<li>FineCode can still interoperate with tools that are not fully aligned with canonical multi-use lock consumption.</li>
+<li>
+<p>The architecture decouples lock data semantics from installer maturity.</p>
+</li>
+<li>
+<p><strong>Cons</strong></p>
+</li>
+<li>FineCode must own projection and (optionally) merge+validate logic.</li>
+<li>
+<p>Validation rules become part of FineCode's compatibility contract.</p>
+</li>
+<li>
+<p><strong>Operational implications</strong></p>
+</li>
+<li>CI should validate canonical lock correctness for the supported target matrix.</li>
+<li>Derived lock files can be regenerated and should be treated as disposable artifacts unless a workflow explicitly requires committing them.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1520,10 +1693,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
